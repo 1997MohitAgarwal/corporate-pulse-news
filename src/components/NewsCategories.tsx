@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -91,7 +90,7 @@ const NewsCategories = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-100 to-blue-100">
+    <section id="news-categories" className="py-20 bg-gradient-to-br from-slate-100 to-blue-100">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-slate-900 mb-6 bg-gradient-to-r from-slate-900 to-blue-600 bg-clip-text text-transparent">

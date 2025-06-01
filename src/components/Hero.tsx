@@ -1,10 +1,17 @@
-
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Scale, Shield, TrendingUp } from "lucide-react";
 
 const Hero = () => {
+  const scrollToNewsCategories = () => {
+    const newsCategoriesSection = document.getElementById('news-categories');
+    if (newsCategoriesSection) {
+      newsCategoriesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden min-h-[90vh] flex items-center">
+      
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1487958449943-2429e8be8625')] bg-cover bg-center opacity-10"></div>
       <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/80 to-slate-900/90"></div>
       
@@ -34,13 +41,13 @@ const Hero = () => {
               and market insights that empower legal professionals and business leaders to stay ahead.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 animate-fade-in" style={{ animationDelay: "600ms" }}>
-              <Button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold px-8 py-4 text-lg group shadow-2xl hover:shadow-amber-500/25 transition-all duration-500">
+            <div className="flex justify-start animate-fade-in" style={{ animationDelay: "600ms" }}>
+              <Button 
+                onClick={scrollToNewsCategories}
+                className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold px-8 py-4 text-lg group shadow-2xl hover:shadow-amber-500/25 transition-all duration-500"
+              >
                 Get Started
                 <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
-              <Button variant="outline" className="border-2 border-slate-600 text-white hover:bg-slate-800/50 hover:border-amber-500 px-8 py-4 text-lg backdrop-blur-sm transition-all duration-500">
-                Learn More
               </Button>
             </div>
 

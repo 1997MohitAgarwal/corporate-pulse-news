@@ -1,4 +1,3 @@
-
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Eye, ArrowRight } from "lucide-react";
@@ -51,11 +50,11 @@ const TopStories = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 h-auto lg:h-[700px]">
-          {/* Featured Story - Full Height */}
-          <div className="lg:col-span-2 h-full animate-fade-in" style={{ animationDelay: "200ms" }}>
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Featured Story - Takes 2/3 width */}
+          <div className="lg:col-span-2 animate-fade-in" style={{ animationDelay: "200ms" }}>
             <Card className="group overflow-hidden bg-white shadow-2xl hover:shadow-3xl transition-all duration-700 border-0 rounded-3xl h-full flex flex-col transform hover:-translate-y-2">
-              <div className="relative overflow-hidden flex-shrink-0">
+              <div className="relative overflow-hidden">
                 <img
                   src={featuredStory.image}
                   alt={featuredStory.title}
@@ -81,10 +80,10 @@ const TopStories = () => {
                 </div>
               </div>
               <div className="p-8 flex-grow flex flex-col">
-                <h3 className="text-3xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors line-clamp-2 flex-shrink-0">
+                <h3 className="text-3xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
                   {featuredStory.title}
                 </h3>
-                <p className="text-slate-600 mb-8 text-lg leading-relaxed line-clamp-4 flex-grow">
+                <p className="text-slate-600 mb-8 text-lg leading-relaxed flex-grow">
                   {featuredStory.excerpt}
                 </p>
                 <button className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors group/btn self-start">
@@ -95,25 +94,25 @@ const TopStories = () => {
             </Card>
           </div>
 
-          {/* Side Stories - Equal Height Distribution */}
-          <div className="space-y-8 h-full flex flex-col">
+          {/* Side Stories - Takes 1/3 width */}
+          <div className="space-y-6">
             {sideStories.map((story, index) => (
-              <Card key={index} className="group overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-500 border-0 rounded-2xl flex-1 flex flex-col transform hover:-translate-y-1 animate-fade-in" style={{ animationDelay: `${400 + index * 200}ms` }}>
-                <div className="relative overflow-hidden flex-shrink-0">
+              <Card key={index} className="group overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-500 border-0 rounded-2xl transform hover:-translate-y-1 animate-fade-in" style={{ animationDelay: `${400 + index * 200}ms` }}>
+                <div className="relative overflow-hidden">
                   <img
                     src={story.image}
                     alt={story.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                  <div className="absolute top-4 left-4">
-                    <Badge className="bg-white/90 text-slate-900 font-semibold text-xs px-3 py-1 shadow-md">
+                  <div className="absolute top-3 left-3">
+                    <Badge className="bg-white/90 text-slate-900 font-semibold text-xs px-2 py-1 shadow-md">
                       {story.category}
                     </Badge>
                   </div>
                 </div>
-                <div className="p-6 flex-grow flex flex-col">
-                  <div className="flex items-center gap-3 text-slate-500 text-sm mb-3 flex-shrink-0">
+                <div className="p-5">
+                  <div className="flex items-center gap-3 text-slate-500 text-xs mb-3">
                     <div className="flex items-center gap-1">
                       <Clock className="w-3 h-3" />
                       {story.time}
@@ -123,15 +122,15 @@ const TopStories = () => {
                       {story.views}
                     </div>
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2 flex-shrink-0">
+                  <h3 className="text-base font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2 leading-tight">
                     {story.title}
                   </h3>
-                  <p className="text-slate-600 mb-4 text-sm leading-relaxed line-clamp-3 flex-grow">
+                  <p className="text-slate-600 mb-3 text-sm leading-relaxed line-clamp-2">
                     {story.excerpt}
                   </p>
-                  <button className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors group/btn self-start flex-shrink-0">
+                  <button className="inline-flex items-center text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors group/btn">
                     Read More
-                    <ArrowRight className="ml-1 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-1 w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </Card>
