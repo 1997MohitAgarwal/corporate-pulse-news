@@ -5,9 +5,9 @@ import { Mail, Users, BookOpen, Clock, ArrowRight } from "lucide-react";
 
 const Newsletter = () => {
   const stats = [
-    { icon: Users, number: "500+", label: "Legal Professionals" },
-    { icon: BookOpen, number: "20+", label: "Daily Articles" },
-    { icon: Mail, number: "1.2K+", label: "Newsletter Subscribers" },
+    { icon: Users, number: "50K+", label: "Legal Professionals" },
+    { icon: BookOpen, number: "500+", label: "Daily Articles" },
+    { icon: Mail, number: "25K+", label: "Newsletter Subscribers" },
     { icon: Clock, number: "24/7", label: "Breaking News Coverage" }
   ];
 
@@ -29,7 +29,7 @@ const Newsletter = () => {
                 </span>
               </h2>
               <p className="text-xl text-blue-100 leading-relaxed">
-                Join hundreds of legal professionals who trust our platform for critical business intelligence, 
+                Join thousands of legal professionals who trust our platform for critical business intelligence, 
                 in-depth analysis, and breaking news that shapes the corporate legal world.
               </p>
             </div>
@@ -101,7 +101,7 @@ const Newsletter = () => {
 
                 <div className="text-center">
                   <p className="text-slate-500 text-sm">
-                    Join 1,200+ legal professionals • No spam, unsubscribe anytime
+                    Join 25,000+ legal professionals • No spam, unsubscribe anytime
                   </p>
                 </div>
 
