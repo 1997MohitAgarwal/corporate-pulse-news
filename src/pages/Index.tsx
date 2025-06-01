@@ -5,20 +5,18 @@ import TopStories from "@/components/TopStories";
 import NewsCategories from "@/components/NewsCategories";
 import Testimonials from "@/components/Testimonials";
 import TrendingTopics from "@/components/TrendingTopics";
-import JoinUs from "@/components/JoinUs";
-import Footer from "@/components/Footer";
+import Newsletter from "@/components/Newsletter";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Navbar />
       <Hero />
       <TopStories />
       <NewsCategories />
-      <Testimonials />
       <TrendingTopics />
-      <JoinUs />
-      <Footer />
+      <Testimonials />
+      <Newsletter />
     </div>
   );
 };
