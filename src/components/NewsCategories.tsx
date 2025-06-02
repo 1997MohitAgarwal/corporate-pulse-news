@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -22,14 +23,14 @@ const NewsCategories = () => {
         title: "SEC Introduces New Digital Asset Framework",
         excerpt: "Comprehensive guidelines for cryptocurrency and blockchain investments...",
         time: "1 hour ago",
-        image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44",
+        image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&q=75",
         trending: true
       },
       {
         title: "Market Volatility Triggers New Trading Regulations",
         excerpt: "Enhanced oversight measures aim to protect retail investors...",
         time: "3 hours ago",
-        image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3",
+        image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=75",
         trending: false
       }
     ],
@@ -38,7 +39,7 @@ const NewsCategories = () => {
         title: "IFSCA Streamlines Fintech Authorization Process",
         excerpt: "New regulatory sandbox framework accelerates innovation...",
         time: "2 hours ago",
-        image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43",
+        image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&q=75",
         trending: true
       }
     ],
@@ -47,7 +48,7 @@ const NewsCategories = () => {
         title: "Insolvency Code Amendments Reshape Restructuring",
         excerpt: "Recent changes provide clearer resolution timelines...",
         time: "4 hours ago",
-        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
+        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=75",
         trending: false
       }
     ],
@@ -56,7 +57,7 @@ const NewsCategories = () => {
         title: "Corporate Governance Standards Updated",
         excerpt: "New compliance requirements for listed entities...",
         time: "5 hours ago",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=75",
         trending: true
       }
     ],
@@ -65,7 +66,7 @@ const NewsCategories = () => {
         title: "Antitrust Enforcement Intensifies in Digital Markets",
         excerpt: "Regulatory focus shifts to platform monopolization...",
         time: "6 hours ago",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=75",
         trending: true
       }
     ],
@@ -74,7 +75,7 @@ const NewsCategories = () => {
         title: "FDI Policy Reforms Attract Global Investment",
         excerpt: "Liberalized sectors see increased foreign capital inflow...",
         time: "7 hours ago",
-        image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e",
+        image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400&q=75",
         trending: false
       }
     ],
@@ -83,7 +84,7 @@ const NewsCategories = () => {
         title: "WTO Dispute Resolution Mechanisms Evolve",
         excerpt: "New frameworks address modern trade challenges...",
         time: "8 hours ago",
-        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96",
+        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&q=75",
         trending: true
       }
     ]
@@ -107,7 +108,7 @@ const NewsCategories = () => {
             <button
               key={category}
               onClick={() => setActiveTab(category)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105 ${
                 activeTab === category
                   ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-200"
                   : "bg-white text-slate-700 hover:bg-slate-50 shadow-md hover:shadow-lg"
@@ -121,12 +122,13 @@ const NewsCategories = () => {
         {/* News Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
           {newsData[activeTab]?.map((article, index) => (
-            <Card key={index} className="group overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-500 border-0 rounded-2xl transform hover:-translate-y-2">
+            <Card key={index} className="group overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-300 border-0 rounded-2xl transform hover:-translate-y-1">
               <div className="relative overflow-hidden">
                 <img
                   src={article.image}
                   alt={article.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 {article.trending && (
