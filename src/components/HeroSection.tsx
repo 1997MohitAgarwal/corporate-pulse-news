@@ -1,8 +1,9 @@
+
 import { memo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, Clock, Eye, Search, Zap, Sparkles, Crown, ArrowRight } from "lucide-react";
+import { TrendingUp, Clock, Eye, Search, Zap, Sparkles, Crown } from "lucide-react";
 
 const HeroSection = memo(() => {
   const handleExploreNews = useCallback(() => {
