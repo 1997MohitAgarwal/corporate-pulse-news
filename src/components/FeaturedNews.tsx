@@ -1,7 +1,8 @@
+
 import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Eye, ArrowRight, User, Calendar, Share2, BookmarkPlus, MessageCircle, Heart } from "lucide-react";
+import { Clock, Eye, ArrowRight, User, Calendar, Share2, BookmarkPlus } from "lucide-react";
 
 const FeaturedNews = memo(() => {
   const featuredStories = [
@@ -9,7 +10,6 @@ const FeaturedNews = memo(() => {
       id: 1,
       title: "Supreme Court Ruling on Corporate Liability Transforms Business Landscape",
       excerpt: "Landmark decision affects how Indian corporations handle class action lawsuits and regulatory compliance across all major industries.",
-      fullContent: "The Supreme Court judgment establishes new precedents for corporate accountability, requiring enhanced transparency measures and stricter compliance protocols for all listed companies. The ruling mandates comprehensive disclosure of environmental impact assessments and implementation of robust grievance redressal mechanisms.",
       image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=75",
       category: "Legal",
       subCategory: "Supreme Court",
@@ -20,11 +20,8 @@ const FeaturedNews = memo(() => {
       readTime: "12 min read",
       date: "December 14, 2024",
       location: "New Delhi",
-      tags: ["Corporate Law", "Compliance", "Business", "Regulation", "Supreme Court", "Legal Reform"],
-      isMain: true,
-      shares: "1.2K",
-      comments: 145,
-      likes: "2.8K"
+      tags: ["Corporate Law", "Compliance", "Business", "Regulation"],
+      isMain: true
     },
     {
       id: 2,
@@ -134,7 +131,7 @@ const FeaturedNews = memo(() => {
                   </div>
                 </div>
                 
-                {/* Content Section - Reduced content */}
+                {/* Content Section */}
                 <div className="p-6 lg:p-8 space-y-4">
                   <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors">
                     {mainStory.title}
@@ -144,47 +141,28 @@ const FeaturedNews = memo(() => {
                     {mainStory.excerpt}
                   </p>
                   
-                  <p className="text-slate-700 leading-relaxed text-sm lg:text-base">
-                    {mainStory.fullContent}
-                  </p>
-                  
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2">
-                    {mainStory.tags.slice(0, 4).map((tag, index) => (
+                    {mainStory.tags.map((tag, index) => (
                       <span key={index} className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full hover:bg-amber-100 hover:text-amber-700 transition-colors cursor-pointer">
                         #{tag}
                       </span>
                     ))}
                   </div>
                   
-                  {/* Author & Stats */}
+                  {/* Author & Button */}
                   <div className="space-y-4 pt-6 border-t border-slate-200">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
-                        <User className="w-6 h-6 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-slate-900 font-semibold">{mainStory.author}</p>
-                        <p className="text-slate-500 text-sm">{mainStory.authorTitle}</p>
-                      </div>
-                    </div>
-                    
-                    {/* Engagement Stats */}
-                    <div className="flex items-center justify-between text-sm text-slate-500">
-                      <div className="flex items-center gap-4">
-                        <div className="flex items-center gap-1">
-                          <Heart className="w-4 h-4" />
-                          <span>{mainStory.likes}</span>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
+                          <User className="w-6 h-6 text-white" />
                         </div>
-                        <div className="flex items-center gap-1">
-                          <Share2 className="w-4 h-4" />
-                          <span>{mainStory.shares}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <MessageCircle className="w-4 h-4" />
-                          <span>{mainStory.comments}</span>
+                        <div className="flex-1">
+                          <p className="text-slate-900 font-semibold">{mainStory.author}</p>
+                          <p className="text-slate-500 text-sm">{mainStory.authorTitle}</p>
                         </div>
                       </div>
+                      
                       <button className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 transition-colors group/btn bg-amber-50 hover:bg-amber-100 rounded-full px-4 py-2">
                         Read Full Story
                         <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
