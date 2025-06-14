@@ -1,5 +1,5 @@
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -73,25 +73,32 @@
   
   body {
     @apply bg-background text-foreground;
-    /* Optimize scrolling performance */
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
   
-  /* Improve scroll performance */
-  * {
-    box-sizing: border-box;
+  /* Smooth scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
   }
   
-  /* Optimize transforms and animations */
-  .will-change-transform {
-    will-change: transform;
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
   }
   
-  /* Smooth line clamping */
-  .line-clamp-3 {
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+  
+  /* Line clamping utilities */
+  .line-clamp-1 {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
@@ -103,13 +110,20 @@
     overflow: hidden;
   }
   
-  /* Optimize images */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Image optimization */
   img {
     max-width: 100%;
     height: auto;
   }
   
-  /* Reduce motion for users who prefer it */
+  /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -122,11 +136,24 @@
   }
 }
 
-/* Performance optimized animations */
-@keyframes fade-in {
+/* Custom animations */
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+@keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -134,31 +161,42 @@
   }
 }
 
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+  50% {
+    background-position: 100% 50%;
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.6s ease-out forwards;
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
 }
 
-.animate-scale-in {
-  animation: scale-in 0.6s ease-out forwards;
+/* Modern glassmorphism effects */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Smooth hover effects */
+/* Hover effects */
 .hover-lift {
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  transition: all 0.3s ease;
 }
 
 .hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Custom focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2;
 }
