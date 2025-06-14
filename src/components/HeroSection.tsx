@@ -3,7 +3,7 @@ import { memo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, Clock, Eye, Search } from "lucide-react";
+import { TrendingUp, Clock, Eye, Search, Crown, Sparkles } from "lucide-react";
 
 const HeroSection = memo(() => {
   const handleExploreNews = useCallback(() => {
@@ -20,6 +20,28 @@ const HeroSection = memo(() => {
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-indigo-500/10"></div>
       
       <div className="container mx-auto px-4 lg:px-6 py-16 lg:py-20 relative">
+        {/* Enhanced Section Header */}
+        <div className="text-center mb-16 lg:mb-20">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-600 via-amber-600 to-orange-600 text-white px-8 py-4 rounded-2xl mb-8 shadow-2xl shadow-orange-500/25 animate-fade-in">
+            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
+              <Crown className="w-6 h-6" />
+            </div>
+            <span className="font-bold text-lg">Premium Corporate News</span>
+            <Sparkles className="w-5 h-5 animate-pulse" />
+          </div>
+          <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 animate-slide-up">
+            <span className="bg-gradient-to-r from-slate-900 via-orange-700 to-amber-700 bg-clip-text text-transparent">
+              Corporate News
+            </span>
+            <span className="block bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
+              That Matters
+            </span>
+          </h1>
+          <p className="text-xl lg:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed animate-fade-in delay-300">
+            Real-time premium corporate news and exclusive insights that drive intelligent business decisions
+          </p>
+        </div>
+        
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Main Content */}
           <div className="space-y-6 lg:space-y-8">
@@ -27,20 +49,6 @@ const HeroSection = memo(() => {
               <TrendingUp className="w-4 h-4 mr-2" />
               Live Updates from India
             </Badge>
-            
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-              <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
-                Corporate News
-              </span>
-              <span className="block bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                That Matters
-              </span>
-            </h1>
-            
-            <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
-              Stay ahead with real-time corporate news, legal insights, and market analysis 
-              across all major Indian business sectors.
-            </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 

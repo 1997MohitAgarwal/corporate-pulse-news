@@ -1,7 +1,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, Eye, Clock, ArrowUpRight } from "lucide-react";
+import { TrendingUp, Eye, Clock, ArrowUpRight, Crown, Sparkles } from "lucide-react";
 
 const TrendingTopics = () => {
   const trends = [
@@ -38,16 +38,22 @@ const TrendingTopics = () => {
     <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa')] bg-cover bg-center opacity-5"></div>
       <div className="container mx-auto px-6 relative">
-        <div className="text-center mb-16">
-          <Badge className="mb-6 bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 border-none px-6 py-3 text-lg font-semibold">
-            <TrendingUp className="w-5 h-5 mr-2" />
-            Hot Topics
-          </Badge>
-          <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-            Trending This Week
+        {/* Enhanced Section Header */}
+        <div className="text-center mb-16 lg:mb-20">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-600 via-amber-600 to-orange-600 text-white px-8 py-4 rounded-2xl mb-8 shadow-2xl shadow-orange-500/25 animate-fade-in">
+            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
+              <Crown className="w-6 h-6" />
+            </div>
+            <span className="font-bold text-lg">Premium Trending Topics</span>
+            <Sparkles className="w-5 h-5 animate-pulse" />
+          </div>
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">
+            <span className="bg-gradient-to-r from-white via-orange-200 to-amber-200 bg-clip-text text-transparent">
+              Trending This Week
+            </span>
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Discover the most discussed topics shaping the future of corporate law and business regulation
+          <p className="text-xl lg:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed animate-fade-in delay-300">
+            Real-time premium trending topics and exclusive insights that shape the future of corporate law
           </p>
         </div>
 
@@ -100,7 +106,7 @@ const TrendingTopics = () => {
               </div>
 
               {/* Animated border effect */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-400/20 via-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-400/20 via-orange-400/20 to-amber-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             </Card>
           ))}
         </div>
