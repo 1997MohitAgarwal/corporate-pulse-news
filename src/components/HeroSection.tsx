@@ -1,9 +1,8 @@
 
 import { memo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, Clock, Eye, Search } from "lucide-react";
+import { TrendingUp, Search } from "lucide-react";
 
 const HeroSection = memo(() => {
   const handleExploreNews = useCallback(() => {
@@ -45,7 +44,7 @@ const HeroSection = memo(() => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"
                 onClick={handleExploreNews}
               >
                 <Search className="w-5 h-5 mr-2" />
@@ -54,7 +53,7 @@ const HeroSection = memo(() => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-slate-300 bg-white/10 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="border-slate-300 bg-white/10 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 onClick={handleMarketAnalysis}
               >
                 Market Analysis
@@ -62,43 +61,22 @@ const HeroSection = memo(() => {
             </div>
           </div>
 
-          {/* Featured Article Card */}
+          {/* Thematic Image */}
           <div className="relative">
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20 overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300">
-              <div className="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f"
-                  alt="Featured News"
-                  className="w-full h-48 lg:h-64 object-cover"
-                  loading="eager"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <Badge className="absolute top-4 right-4 bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg">
-                  Breaking
-                </Badge>
-              </div>
-              <div className="p-4 lg:p-6">
-                <div className="flex items-center gap-4 text-slate-400 text-sm mb-3">
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    2 hours ago
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Eye className="w-4 h-4" />
-                    12.5K views
-                  </div>
-                </div>
-                <h3 className="text-lg lg:text-xl font-bold text-white mb-3 line-clamp-2">
-                  RBI Announces New Monetary Policy Framework for Digital Currency
-                </h3>
-                <p className="text-slate-300 mb-4 text-sm lg:text-base line-clamp-2">
-                  Major policy shift expected to impact corporate borrowing rates and digital payment systems...
-                </p>
-                <Button variant="ghost" className="text-blue-400 hover:text-blue-300 p-0 hover:bg-transparent">
-                  Read Full Story →
-                </Button>
-              </div>
-            </Card>
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+                alt="Corporate Business Technology"
+                className="w-full h-96 lg:h-[500px] object-cover"
+                loading="eager"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-indigo-500/10"></div>
+            </div>
+            
+            {/* Decorative elements */}
+            <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full opacity-60 animate-pulse"></div>
+            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-60 animate-pulse delay-1000"></div>
           </div>
         </div>
       </div>
