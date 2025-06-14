@@ -1,4 +1,3 @@
-
 import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -77,11 +76,11 @@ const FeaturedNews = memo(() => {
         </div>
 
         {/* Stories Grid */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 lg:items-stretch">
           {/* Main Story - Takes 2/3 width */}
           {mainStory && (
             <div className="lg:col-span-2">
-              <Card className="group overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 h-full border-0 bg-white rounded-3xl hover:scale-[1.01]">
+              <Card className="group overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 h-full border-0 bg-white rounded-3xl hover:scale-[1.01] flex flex-col">
                 {/* Image Section */}
                 <div className="relative h-64 lg:h-80 overflow-hidden">
                   <img
@@ -137,7 +136,7 @@ const FeaturedNews = memo(() => {
                 </div>
                 
                 {/* Content Section */}
-                <div className="p-6 lg:p-8 space-y-6">
+                <div className="p-6 lg:p-8 space-y-6 flex-1 flex flex-col">
                   <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors">
                     {mainStory.title}
                   </h3>
@@ -146,12 +145,8 @@ const FeaturedNews = memo(() => {
                     {mainStory.excerpt}
                   </p>
                   
-                  <p className="text-slate-700 leading-relaxed text-sm lg:text-base">
+                  <p className="text-slate-700 leading-relaxed text-sm lg:text-base flex-1">
                     {mainStory.fullContent}
-                  </p>
-                  
-                  <p className="text-slate-600 leading-relaxed text-sm">
-                    {mainStory.additionalContent}
                   </p>
                   
                   {/* Key Points */}
@@ -175,7 +170,7 @@ const FeaturedNews = memo(() => {
                   </div>
                   
                   {/* Author & Stats */}
-                  <div className="space-y-4 pt-6 border-t border-slate-200">
+                  <div className="space-y-4 pt-6 border-t border-slate-200 mt-auto">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
                         <User className="w-6 h-6 text-white" />
@@ -214,9 +209,9 @@ const FeaturedNews = memo(() => {
           )}
 
           {/* Side Stories - Takes 1/3 width */}
-          <div className="space-y-6">
-            {sideStories.map((story) => (
-              <Card key={story.id} className="group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white rounded-2xl hover:scale-[1.02]">
+          <div className="flex flex-col justify-between space-y-6 h-full">
+            {sideStories.map((story, index) => (
+              <Card key={story.id} className={`group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white rounded-2xl hover:scale-[1.02] ${index === 0 ? 'flex-1' : 'flex-1'}`}>
                 {/* Image Section - Made consistent height */}
                 <div className="relative h-40 overflow-hidden">
                   <img
@@ -250,16 +245,16 @@ const FeaturedNews = memo(() => {
                 </div>
                 
                 {/* Content Section */}
-                <div className="p-4 space-y-3">
+                <div className="p-4 space-y-3 flex-1 flex flex-col">
                   <h3 className="text-lg font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors line-clamp-2">
                     {story.title}
                   </h3>
                   
-                  <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">
+                  <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 flex-1">
                     {story.excerpt}
                   </p>
                   
-                  <div className="flex items-center justify-between pt-3 border-t border-slate-200">
+                  <div className="flex items-center justify-between pt-3 border-t border-slate-200 mt-auto">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
                         <User className="w-4 h-4 text-white" />
