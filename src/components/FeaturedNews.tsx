@@ -1,3 +1,4 @@
+
 import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -74,7 +75,7 @@ const FeaturedNews = memo(() => {
             <div className="lg:col-span-2">
               <Card className="group overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 h-full border-0 bg-white hover:scale-[1.01] flex flex-col lg:h-[700px]" style={{ borderRadius: '24px' }}>
                 {/* Image Section */}
-                <div className="relative h-64 lg:h-80 overflow-hidden" style={{ borderTopLeftRadius: '24px', borderTopRightRadius: '24px' }}>
+                <div className="relative h-64 lg:h-80 overflow-hidden">
                   <img
                     src={mainStory.image}
                     alt={mainStory.title}
@@ -165,8 +166,8 @@ const FeaturedNews = memo(() => {
           <div className="space-y-6 lg:h-[700px] flex flex-col">
             {sideStories.map((story, index) => (
               <Card key={story.id} className="group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white hover:scale-[1.02] flex flex-col h-[320px] sm:h-[340px]" style={{ borderRadius: '16px' }}>
-                {/* Image Section - Fixed border radius */}
-                <div className="relative h-44 sm:h-52 overflow-hidden" style={{ borderTopLeftRadius: '16px', borderTopRightRadius: '16px' }}>
+                {/* Image Section - No border radius */}
+                <div className="relative h-44 sm:h-52 overflow-hidden">
                   <img
                     src={story.image}
                     alt={story.title}
