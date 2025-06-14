@@ -1,4 +1,3 @@
-
 import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,7 +8,7 @@ const FeaturedNews = memo(() => {
     {
       id: 1,
       title: "Supreme Court Ruling on Corporate Liability Transforms Business Landscape",
-      excerpt: "Landmark decision affects how Indian corporations handle class action lawsuits and regulatory compliance across all major industries.",
+      excerpt: "Landmark decision affects how Indian corporations handle class action lawsuits and regulatory compliance across all major industries. The ruling establishes new precedents for corporate accountability and transparency requirements...",
       image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=75",
       category: "Legal",
       subCategory: "Supreme Court",
