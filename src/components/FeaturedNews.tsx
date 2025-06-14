@@ -9,8 +9,7 @@ const FeaturedNews = memo(() => {
       id: 1,
       title: "Supreme Court Ruling on Corporate Liability Transforms Business Landscape",
       excerpt: "Landmark decision affects how Indian corporations handle class action lawsuits and regulatory compliance across all major industries.",
-      fullContent: "The Supreme Court judgment establishes new precedents for corporate accountability, requiring enhanced transparency measures and stricter compliance protocols for all listed companies. The ruling mandates comprehensive disclosure of environmental impact assessments, detailed reporting of stakeholder engagement processes, and implementation of robust grievance redressal mechanisms. Companies must now maintain detailed records of all regulatory interactions and demonstrate proactive compliance measures. The judgment specifically addresses gaps in existing corporate governance frameworks and introduces mandatory quarterly compliance audits. Industry experts predict this will lead to significant restructuring of legal departments across major corporations, with increased focus on preventive legal strategies rather than reactive compliance measures.",
-      additionalContent: "The Supreme Court's five-judge bench emphasized that corporate entities can no longer rely solely on traditional compliance frameworks. The new standards require integration of social responsibility metrics into core business operations, mandatory third-party verification of compliance claims, and establishment of dedicated ombudsman offices for stakeholder grievances. Legal practitioners note that this ruling will particularly impact multinational corporations operating in India, as they must now align global practices with these enhanced domestic requirements.",
+      fullContent: "The Supreme Court judgment establishes new precedents for corporate accountability, requiring enhanced transparency measures and stricter compliance protocols for all listed companies. The ruling mandates comprehensive disclosure of environmental impact assessments and implementation of robust grievance redressal mechanisms.",
       image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=75",
       category: "Legal",
       subCategory: "Supreme Court",
@@ -76,11 +75,11 @@ const FeaturedNews = memo(() => {
         </div>
 
         {/* Stories Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 lg:items-stretch">
+        <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Story - Takes 2/3 width */}
           {mainStory && (
             <div className="lg:col-span-2">
-              <Card className="group overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 h-full border-0 bg-white rounded-3xl hover:scale-[1.01] flex flex-col">
+              <Card className="group overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 h-full border-0 bg-white rounded-3xl hover:scale-[1.01]">
                 {/* Image Section */}
                 <div className="relative h-64 lg:h-80 overflow-hidden">
                   <img
@@ -135,8 +134,8 @@ const FeaturedNews = memo(() => {
                   </div>
                 </div>
                 
-                {/* Content Section */}
-                <div className="p-6 lg:p-8 space-y-6 flex-1 flex flex-col">
+                {/* Content Section - Reduced content */}
+                <div className="p-6 lg:p-8 space-y-4">
                   <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors">
                     {mainStory.title}
                   </h3>
@@ -145,24 +144,13 @@ const FeaturedNews = memo(() => {
                     {mainStory.excerpt}
                   </p>
                   
-                  <p className="text-slate-700 leading-relaxed text-sm lg:text-base flex-1">
+                  <p className="text-slate-700 leading-relaxed text-sm lg:text-base">
                     {mainStory.fullContent}
                   </p>
                   
-                  {/* Key Points */}
-                  <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
-                    <h4 className="font-semibold text-amber-800 mb-2">Key Highlights:</h4>
-                    <ul className="text-sm text-amber-700 space-y-1">
-                      <li>• Mandatory quarterly compliance audits for all listed companies</li>
-                      <li>• Enhanced transparency in stakeholder engagement processes</li>
-                      <li>• Integration of social responsibility metrics into business operations</li>
-                      <li>• Establishment of dedicated ombudsman offices</li>
-                    </ul>
-                  </div>
-                  
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2">
-                    {mainStory.tags.map((tag, index) => (
+                    {mainStory.tags.slice(0, 4).map((tag, index) => (
                       <span key={index} className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full hover:bg-amber-100 hover:text-amber-700 transition-colors cursor-pointer">
                         #{tag}
                       </span>
@@ -170,7 +158,7 @@ const FeaturedNews = memo(() => {
                   </div>
                   
                   {/* Author & Stats */}
-                  <div className="space-y-4 pt-6 border-t border-slate-200 mt-auto">
+                  <div className="space-y-4 pt-6 border-t border-slate-200">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
                         <User className="w-6 h-6 text-white" />
@@ -209,9 +197,9 @@ const FeaturedNews = memo(() => {
           )}
 
           {/* Side Stories - Takes 1/3 width */}
-          <div className="flex flex-col justify-between space-y-6 h-full">
-            {sideStories.map((story, index) => (
-              <Card key={story.id} className={`group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white rounded-2xl hover:scale-[1.02] ${index === 0 ? 'flex-1' : 'flex-1'}`}>
+          <div className="space-y-6">
+            {sideStories.map((story) => (
+              <Card key={story.id} className="group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white rounded-2xl hover:scale-[1.02]">
                 {/* Image Section - Made consistent height */}
                 <div className="relative h-40 overflow-hidden">
                   <img
@@ -245,16 +233,16 @@ const FeaturedNews = memo(() => {
                 </div>
                 
                 {/* Content Section */}
-                <div className="p-4 space-y-3 flex-1 flex flex-col">
+                <div className="p-4 space-y-3">
                   <h3 className="text-lg font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors line-clamp-2">
                     {story.title}
                   </h3>
                   
-                  <p className="text-slate-600 text-sm leading-relaxed line-clamp-2 flex-1">
+                  <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">
                     {story.excerpt}
                   </p>
                   
-                  <div className="flex items-center justify-between pt-3 border-t border-slate-200 mt-auto">
+                  <div className="flex items-center justify-between pt-3 border-t border-slate-200">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
                         <User className="w-4 h-4 text-white" />
