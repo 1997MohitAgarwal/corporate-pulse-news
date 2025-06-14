@@ -3,9 +3,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TopStories from "@/components/TopStories";
 import NewsCategories from "@/components/NewsCategories";
-import Testimonials from "@/components/Testimonials";
 import TrendingTopics from "@/components/TrendingTopics";
-import Newsletter from "@/components/Newsletter";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -15,8 +14,7 @@ const Index = () => {
       <TopStories />
       <NewsCategories />
       <TrendingTopics />
-      <Testimonials />
-      <Newsletter />
+      <Footer />
     </div>
   );
 };
