@@ -1,26 +1,27 @@
 
+import { memo } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import BreakingNews from "@/components/BreakingNews";
 import FeaturedNews from "@/components/FeaturedNews";
 import NewsCategories from "@/components/NewsCategories";
-import TopStories from "@/components/TopStories";
 import MarketWatch from "@/components/MarketWatch";
 import Footer from "@/components/Footer";
 
-const Index = () => {
+const Index = memo(() => {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-orange-50">
       <Navbar />
       <HeroSection />
       <BreakingNews />
       <FeaturedNews />
-      <TopStories />
       <NewsCategories />
       <MarketWatch />
       <Footer />
     </div>
   );
-};
+});
+
+Index.displayName = "Index";
 
 export default Index;

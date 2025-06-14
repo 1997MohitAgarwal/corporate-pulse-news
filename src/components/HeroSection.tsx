@@ -1,40 +1,62 @@
 
+import { memo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, Clock, Eye } from "lucide-react";
+import { TrendingUp, Clock, Eye, Search } from "lucide-react";
 
-const HeroSection = () => {
+const HeroSection = memo(() => {
+  const handleExploreNews = useCallback(() => {
+    document.getElementById('featured-news')?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
+  const handleMarketAnalysis = useCallback(() => {
+    document.getElementById('market-watch')?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
   return (
-    <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71')] bg-cover bg-center opacity-5"></div>
+    <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-orange-900 text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71')] bg-cover bg-center opacity-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-red-500/10"></div>
       
-      <div className="container mx-auto px-4 lg:px-6 py-16 lg:py-20">
+      <div className="container mx-auto px-4 lg:px-6 py-16 lg:py-20 relative">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Main Content */}
           <div className="space-y-6 lg:space-y-8">
-            <Badge className="bg-amber-500/20 text-amber-400 border-amber-500/30">
+            <Badge className="bg-orange-500/20 text-orange-400 border-orange-500/30 shadow-lg">
               <TrendingUp className="w-4 h-4 mr-2" />
-              Live Updates
+              Live Updates from India
             </Badge>
             
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
               <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
                 Corporate News
               </span>
-              <span className="block text-amber-400">That Matters</span>
+              <span className="block bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                That Matters
+              </span>
             </h1>
             
             <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
               Stay ahead with real-time corporate news, legal insights, and market analysis 
-              across all major business sectors.
+              across all major Indian business sectors.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-semibold">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold shadow-xl"
+                onClick={handleExploreNews}
+              >
+                <Search className="w-5 h-5 mr-2" />
                 Explore News
               </Button>
-              <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-white/20 text-white hover:bg-white/10 hover:text-orange-400 transition-colors"
+                onClick={handleMarketAnalysis}
+              >
                 Market Analysis
               </Button>
             </div>
@@ -42,15 +64,16 @@ const HeroSection = () => {
 
           {/* Featured Article Card */}
           <div className="relative">
-            <Card className="bg-white/10 backdrop-blur-lg border-white/20 overflow-hidden">
+            <Card className="bg-white/10 backdrop-blur-lg border-white/20 overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300">
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44"
+                  src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f"
                   alt="Featured News"
                   className="w-full h-48 lg:h-64 object-cover"
+                  loading="eager"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <Badge className="absolute top-4 right-4 bg-red-500 text-white">
+                <Badge className="absolute top-4 right-4 bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg">
                   Breaking
                 </Badge>
               </div>
@@ -66,12 +89,12 @@ const HeroSection = () => {
                   </div>
                 </div>
                 <h3 className="text-lg lg:text-xl font-bold text-white mb-3 line-clamp-2">
-                  Federal Reserve Announces New Monetary Policy Framework
+                  RBI Announces New Monetary Policy Framework for Digital Currency
                 </h3>
                 <p className="text-slate-300 mb-4 text-sm lg:text-base line-clamp-2">
-                  Major policy shift expected to impact corporate borrowing rates and market liquidity...
+                  Major policy shift expected to impact corporate borrowing rates and digital payment systems...
                 </p>
-                <Button variant="ghost" className="text-amber-400 hover:text-amber-300 p-0">
+                <Button variant="ghost" className="text-orange-400 hover:text-orange-300 p-0 hover:bg-transparent">
                   Read Full Story →
                 </Button>
               </div>
@@ -81,6 +104,8 @@ const HeroSection = () => {
       </div>
     </section>
   );
-};
+});
+
+HeroSection.displayName = "HeroSection";
 
 export default HeroSection;
