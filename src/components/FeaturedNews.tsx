@@ -73,7 +73,7 @@ const FeaturedNews = memo(() => {
           {/* Main Story - Takes 2/3 width */}
           {mainStory && (
             <div className="lg:col-span-2">
-              <Card className="group overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 h-full border-0 bg-white rounded-3xl hover:scale-[1.01] flex flex-col">
+              <Card className="group overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 h-full border-0 bg-white rounded-3xl hover:scale-[1.01] flex flex-col lg:h-[700px]">
                 {/* Image Section */}
                 <div className="relative h-64 lg:h-80 overflow-hidden">
                   <img
@@ -123,12 +123,12 @@ const FeaturedNews = memo(() => {
                       {mainStory.title}
                     </h3>
                     
-                    <p className="text-slate-600 leading-relaxed text-sm lg:text-base font-medium mb-4">
+                    <p className="text-slate-600 leading-relaxed text-sm lg:text-base font-medium mb-6">
                       {mainStory.excerpt}
                     </p>
                     
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2">
+                    {/* Tags with proper spacing */}
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {mainStory.tags.map((tag, index) => (
                         <span key={index} className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full hover:bg-amber-100 hover:text-amber-700 transition-colors cursor-pointer">
                           #{tag}
@@ -162,11 +162,11 @@ const FeaturedNews = memo(() => {
           )}
 
           {/* Side Stories - Takes 1/3 width with fixed height distribution */}
-          <div className="space-y-6 lg:h-[656px] flex flex-col">
+          <div className="space-y-6 lg:h-[700px] flex flex-col">
             {sideStories.map((story, index) => (
-              <Card key={story.id} className={`group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white rounded-2xl hover:scale-[1.02] flex flex-col ${index === 0 ? 'flex-1' : 'flex-1'}`}>
+              <Card key={story.id} className="group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white rounded-2xl hover:scale-[1.02] flex flex-col h-[340px]">
                 {/* Image Section */}
-                <div className="relative h-32 overflow-hidden">
+                <div className="relative h-28 overflow-hidden">
                   <img
                     src={story.image}
                     alt={story.title}
@@ -195,18 +195,18 @@ const FeaturedNews = memo(() => {
                 
                 {/* Content Section - Flex grow to fill space */}
                 <div className="p-4 flex flex-col flex-grow">
-                  <div className="flex-grow">
-                    <h3 className="text-base font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors line-clamp-2 mb-2">
+                  <div className="flex-grow mb-4">
+                    <h3 className="text-base font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors line-clamp-2 mb-3">
                       {story.title}
                     </h3>
                     
-                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">
+                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">
                       {story.excerpt}
                     </p>
                   </div>
                   
                   {/* Author & Button - Always at bottom */}
-                  <div className="flex items-center justify-between pt-3 border-t border-slate-200 mt-auto">
+                  <div className="flex items-center justify-between pt-4 border-t border-slate-200 mt-auto">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
                         <User className="w-4 h-4 text-white" />
