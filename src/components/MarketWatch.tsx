@@ -91,20 +91,20 @@ const MarketWatch = memo(() => {
             </div>
           </Card>
 
-          {/* Market Impact News - Redesigned without scrollbar */}
-          <Card className="h-[500px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-blue-50 via-indigo-50/50 to-purple-50/30">
+          {/* Market Impact News - Fixed without scrollbar */}
+          <Card className="h-[500px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-emerald-50 via-teal-50/50 to-cyan-50/30">
             <div className="p-6 h-full flex flex-col">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg">
+                <div className="p-2 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg">
                   <Activity className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900">Market Impact News</h3>
               </div>
               
-              {/* Fixed height container without scrollbar */}
-              <div className="flex-1 flex flex-col justify-between gap-3">
+              {/* Fixed height container with even spacing */}
+              <div className="flex-1 space-y-4">
                 {marketNews.map((news, index) => (
-                  <div key={index} className="p-3 border border-slate-200 rounded-xl hover:border-orange-300 hover:shadow-md transition-all duration-200 cursor-pointer bg-white/80 backdrop-blur-sm flex-1">
+                  <div key={index} className="p-4 border border-slate-200 rounded-xl hover:border-emerald-300 hover:shadow-md transition-all duration-200 cursor-pointer bg-white/80 backdrop-blur-sm h-[70px] flex flex-col justify-center">
                     <div className="flex items-start justify-between mb-2">
                       <Badge 
                         className={`text-xs font-semibold ${
@@ -117,7 +117,7 @@ const MarketWatch = memo(() => {
                       </Badge>
                       <span className="text-slate-500 text-xs">{news.time}</span>
                     </div>
-                    <h4 className="font-semibold text-slate-900 text-sm leading-relaxed hover:text-orange-600 transition-colors line-clamp-2">
+                    <h4 className="font-semibold text-slate-900 text-sm leading-relaxed hover:text-emerald-600 transition-colors line-clamp-2">
                       {news.title}
                     </h4>
                   </div>
