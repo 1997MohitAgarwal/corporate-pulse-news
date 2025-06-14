@@ -2,7 +2,7 @@
 import { memo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Scale, FileText, Search, Briefcase, Building2, Users } from "lucide-react";
+import { Scale, ArrowRight, Clock, TrendingUp, BookOpen, Users, Globe } from "lucide-react";
 
 const HeroSection = memo(() => {
   const handleExploreNews = useCallback(() => {
@@ -15,160 +15,166 @@ const HeroSection = memo(() => {
 
   return (
     <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white overflow-hidden min-h-screen flex items-center">
-      {/* Professional Legal Background */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f')] bg-cover bg-center opacity-5"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-slate-800/90"></div>
+      {/* Corporate Law Background */}
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f')] bg-cover bg-center opacity-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-blue-900/90 to-slate-800/95"></div>
       
-      {/* Geometric Pattern Overlay */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-32 h-32 border border-blue-300/10 rounded-lg rotate-12"></div>
-        <div className="absolute bottom-40 right-32 w-24 h-24 border border-indigo-300/10 rounded-lg -rotate-12"></div>
-        <div className="absolute top-1/2 left-1/3 w-16 h-16 border border-blue-400/10 rounded-lg rotate-45"></div>
-      </div>
+      {/* News ticker style background elements */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500 via-blue-500 to-amber-500 animate-pulse"></div>
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-amber-500 to-blue-500 animate-pulse"></div>
       
       <div className="container mx-auto px-6 lg:px-8 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 xl:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Main Content */}
-          <div className="space-y-8 lg:pr-8">
-            <Badge className="bg-amber-500/20 text-amber-300 border-amber-500/30 shadow-lg px-6 py-2">
-              <Scale className="w-5 h-5 mr-2" />
-              Indian Corporate Law Intelligence
-            </Badge>
+          <div className="space-y-8">
+            {/* Breaking News Badge */}
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-red-600/90 to-red-500/90 text-white px-6 py-3 rounded-full shadow-lg backdrop-blur-sm border border-red-400/30">
+              <div className="w-3 h-3 bg-red-300 rounded-full animate-pulse"></div>
+              <span className="font-bold text-sm tracking-wide">LIVE UPDATES</span>
+              <Scale className="w-4 h-4" />
+            </div>
             
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                 <span className="block bg-gradient-to-r from-white via-blue-100 to-slate-200 bg-clip-text text-transparent">
-                  Legal Excellence
+                  Corporate Law
                 </span>
                 <span className="block bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">
-                  Delivered Daily
+                  News Hub
                 </span>
               </h1>
               
               <p className="text-xl lg:text-2xl text-slate-300 leading-relaxed max-w-2xl">
-                Navigate India's complex corporate landscape with comprehensive legal insights, 
-                regulatory updates, and strategic business intelligence.
+                Your trusted source for breaking corporate law news, regulatory updates, 
+                and strategic business intelligence across India's legal landscape.
               </p>
             </div>
             
-            {/* Key Features */}
-            <div className="grid grid-cols-3 gap-6 my-12">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-                  <FileText className="w-8 h-8 text-white" />
-                </div>
-                <p className="text-blue-200 font-medium">Legal Updates</p>
+            {/* News Features */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 my-12">
+              <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                <BookOpen className="w-8 h-8 text-amber-400 mx-auto mb-2" />
+                <p className="text-blue-200 font-medium text-sm">Daily Reports</p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-                  <Briefcase className="w-8 h-8 text-white" />
-                </div>
-                <p className="text-blue-200 font-medium">Corporate News</p>
+              <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                <TrendingUp className="w-8 h-8 text-emerald-400 mx-auto mb-2" />
+                <p className="text-blue-200 font-medium text-sm">Market Trends</p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-                  <Building2 className="w-8 h-8 text-white" />
-                </div>
-                <p className="text-blue-200 font-medium">Market Analysis</p>
+              <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                <Scale className="w-8 h-8 text-blue-400 mx-auto mb-2" />
+                <p className="text-blue-200 font-medium text-sm">Legal Updates</p>
+              </div>
+              <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                <Users className="w-8 h-8 text-purple-400 mx-auto mb-2" />
+                <p className="text-blue-200 font-medium text-sm">Expert Analysis</p>
               </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-semibold px-8 py-4 text-lg border-0"
+                className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-semibold px-8 py-4 text-lg border-0 group"
                 onClick={handleExploreNews}
               >
-                <Search className="w-5 h-5 mr-2" />
-                Explore Legal News
+                Read Latest News
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-2 border-slate-300 bg-white/10 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm font-semibold px-8 py-4 text-lg"
+                className="border-2 border-slate-300 bg-white/10 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm font-semibold px-8 py-4 text-lg group"
                 onClick={handleMarketAnalysis}
               >
-                <Users className="w-5 h-5 mr-2" />
-                Market Intelligence
+                <Globe className="w-5 h-5 mr-2" />
+                Market Watch
               </Button>
             </div>
           </div>
 
-          {/* Professional Legal Visual */}
-          <div className="relative lg:pl-8">
-            {/* Main Card */}
-            <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl max-w-lg ml-auto">
+          {/* News Preview Card */}
+          <div className="relative">
+            <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-amber-500/10 rounded-3xl"></div>
               
-              {/* Header */}
+              {/* News Header */}
               <div className="relative">
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl flex items-center justify-center">
                       <Scale className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-white font-bold text-lg">Legal Intelligence Hub</h3>
-                      <p className="text-blue-200 text-sm">Real-time Updates</p>
+                      <h3 className="text-white font-bold text-lg">Corporate Legal News</h3>
+                      <p className="text-blue-200 text-sm">Breaking & Trending</p>
                     </div>
                   </div>
-                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span className="text-green-400 text-xs font-medium">LIVE</span>
+                  </div>
                 </div>
 
-                {/* Content Areas */}
-                <div className="space-y-6">
-                  {/* Compliance Dashboard */}
-                  <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
-                    <div className="flex items-center justify-between mb-4">
-                      <h4 className="text-white font-semibold">Compliance Dashboard</h4>
-                      <span className="text-green-400 text-sm font-medium">98% Updated</span>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="text-center p-3 bg-blue-500/20 rounded-xl">
-                        <div className="text-2xl font-bold text-blue-300">247</div>
-                        <div className="text-blue-200 text-xs">Active Cases</div>
-                      </div>
-                      <div className="text-center p-3 bg-amber-500/20 rounded-xl">
-                        <div className="text-2xl font-bold text-amber-300">15</div>
-                        <div className="text-amber-200 text-xs">New Regulations</div>
+                {/* Latest Headlines */}
+                <div className="space-y-4">
+                  <div className="p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors cursor-pointer">
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-red-400 rounded-full mt-2 animate-pulse"></div>
+                      <div className="flex-1">
+                        <h4 className="text-white font-semibold text-sm mb-1">SEBI Updates Investment Framework</h4>
+                        <p className="text-blue-200 text-xs">New regulations for mutual fund disclosures...</p>
+                        <div className="flex items-center gap-2 mt-2 text-xs text-slate-400">
+                          <Clock className="w-3 h-3" />
+                          <span>2 minutes ago</span>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Recent Updates */}
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl border border-white/10">
-                      <div className="w-2 h-2 bg-amber-400 rounded-full"></div>
+                  <div className="p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors cursor-pointer">
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-amber-400 rounded-full mt-2"></div>
                       <div className="flex-1">
-                        <p className="text-white text-sm font-medium">SEBI Amendment Update</p>
-                        <p className="text-blue-200 text-xs">2 hours ago</p>
+                        <h4 className="text-white font-semibold text-sm mb-1">Supreme Court Rules on Corporate Merger</h4>
+                        <p className="text-blue-200 text-xs">Landmark decision affects M&A procedures...</p>
+                        <div className="flex items-center gap-2 mt-2 text-xs text-slate-400">
+                          <Clock className="w-3 h-3" />
+                          <span>15 minutes ago</span>
+                        </div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl border border-white/10">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  </div>
+
+                  <div className="p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors cursor-pointer">
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mt-2"></div>
                       <div className="flex-1">
-                        <p className="text-white text-sm font-medium">Corporate Tax Guidelines</p>
-                        <p className="text-blue-200 text-xs">4 hours ago</p>
+                        <h4 className="text-white font-semibold text-sm mb-1">RBI Announces Banking Guidelines</h4>
+                        <p className="text-blue-200 text-xs">Enhanced compliance requirements for...</p>
+                        <div className="flex items-center gap-2 mt-2 text-xs text-slate-400">
+                          <Clock className="w-3 h-3" />
+                          <span>1 hour ago</span>
+                        </div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl border border-white/10">
-                      <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                      <div className="flex-1">
-                        <p className="text-white text-sm font-medium">ESG Compliance Framework</p>
-                        <p className="text-blue-200 text-xs">6 hours ago</p>
-                      </div>
-                    </div>
+                  </div>
+                </div>
+
+                {/* Breaking News Ticker */}
+                <div className="mt-6 p-3 bg-gradient-to-r from-red-600/20 to-orange-600/20 rounded-xl border border-red-400/30">
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">BREAKING</span>
+                    <span className="text-red-200 font-medium animate-pulse">New ESG reporting mandates announced by MCA</span>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Floating Elements */}
-            <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-xl">
-              <FileText className="w-6 h-6 text-white" />
+            {/* Floating News Elements */}
+            <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-xl animate-bounce">
+              <TrendingUp className="w-6 h-6 text-white" />
             </div>
-            <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center shadow-xl">
-              <Briefcase className="w-6 h-6 text-white" />
+            <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-xl">
+              <Globe className="w-6 h-6 text-white" />
             </div>
           </div>
         </div>
