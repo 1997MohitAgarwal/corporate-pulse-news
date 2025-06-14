@@ -3,7 +3,7 @@ import { memo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, Clock, Eye, Search, Crown, Sparkles } from "lucide-react";
+import { TrendingUp, Clock, Eye, Search } from "lucide-react";
 
 const HeroSection = memo(() => {
   const handleExploreNews = useCallback(() => {
@@ -20,15 +20,7 @@ const HeroSection = memo(() => {
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-indigo-500/10"></div>
       
       <div className="container mx-auto px-4 lg:px-6 py-16 lg:py-20 relative">
-        {/* Enhanced Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-600 via-amber-600 to-orange-600 text-white px-8 py-4 rounded-2xl mb-8 shadow-2xl shadow-orange-500/25 animate-fade-in">
-            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
-              <Crown className="w-6 h-6" />
-            </div>
-            <span className="font-bold text-lg">Premium Corporate News</span>
-            <Sparkles className="w-5 h-5 animate-pulse" />
-          </div>
           <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 animate-slide-up">
             <span className="bg-gradient-to-r from-slate-900 via-orange-700 to-amber-700 bg-clip-text text-transparent">
               Corporate News
