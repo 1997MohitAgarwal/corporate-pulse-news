@@ -9,12 +9,11 @@ const FeaturedNews = memo(() => {
     {
       id: 1,
       title: "Supreme Court Ruling on Corporate Liability Transforms Business Landscape",
-      excerpt: "Landmark decision affects how Indian corporations handle class action lawsuits and regulatory compliance across all major industries. The ruling establishes new precedents for corporate accountability and transparency requirements...",
+      excerpt: "Landmark decision affects how Indian corporations handle class action lawsuits and regulatory compliance across all major industries. The ruling establishes new precedents for corporate accountability and transparency requirements. This comprehensive judgment will reshape the way businesses approach legal compliance...",
       image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=75",
       category: "Legal",
       subCategory: "Supreme Court",
       time: "2 hours ago",
-      views: "32.1K",
       author: "Adv. Priya Sharma",
       authorTitle: "Senior Legal Correspondent",
       readTime: "12 min read",
@@ -30,7 +29,6 @@ const FeaturedNews = memo(() => {
       image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=600&q=75",
       category: "Global Trade",
       time: "3 hours ago",
-      views: "24.8K",
       author: "Rajesh Kumar",
       readTime: "6 min read",
       isMain: false
@@ -42,7 +40,6 @@ const FeaturedNews = memo(() => {
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=75",
       category: "ESG Compliance",
       time: "4 hours ago",
-      views: "15.2K",
       author: "Dr. Meera Patel",
       readTime: "5 min read",
       isMain: false
@@ -111,10 +108,6 @@ const FeaturedNews = memo(() => {
                           <Clock className="w-4 h-4" />
                           {mainStory.time}
                         </div>
-                        <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1">
-                          <Eye className="w-4 h-4" />
-                          {mainStory.views}
-                        </div>
                         <div className="text-sm bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 font-medium">
                           {mainStory.readTime}
                         </div>
@@ -168,12 +161,12 @@ const FeaturedNews = memo(() => {
             </div>
           )}
 
-          {/* Side Stories - Takes 1/3 width */}
-          <div className="space-y-6">
-            {sideStories.map((story) => (
-              <Card key={story.id} className="group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white rounded-2xl hover:scale-[1.02] flex flex-col h-full">
+          {/* Side Stories - Takes 1/3 width with fixed height distribution */}
+          <div className="space-y-6 lg:h-[656px] flex flex-col">
+            {sideStories.map((story, index) => (
+              <Card key={story.id} className={`group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white rounded-2xl hover:scale-[1.02] flex flex-col ${index === 0 ? 'flex-1' : 'flex-1'}`}>
                 {/* Image Section */}
-                <div className="relative h-40 overflow-hidden">
+                <div className="relative h-32 overflow-hidden">
                   <img
                     src={story.image}
                     alt={story.title}
@@ -181,7 +174,7 @@ const FeaturedNews = memo(() => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
                   
-                  <div className="absolute inset-0 p-4 flex flex-col justify-between">
+                  <div className="absolute inset-0 p-3 flex flex-col justify-between">
                     <div className="flex justify-between items-start">
                       <Badge className="bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg border-0 font-semibold text-xs">
                         {story.category}
@@ -191,14 +184,10 @@ const FeaturedNews = memo(() => {
                       </div>
                     </div>
                     
-                    <div className="flex items-center gap-3 text-white/90 text-xs">
+                    <div className="flex items-center gap-2 text-white/90 text-xs">
                       <div className="flex items-center gap-1 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1">
                         <Clock className="w-3 h-3" />
                         {story.time}
-                      </div>
-                      <div className="flex items-center gap-1 bg-black/40 backdrop-blur-sm rounded-full px-2 py-1">
-                        <Eye className="w-3 h-3" />
-                        {story.views}
                       </div>
                     </div>
                   </div>
@@ -207,7 +196,7 @@ const FeaturedNews = memo(() => {
                 {/* Content Section - Flex grow to fill space */}
                 <div className="p-4 flex flex-col flex-grow">
                   <div className="flex-grow">
-                    <h3 className="text-lg font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors line-clamp-2 mb-3">
+                    <h3 className="text-base font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors line-clamp-2 mb-2">
                       {story.title}
                     </h3>
                     
