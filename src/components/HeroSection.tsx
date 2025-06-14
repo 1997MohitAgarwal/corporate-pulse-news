@@ -20,20 +20,6 @@ const HeroSection = memo(() => {
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-indigo-500/10"></div>
       
       <div className="container mx-auto px-4 lg:px-6 py-16 lg:py-20 relative">
-        <div className="text-center mb-16 lg:mb-20">
-          <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 animate-slide-up">
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Corporate News
-            </span>
-            <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              That Matters
-            </span>
-          </h1>
-          <p className="text-xl lg:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed animate-fade-in delay-300">
-            Real-time premium corporate news and exclusive insights that drive intelligent business decisions
-          </p>
-        </div>
-        
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Main Content */}
           <div className="space-y-6 lg:space-y-8">
@@ -42,10 +28,24 @@ const HeroSection = memo(() => {
               Live Updates from India
             </Badge>
             
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+              <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+                Corporate News
+              </span>
+              <span className="block bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                That Matters
+              </span>
+            </h1>
+            
+            <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
+              Stay ahead with real-time corporate news, legal insights, and market analysis 
+              across all major Indian business sectors.
+            </p>
+            
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold shadow-xl"
+                className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                 onClick={handleExploreNews}
               >
                 <Search className="w-5 h-5 mr-2" />
@@ -54,7 +54,7 @@ const HeroSection = memo(() => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-white/20 text-white hover:bg-white/10 hover:text-blue-400 transition-colors"
+                className="border-slate-300 bg-white/10 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 onClick={handleMarketAnalysis}
               >
                 Market Analysis
