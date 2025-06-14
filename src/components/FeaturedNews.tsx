@@ -1,7 +1,8 @@
+
 import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Eye, ArrowRight, User, Calendar, Share2, BookmarkPlus } from "lucide-react";
+import { Clock, Eye, ArrowRight, User, Calendar } from "lucide-react";
 
 const FeaturedNews = memo(() => {
   const featuredStories = [
@@ -75,7 +76,7 @@ const FeaturedNews = memo(() => {
           {/* Main Story - Takes 2/3 width */}
           {mainStory && (
             <div className="lg:col-span-2">
-              <Card className="group overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 h-full border-0 bg-white rounded-3xl hover:scale-[1.01]">
+              <Card className="group overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 h-full border-0 bg-white rounded-3xl hover:scale-[1.01] flex flex-col">
                 {/* Image Section */}
                 <div className="relative h-64 lg:h-80 overflow-hidden">
                   <img
@@ -95,14 +96,6 @@ const FeaturedNews = memo(() => {
                         <Badge variant="outline" className="bg-white/20 backdrop-blur-sm text-white border-white/30">
                           {mainStory.subCategory}
                         </Badge>
-                      </div>
-                      <div className="flex gap-2">
-                        <button className="bg-white/20 backdrop-blur-sm rounded-full p-2 hover:bg-white/30 transition-colors">
-                          <Share2 className="w-4 h-4 text-white" />
-                        </button>
-                        <button className="bg-white/20 backdrop-blur-sm rounded-full p-2 hover:bg-white/30 transition-colors">
-                          <BookmarkPlus className="w-4 h-4 text-white" />
-                        </button>
                       </div>
                     </div>
                     
@@ -130,27 +123,29 @@ const FeaturedNews = memo(() => {
                   </div>
                 </div>
                 
-                {/* Content Section */}
-                <div className="p-6 lg:p-8 space-y-4">
-                  <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors">
-                    {mainStory.title}
-                  </h3>
-                  
-                  <p className="text-slate-600 leading-relaxed text-sm lg:text-base font-medium">
-                    {mainStory.excerpt}
-                  </p>
-                  
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {mainStory.tags.map((tag, index) => (
-                      <span key={index} className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full hover:bg-amber-100 hover:text-amber-700 transition-colors cursor-pointer">
-                        #{tag}
-                      </span>
-                    ))}
+                {/* Content Section - Flex grow to fill space */}
+                <div className="p-6 lg:p-8 flex flex-col flex-grow">
+                  <div className="flex-grow">
+                    <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors mb-4">
+                      {mainStory.title}
+                    </h3>
+                    
+                    <p className="text-slate-600 leading-relaxed text-sm lg:text-base font-medium mb-4">
+                      {mainStory.excerpt}
+                    </p>
+                    
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      {mainStory.tags.map((tag, index) => (
+                        <span key={index} className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full hover:bg-amber-100 hover:text-amber-700 transition-colors cursor-pointer">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                   
-                  {/* Author & Button */}
-                  <div className="space-y-4 pt-6 border-t border-slate-200">
+                  {/* Author & Button - Always at bottom */}
+                  <div className="pt-6 border-t border-slate-200 mt-auto">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
@@ -176,8 +171,8 @@ const FeaturedNews = memo(() => {
           {/* Side Stories - Takes 1/3 width */}
           <div className="space-y-6">
             {sideStories.map((story) => (
-              <Card key={story.id} className="group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white rounded-2xl hover:scale-[1.02]">
-                {/* Image Section - Made consistent height */}
+              <Card key={story.id} className="group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white rounded-2xl hover:scale-[1.02] flex flex-col h-full">
+                {/* Image Section */}
                 <div className="relative h-40 overflow-hidden">
                   <img
                     src={story.image}
@@ -209,17 +204,20 @@ const FeaturedNews = memo(() => {
                   </div>
                 </div>
                 
-                {/* Content Section */}
-                <div className="p-4 space-y-3">
-                  <h3 className="text-lg font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors line-clamp-2">
-                    {story.title}
-                  </h3>
+                {/* Content Section - Flex grow to fill space */}
+                <div className="p-4 flex flex-col flex-grow">
+                  <div className="flex-grow">
+                    <h3 className="text-lg font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors line-clamp-2 mb-3">
+                      {story.title}
+                    </h3>
+                    
+                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">
+                      {story.excerpt}
+                    </p>
+                  </div>
                   
-                  <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">
-                    {story.excerpt}
-                  </p>
-                  
-                  <div className="flex items-center justify-between pt-3 border-t border-slate-200">
+                  {/* Author & Button - Always at bottom */}
+                  <div className="flex items-center justify-between pt-3 border-t border-slate-200 mt-auto">
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
                         <User className="w-4 h-4 text-white" />
