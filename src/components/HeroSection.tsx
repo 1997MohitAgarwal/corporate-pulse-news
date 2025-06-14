@@ -22,10 +22,10 @@ const HeroSection = memo(() => {
       <div className="container mx-auto px-4 lg:px-6 py-16 lg:py-20 relative">
         <div className="text-center mb-16 lg:mb-20">
           <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 animate-slide-up">
-            <span className="bg-gradient-to-r from-slate-900 via-orange-700 to-amber-700 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Corporate News
             </span>
-            <span className="block bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
               That Matters
             </span>
           </h1>
