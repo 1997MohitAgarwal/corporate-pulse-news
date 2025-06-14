@@ -27,9 +27,9 @@ const HeroSection = memo(() => {
       </div>
       
       <div className="container mx-auto px-6 lg:px-8 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-20 xl:gap-24 items-center">
           {/* Main Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 lg:pr-8">
             <Badge className="bg-amber-500/20 text-amber-300 border-amber-500/30 shadow-lg px-6 py-2">
               <Scale className="w-5 h-5 mr-2" />
               Indian Corporate Law Intelligence
@@ -73,7 +73,7 @@ const HeroSection = memo(() => {
               </div>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-semibold px-8 py-4 text-lg border-0"
@@ -95,9 +95,9 @@ const HeroSection = memo(() => {
           </div>
 
           {/* Professional Legal Visual */}
-          <div className="relative">
+          <div className="relative lg:pl-8">
             {/* Main Card */}
-            <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+            <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl max-w-lg ml-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-amber-500/10 rounded-3xl"></div>
               
               {/* Header */}
