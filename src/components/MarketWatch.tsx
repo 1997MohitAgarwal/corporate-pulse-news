@@ -121,7 +121,7 @@ const MarketWatch = memo(() => {
             </div>
           </Card>
 
-          {/* Market Impact News with Custom Scrollbar - Fixed container overflow */}
+          {/* Market Impact News with Custom Themed Scrollbar */}
           <Card className="h-[500px] shadow-2xl hover:shadow-3xl transition-all duration-500 border-0 bg-gradient-to-br from-white via-emerald-50/50 to-teal-50/30 backdrop-blur-sm animate-scale-in delay-200">
             <div className="p-6 h-full flex flex-col">
               <div className="flex items-center gap-3 mb-6">
@@ -133,9 +133,9 @@ const MarketWatch = memo(() => {
               
               {/* Fixed overflow container with proper scrollbar */}
               <div className="flex-1 overflow-hidden">
-                <div className="h-full overflow-y-auto space-y-4 pr-2 custom-scrollbar">
+                <div className="h-full overflow-y-auto space-y-4 pr-2 market-news-scroll">
                   {marketNews.map((news, index) => (
-                    <div key={index} className="p-4 border border-slate-200 rounded-xl hover:border-emerald-400 hover:shadow-lg transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm hover:scale-[1.02] group overflow-hidden">
+                    <div key={index} className="p-4 border border-slate-200 rounded-xl hover:border-orange-400 transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm group overflow-hidden">
                       <div className="flex items-start justify-between mb-2">
                         <Badge 
                           className={`text-xs font-semibold flex-shrink-0 ${
@@ -148,7 +148,7 @@ const MarketWatch = memo(() => {
                         </Badge>
                         <span className="text-slate-500 text-xs font-medium flex-shrink-0 ml-2">{news.time}</span>
                       </div>
-                      <h4 className="font-semibold text-slate-900 text-sm leading-relaxed group-hover:text-emerald-600 transition-colors break-words">
+                      <h4 className="font-semibold text-slate-900 text-sm leading-relaxed group-hover:text-orange-600 transition-colors break-words">
                         {news.title}
                       </h4>
                     </div>
@@ -160,21 +160,24 @@ const MarketWatch = memo(() => {
         </div>
       </div>
 
-      <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar {
+      <style>{`
+        .market-news-scroll::-webkit-scrollbar {
           width: 8px;
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: linear-gradient(to bottom, #f1f5f9, #e2e8f0);
+        .market-news-scroll::-webkit-scrollbar-track {
+          background: linear-gradient(to bottom, #f97316, #ea580c);
           border-radius: 10px;
+          opacity: 0.3;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #10b981, #059669);
+        .market-news-scroll::-webkit-scrollbar-thumb {
+          background: linear-gradient(to bottom, #f97316, #ea580c);
           border-radius: 10px;
-          border: 2px solid #f1f5f9;
+          border: 2px solid #fff;
+          box-shadow: 0 2px 4px rgba(249, 115, 22, 0.3);
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #059669, #047857);
+        .market-news-scroll::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(to bottom, #ea580c, #dc2626);
+          box-shadow: 0 4px 8px rgba(249, 115, 22, 0.5);
         }
       `}</style>
     </section>

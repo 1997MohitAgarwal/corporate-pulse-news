@@ -1,3 +1,4 @@
+
 import { useState, memo, useCallback, useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -126,23 +127,23 @@ const NewsCategories = memo(() => {
               </div>
             </div>
           </div>
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6">
             <span className="bg-gradient-to-r from-slate-900 via-orange-600 to-red-600 bg-clip-text text-transparent">
               Premium Legal Categories
             </span>
           </h2>
-          <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed animate-fade-in delay-300">
+          <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
             Explore specialized legal domains with expert insights and sector-specific intelligence
           </p>
         </div>
 
-        {/* Enhanced Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {/* Enhanced Category Tabs with better spacing */}
+        <div className="flex flex-wrap justify-center gap-6 mb-12">
           {categories.map((category, index) => (
             <button
               key={category}
               onClick={() => handleTabChange(category)}
-              className={`px-8 py-4 rounded-2xl font-bold transition-all duration-500 transform hover:scale-110 relative overflow-hidden group ${
+              className={`px-8 py-4 rounded-2xl font-bold transition-all duration-500 relative overflow-hidden group min-w-[180px] ${
                 activeTab === category
                   ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-2xl shadow-orange-300/50 scale-105"
                   : "bg-white/80 text-slate-700 hover:bg-white hover:text-orange-600 shadow-xl hover:shadow-2xl border-2 border-orange-100 hover:border-orange-300 backdrop-blur-sm"
@@ -162,15 +163,15 @@ const NewsCategories = memo(() => {
           ))}
         </div>
 
-        {/* Enhanced News Grid */}
+        {/* Enhanced News Grid with improved card design */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {newsData[activeTab]?.map((article, index) => (
-            <Card key={index} className="group overflow-hidden bg-white/90 shadow-2xl hover:shadow-3xl transition-all duration-500 border-0 rounded-3xl transform hover:-translate-y-3 hover:rotate-1 backdrop-blur-sm">
+            <Card key={index} className="group overflow-hidden bg-white shadow-2xl border-0 rounded-3xl transition-all duration-300 hover:shadow-3xl">
               <div className="relative overflow-hidden rounded-t-3xl">
                 <OptimizedImage
                   src={article.image}
                   alt={article.title}
-                  className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-56 object-cover transition-transform duration-500"
                   width={400}
                   height={224}
                 />
@@ -189,20 +190,20 @@ const NewsCategories = memo(() => {
                   </Badge>
                 </div>
               </div>
-              <div className="p-8">
+              <div className="p-8 bg-gradient-to-b from-white to-orange-50/30">
                 <div className="flex items-center gap-2 text-slate-500 text-sm mb-4">
                   <Clock className="w-4 h-4" />
                   <span className="font-medium">{article.time}</span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-orange-600 transition-colors line-clamp-2 leading-tight">
+                <h3 className="text-xl font-bold text-slate-900 mb-4 transition-colors line-clamp-2 leading-tight">
                   {article.title}
                 </h3>
                 <p className="text-slate-600 mb-6 leading-relaxed line-clamp-3 text-base">
                   {article.excerpt}
                 </p>
-                <button className="text-orange-600 font-bold hover:text-orange-700 transition-colors group/btn flex items-center gap-2 text-lg">
+                <button className="text-orange-600 font-bold transition-colors flex items-center gap-2 text-lg group-hover:text-orange-700">
                   Read Full Article 
-                  <span className="inline-block group-hover/btn:translate-x-2 transition-transform duration-300">→</span>
+                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-2">→</span>
                 </button>
               </div>
             </Card>
