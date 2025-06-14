@@ -2,7 +2,7 @@
 import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Eye, ArrowRight, User, Calendar, Share2, BookmarkPlus } from "lucide-react";
+import { Clock, Eye, ArrowRight, User, Calendar, Share2, BookmarkPlus, MessageCircle, Heart } from "lucide-react";
 
 const FeaturedNews = memo(() => {
   const featuredStories = [
@@ -10,7 +10,8 @@ const FeaturedNews = memo(() => {
       id: 1,
       title: "Supreme Court Ruling on Corporate Liability Transforms Business Landscape",
       excerpt: "Landmark decision affects how Indian corporations handle class action lawsuits and regulatory compliance across all major industries.",
-      fullContent: "This groundbreaking Supreme Court judgment establishes new precedents for corporate accountability, requiring enhanced transparency measures and stricter compliance protocols for all listed companies.",
+      fullContent: "This groundbreaking Supreme Court judgment establishes new precedents for corporate accountability, requiring enhanced transparency measures and stricter compliance protocols for all listed companies. The ruling mandates comprehensive disclosure of environmental impact assessments, detailed reporting of stakeholder engagement processes, and implementation of robust grievance redressal mechanisms. Companies must now maintain detailed records of all regulatory interactions and demonstrate proactive compliance measures. The judgment specifically addresses gaps in existing corporate governance frameworks and introduces mandatory quarterly compliance audits. Industry experts predict this will lead to significant restructuring of legal departments across major corporations, with increased focus on preventive legal strategies rather than reactive compliance measures.",
+      additionalContent: "The Supreme Court's five-judge bench, led by Chief Justice, emphasized that corporate entities can no longer rely solely on traditional compliance frameworks. The new standards require integration of social responsibility metrics into core business operations, mandatory third-party verification of compliance claims, and establishment of dedicated ombudsman offices for stakeholder grievances. Legal practitioners note that this ruling will particularly impact multinational corporations operating in India, as they must now align global practices with these enhanced domestic requirements.",
       image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=75",
       category: "Legal",
       subCategory: "Supreme Court",
@@ -18,13 +19,14 @@ const FeaturedNews = memo(() => {
       views: "32.1K",
       author: "Adv. Priya Sharma",
       authorTitle: "Senior Legal Correspondent",
-      readTime: "8 min read",
+      readTime: "12 min read",
       date: "December 14, 2024",
       location: "New Delhi",
-      tags: ["Corporate Law", "Compliance", "Business", "Regulation"],
+      tags: ["Corporate Law", "Compliance", "Business", "Regulation", "Supreme Court", "Legal Reform"],
       isMain: true,
       shares: "1.2K",
-      comments: 145
+      comments: 145,
+      likes: "2.8K"
     },
     {
       id: 2,
@@ -81,8 +83,8 @@ const FeaturedNews = memo(() => {
             <div className="lg:col-span-2">
               <Card className="group overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 h-full border-0 bg-white rounded-3xl hover:scale-[1.01]">
                 <div className="grid lg:grid-cols-5 h-full">
-                  {/* Image Section - Takes 3/5 */}
-                  <div className="lg:col-span-3 relative h-64 lg:h-full min-h-[400px] overflow-hidden">
+                  {/* Image Section - Takes 2/5 */}
+                  <div className="lg:col-span-2 relative h-64 lg:h-full min-h-[500px] overflow-hidden">
                     <img
                       src={mainStory.image}
                       alt={mainStory.title}
@@ -135,25 +137,40 @@ const FeaturedNews = memo(() => {
                     </div>
                   </div>
                   
-                  {/* Content Section - Takes 2/5 */}
-                  <div className="lg:col-span-2 p-6 lg:p-8 flex flex-col justify-between">
-                    <div className="space-y-4">
+                  {/* Content Section - Takes 3/5 */}
+                  <div className="lg:col-span-3 p-6 lg:p-8 flex flex-col justify-between">
+                    <div className="space-y-6">
                       <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors">
                         {mainStory.title}
                       </h3>
                       
-                      <p className="text-slate-600 leading-relaxed text-sm lg:text-base">
+                      <p className="text-slate-600 leading-relaxed text-sm lg:text-base font-medium">
                         {mainStory.excerpt}
                       </p>
                       
-                      <p className="text-slate-700 leading-relaxed text-sm font-medium">
+                      <p className="text-slate-700 leading-relaxed text-sm lg:text-base">
                         {mainStory.fullContent}
                       </p>
                       
+                      <p className="text-slate-600 leading-relaxed text-sm">
+                        {mainStory.additionalContent}
+                      </p>
+                      
+                      {/* Key Points */}
+                      <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
+                        <h4 className="font-semibold text-amber-800 mb-2">Key Highlights:</h4>
+                        <ul className="text-sm text-amber-700 space-y-1">
+                          <li>• Mandatory quarterly compliance audits for all listed companies</li>
+                          <li>• Enhanced transparency in stakeholder engagement processes</li>
+                          <li>• Integration of social responsibility metrics into business operations</li>
+                          <li>• Establishment of dedicated ombudsman offices</li>
+                        </ul>
+                      </div>
+                      
                       {/* Tags */}
-                      <div className="flex flex-wrap gap-2 pt-2">
+                      <div className="flex flex-wrap gap-2">
                         {mainStory.tags.map((tag, index) => (
-                          <span key={index} className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-full hover:bg-amber-100 hover:text-amber-700 transition-colors cursor-pointer">
+                          <span key={index} className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full hover:bg-amber-100 hover:text-amber-700 transition-colors cursor-pointer">
                             #{tag}
                           </span>
                         ))}
@@ -161,7 +178,7 @@ const FeaturedNews = memo(() => {
                     </div>
                     
                     {/* Author & Stats */}
-                    <div className="space-y-4 pt-4 border-t border-slate-200">
+                    <div className="space-y-4 pt-6 border-t border-slate-200">
                       <div className="flex items-center gap-3">
                         <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
                           <User className="w-6 h-6 text-white" />
@@ -175,8 +192,18 @@ const FeaturedNews = memo(() => {
                       {/* Engagement Stats */}
                       <div className="flex items-center justify-between text-sm text-slate-500">
                         <div className="flex items-center gap-4">
-                          <span>{mainStory.shares} Shares</span>
-                          <span>{mainStory.comments} Comments</span>
+                          <div className="flex items-center gap-1">
+                            <Heart className="w-4 h-4" />
+                            <span>{mainStory.likes}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Share2 className="w-4 h-4" />
+                            <span>{mainStory.shares}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MessageCircle className="w-4 h-4" />
+                            <span>{mainStory.comments}</span>
+                          </div>
                         </div>
                         <button className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 transition-colors group/btn bg-amber-50 hover:bg-amber-100 rounded-full px-4 py-2">
                           Read Full Story
