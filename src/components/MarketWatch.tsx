@@ -2,7 +2,7 @@
 import { memo, useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, TrendingDown, Activity, BarChart3, Sparkles, Crown, Star } from "lucide-react";
+import { TrendingUp, TrendingDown, Activity, BarChart3, Sparkles, Crown } from "lucide-react";
 
 const MarketWatch = memo(() => {
   const marketData = useMemo(() => [
@@ -59,30 +59,17 @@ const MarketWatch = memo(() => {
       <div className="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-br from-emerald-400/10 to-teal-400/10 rounded-full blur-xl animate-pulse delay-700"></div>
       
       <div className="container mx-auto px-4 lg:px-6 relative">
-        {/* Enhanced Premium Header */}
+        {/* Enhanced Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <div className="relative inline-block mb-8">
-            {/* Glowing background effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
-            <div className="relative flex items-center gap-4 bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 text-white px-10 py-6 rounded-3xl shadow-2xl shadow-orange-500/30">
-              <div className="flex items-center gap-2">
-                <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm">
-                  <Crown className="w-7 h-7" />
-                </div>
-                <Star className="w-6 h-6 text-yellow-200 animate-pulse" />
-              </div>
-              <div className="text-center">
-                <span className="font-bold text-xl tracking-wide">PREMIUM MARKET INTELLIGENCE</span>
-                <div className="text-yellow-200 text-sm font-medium mt-1">Elite Financial Insights</div>
-              </div>
-              <div className="flex items-center gap-2">
-                <Star className="w-6 h-6 text-yellow-200 animate-pulse delay-300" />
-                <Sparkles className="w-6 h-6 animate-pulse delay-500" />
-              </div>
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 text-white px-8 py-4 rounded-2xl mb-8 shadow-2xl shadow-indigo-500/25 animate-fade-in">
+            <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
+              <Crown className="w-6 h-6" />
             </div>
+            <span className="font-bold text-lg">Premium Market Intelligence</span>
+            <Sparkles className="w-5 h-5 animate-pulse" />
           </div>
           <h2 className="text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">
-            <span className="bg-gradient-to-r from-slate-900 via-orange-600 to-red-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-slate-900 via-indigo-700 to-purple-700 bg-clip-text text-transparent">
               Elite Market Watch
             </span>
           </h2>
@@ -121,8 +108,8 @@ const MarketWatch = memo(() => {
             </div>
           </Card>
 
-          {/* Market Impact News with Custom Themed Scrollbar */}
-          <Card className="h-[500px] shadow-2xl hover:shadow-3xl transition-all duration-500 border-0 bg-gradient-to-br from-white via-emerald-50/50 to-teal-50/30 backdrop-blur-sm animate-scale-in delay-200">
+          {/* Market Impact News with Custom Scrollbar */}
+          <Card className="h-[500px] overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 border-0 bg-gradient-to-br from-white via-emerald-50/50 to-teal-50/30 backdrop-blur-sm animate-scale-in delay-200">
             <div className="p-6 h-full flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-3 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-xl shadow-lg">
@@ -131,55 +118,32 @@ const MarketWatch = memo(() => {
                 <h3 className="text-2xl font-bold text-slate-900">Market Impact News</h3>
               </div>
               
-              {/* Fixed overflow container with proper scrollbar */}
-              <div className="flex-1 overflow-hidden">
-                <div className="h-full overflow-y-auto space-y-4 pr-2 market-news-scroll">
-                  {marketNews.map((news, index) => (
-                    <div key={index} className="p-4 border border-slate-200 rounded-xl hover:border-orange-400 transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm group overflow-hidden">
-                      <div className="flex items-start justify-between mb-2">
-                        <Badge 
-                          className={`text-xs font-semibold flex-shrink-0 ${
-                            news.impact === 'High' 
-                              ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white border-0 shadow-md' 
-                              : 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white border-0 shadow-md'
-                          }`}
-                        >
-                          {news.impact} Impact
-                        </Badge>
-                        <span className="text-slate-500 text-xs font-medium flex-shrink-0 ml-2">{news.time}</span>
-                      </div>
-                      <h4 className="font-semibold text-slate-900 text-sm leading-relaxed group-hover:text-orange-600 transition-colors break-words">
-                        {news.title}
-                      </h4>
+              {/* Custom Scrollable Container */}
+              <div className="flex-1 overflow-y-auto space-y-4 pr-2 custom-scrollbar">
+                {marketNews.map((news, index) => (
+                  <div key={index} className="p-4 border border-slate-200 rounded-xl hover:border-emerald-400 hover:shadow-lg transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm hover:scale-[1.02] group">
+                    <div className="flex items-start justify-between mb-2">
+                      <Badge 
+                        className={`text-xs font-semibold ${
+                          news.impact === 'High' 
+                            ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white border-0 shadow-md' 
+                            : 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white border-0 shadow-md'
+                        }`}
+                      >
+                        {news.impact} Impact
+                      </Badge>
+                      <span className="text-slate-500 text-xs font-medium">{news.time}</span>
                     </div>
-                  ))}
-                </div>
+                    <h4 className="font-semibold text-slate-900 text-sm leading-relaxed group-hover:text-emerald-600 transition-colors line-clamp-2">
+                      {news.title}
+                    </h4>
+                  </div>
+                ))}
               </div>
             </div>
           </Card>
         </div>
       </div>
-
-      <style>{`
-        .market-news-scroll::-webkit-scrollbar {
-          width: 8px;
-        }
-        .market-news-scroll::-webkit-scrollbar-track {
-          background: linear-gradient(to bottom, #f97316, #ea580c);
-          border-radius: 10px;
-          opacity: 0.3;
-        }
-        .market-news-scroll::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #f97316, #ea580c);
-          border-radius: 10px;
-          border: 2px solid #fff;
-          box-shadow: 0 2px 4px rgba(249, 115, 22, 0.3);
-        }
-        .market-news-scroll::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #ea580c, #dc2626);
-          box-shadow: 0 4px 8px rgba(249, 115, 22, 0.5);
-        }
-      `}</style>
     </section>
   );
 });

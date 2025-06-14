@@ -2,7 +2,7 @@
 import { useState, memo, useCallback, useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, TrendingUp, BookOpen, Star, Sparkles } from "lucide-react";
+import { Clock, TrendingUp, BookOpen } from "lucide-react";
 import OptimizedImage from "./OptimizedImage";
 
 const NewsCategories = memo(() => {
@@ -96,114 +96,82 @@ const NewsCategories = memo(() => {
   }, []);
 
   return (
-    <section id="news-categories" className="py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-orange-50/30 to-amber-50/20 relative overflow-hidden">
-      {/* Enhanced background decorations */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-orange-300/10 to-red-300/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-br from-amber-300/10 to-yellow-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-orange-200/5 to-red-200/5 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="container mx-auto px-4 lg:px-6 relative">
-        {/* Premium Section Header */}
-        <div className="text-center mb-16 lg:mb-20">
-          <div className="relative inline-block mb-8">
-            {/* Glowing background effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
-            <div className="relative flex items-center gap-4 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 text-white px-10 py-6 rounded-3xl shadow-2xl shadow-orange-500/30">
-              <div className="flex items-center gap-2">
-                <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm">
-                  <BookOpen className="w-7 h-7" />
-                </div>
-                <Star className="w-6 h-6 text-yellow-200 animate-pulse" />
-              </div>
-              <div className="text-center">
-                <span className="font-bold text-xl tracking-wide">LEGAL INTELLIGENCE HUB</span>
-                <div className="text-yellow-200 text-sm font-medium mt-1">Expert Legal Categories</div>
-              </div>
-              <div className="flex items-center gap-2">
-                <Star className="w-6 h-6 text-yellow-200 animate-pulse delay-300" />
-                <Sparkles className="w-6 h-6 animate-pulse delay-500" />
-              </div>
-            </div>
+    <section id="news-categories" className="py-16 lg:py-20 bg-gradient-to-br from-slate-50 via-orange-50/20 to-blue-50/30">
+      <div className="container mx-auto px-4 lg:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-12 lg:mb-16">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full mb-6 shadow-lg">
+            <BookOpen className="w-5 h-5" />
+            <span className="font-semibold">Legal Intelligence</span>
           </div>
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-slate-900 via-orange-600 to-red-600 bg-clip-text text-transparent">
-              Premium Legal Categories
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-slate-900 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Legal Categories
             </span>
           </h2>
-          <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            Explore specialized legal domains with expert insights and sector-specific intelligence
+          <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
+            Explore specialized legal domains and stay updated with sector-specific developments
           </p>
         </div>
 
-        {/* Enhanced Category Tabs with better spacing */}
-        <div className="flex flex-wrap justify-center gap-6 mb-12">
-          {categories.map((category, index) => (
+        {/* Category Tabs */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category) => (
             <button
               key={category}
               onClick={() => handleTabChange(category)}
-              className={`px-8 py-4 rounded-2xl font-bold transition-all duration-500 relative overflow-hidden group min-w-[180px] ${
+              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
                 activeTab === category
-                  ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-2xl shadow-orange-300/50 scale-105"
-                  : "bg-white/80 text-slate-700 hover:bg-white hover:text-orange-600 shadow-xl hover:shadow-2xl border-2 border-orange-100 hover:border-orange-300 backdrop-blur-sm"
+                  ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-xl shadow-orange-200"
+                  : "bg-white text-slate-700 hover:bg-orange-50 hover:text-orange-600 shadow-lg hover:shadow-xl border border-orange-100"
               }`}
-              style={{
-                animationDelay: `${index * 100}ms`
-              }}
             >
-              {activeTab !== category && (
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-400/20 to-red-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              )}
-              <span className="relative z-10 text-base font-semibold tracking-wide">{category}</span>
-              {activeTab === category && (
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-red-600/20 animate-pulse"></div>
-              )}
+              {category}
             </button>
           ))}
         </div>
 
-        {/* Enhanced News Grid with improved card design */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* News Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {newsData[activeTab]?.map((article, index) => (
-            <Card key={index} className="group overflow-hidden bg-white shadow-2xl border-0 rounded-3xl transition-all duration-300 hover:shadow-3xl">
-              <div className="relative overflow-hidden rounded-t-3xl">
+            <Card key={index} className="group overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-300 border-0 rounded-2xl transform hover:-translate-y-2">
+              <div className="relative overflow-hidden">
                 <OptimizedImage
                   src={article.image}
                   alt={article.title}
-                  className="w-full h-56 object-cover transition-transform duration-500"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   width={400}
-                  height={224}
+                  height={192}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 {article.trending && (
                   <div className="absolute top-4 right-4">
-                    <Badge className="bg-gradient-to-r from-red-500 to-pink-500 text-white border-none shadow-lg animate-pulse">
+                    <Badge className="bg-gradient-to-r from-red-500 to-pink-500 text-white border-none shadow-lg">
                       <TrendingUp className="w-3 h-3 mr-1" />
                       Trending
                     </Badge>
                   </div>
                 )}
                 <div className="absolute bottom-4 left-4">
-                  <Badge className="bg-white/95 text-slate-900 font-bold shadow-xl border-2 border-orange-200">
+                  <Badge className="bg-white/90 text-slate-900 font-semibold shadow-lg">
                     {activeTab}
                   </Badge>
                 </div>
               </div>
-              <div className="p-8 bg-gradient-to-b from-white to-orange-50/30">
-                <div className="flex items-center gap-2 text-slate-500 text-sm mb-4">
+              <div className="p-6">
+                <div className="flex items-center gap-2 text-slate-500 text-sm mb-3">
                   <Clock className="w-4 h-4" />
-                  <span className="font-medium">{article.time}</span>
+                  {article.time}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4 transition-colors line-clamp-2 leading-tight">
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors line-clamp-2">
                   {article.title}
                 </h3>
-                <p className="text-slate-600 mb-6 leading-relaxed line-clamp-3 text-base">
+                <p className="text-slate-600 mb-4 leading-relaxed line-clamp-3">
                   {article.excerpt}
                 </p>
-                <button className="text-orange-600 font-bold transition-colors flex items-center gap-2 text-lg group-hover:text-orange-700">
+                <button className="text-orange-600 font-semibold hover:text-orange-700 transition-colors group/btn">
                   Read Full Article 
-                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-2">→</span>
+                  <span className="inline-block ml-1 group-hover/btn:translate-x-1 transition-transform">→</span>
                 </button>
               </div>
             </Card>
