@@ -166,7 +166,7 @@ const FeaturedNews = memo(() => {
             {sideStories.map((story, index) => (
               <Card key={story.id} className="group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white rounded-2xl hover:scale-[1.02] flex flex-col h-[340px]">
                 {/* Image Section */}
-                <div className="relative h-44 overflow-hidden">
+                <div className="relative h-52 overflow-hidden">
                   <img
                     src={story.image}
                     alt={story.title}
