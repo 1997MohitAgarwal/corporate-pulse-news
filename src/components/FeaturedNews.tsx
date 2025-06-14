@@ -82,134 +82,130 @@ const FeaturedNews = memo(() => {
           {mainStory && (
             <div className="lg:col-span-2">
               <Card className="group overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 h-full border-0 bg-white rounded-3xl hover:scale-[1.01]">
-                <div className="grid lg:grid-cols-5 h-full">
-                  {/* Image Section - Takes 2/5 */}
-                  <div className="lg:col-span-2 relative h-64 lg:h-full min-h-[500px] overflow-hidden">
-                    <img
-                      src={mainStory.image}
-                      alt={mainStory.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-                    
-                    {/* Image Overlay */}
-                    <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                      <div className="flex justify-between items-start">
-                        <div className="flex gap-2">
-                          <Badge className="bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg border-0 font-semibold">
-                            {mainStory.category}
-                          </Badge>
-                          <Badge variant="outline" className="bg-white/20 backdrop-blur-sm text-white border-white/30">
-                            {mainStory.subCategory}
-                          </Badge>
-                        </div>
-                        <div className="flex gap-2">
-                          <button className="bg-white/20 backdrop-blur-sm rounded-full p-2 hover:bg-white/30 transition-colors">
-                            <Share2 className="w-4 h-4 text-white" />
-                          </button>
-                          <button className="bg-white/20 backdrop-blur-sm rounded-full p-2 hover:bg-white/30 transition-colors">
-                            <BookmarkPlus className="w-4 h-4 text-white" />
-                          </button>
-                        </div>
+                {/* Image Section */}
+                <div className="relative h-64 lg:h-80 overflow-hidden">
+                  <img
+                    src={mainStory.image}
+                    alt={mainStory.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                  
+                  {/* Image Overlay */}
+                  <div className="absolute inset-0 p-6 flex flex-col justify-between">
+                    <div className="flex justify-between items-start">
+                      <div className="flex gap-2">
+                        <Badge className="bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg border-0 font-semibold">
+                          {mainStory.category}
+                        </Badge>
+                        <Badge variant="outline" className="bg-white/20 backdrop-blur-sm text-white border-white/30">
+                          {mainStory.subCategory}
+                        </Badge>
                       </div>
-                      
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-2 text-white/90 text-sm">
-                          <Calendar className="w-4 h-4" />
-                          <span>{mainStory.date}</span>
-                          <span>•</span>
-                          <span>{mainStory.location}</span>
+                      <div className="flex gap-2">
+                        <button className="bg-white/20 backdrop-blur-sm rounded-full p-2 hover:bg-white/30 transition-colors">
+                          <Share2 className="w-4 h-4 text-white" />
+                        </button>
+                        <button className="bg-white/20 backdrop-blur-sm rounded-full p-2 hover:bg-white/30 transition-colors">
+                          <BookmarkPlus className="w-4 h-4 text-white" />
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 text-white/90 text-sm">
+                        <Calendar className="w-4 h-4" />
+                        <span>{mainStory.date}</span>
+                        <span>•</span>
+                        <span>{mainStory.location}</span>
+                      </div>
+                      <div className="flex items-center gap-4 text-white/90 text-sm">
+                        <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1">
+                          <Clock className="w-4 h-4" />
+                          {mainStory.time}
                         </div>
-                        <div className="flex items-center gap-4 text-white/90 text-sm">
-                          <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1">
-                            <Clock className="w-4 h-4" />
-                            {mainStory.time}
-                          </div>
-                          <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1">
-                            <Eye className="w-4 h-4" />
-                            {mainStory.views}
-                          </div>
-                          <div className="text-sm bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 font-medium">
-                            {mainStory.readTime}
-                          </div>
+                        <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1">
+                          <Eye className="w-4 h-4" />
+                          {mainStory.views}
+                        </div>
+                        <div className="text-sm bg-black/40 backdrop-blur-sm rounded-full px-3 py-1 font-medium">
+                          {mainStory.readTime}
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
+                
+                {/* Content Section */}
+                <div className="p-6 lg:p-8 space-y-6">
+                  <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors">
+                    {mainStory.title}
+                  </h3>
                   
-                  {/* Content Section - Takes 3/5 */}
-                  <div className="lg:col-span-3 p-6 lg:p-8 flex flex-col justify-between">
-                    <div className="space-y-6">
-                      <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold text-slate-900 leading-tight group-hover:text-amber-600 transition-colors">
-                        {mainStory.title}
-                      </h3>
-                      
-                      <p className="text-slate-600 leading-relaxed text-sm lg:text-base font-medium">
-                        {mainStory.excerpt}
-                      </p>
-                      
-                      <p className="text-slate-700 leading-relaxed text-sm lg:text-base">
-                        {mainStory.fullContent}
-                      </p>
-                      
-                      <p className="text-slate-600 leading-relaxed text-sm">
-                        {mainStory.additionalContent}
-                      </p>
-                      
-                      {/* Key Points */}
-                      <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
-                        <h4 className="font-semibold text-amber-800 mb-2">Key Highlights:</h4>
-                        <ul className="text-sm text-amber-700 space-y-1">
-                          <li>• Mandatory quarterly compliance audits for all listed companies</li>
-                          <li>• Enhanced transparency in stakeholder engagement processes</li>
-                          <li>• Integration of social responsibility metrics into business operations</li>
-                          <li>• Establishment of dedicated ombudsman offices</li>
-                        </ul>
+                  <p className="text-slate-600 leading-relaxed text-sm lg:text-base font-medium">
+                    {mainStory.excerpt}
+                  </p>
+                  
+                  <p className="text-slate-700 leading-relaxed text-sm lg:text-base">
+                    {mainStory.fullContent}
+                  </p>
+                  
+                  <p className="text-slate-600 leading-relaxed text-sm">
+                    {mainStory.additionalContent}
+                  </p>
+                  
+                  {/* Key Points */}
+                  <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
+                    <h4 className="font-semibold text-amber-800 mb-2">Key Highlights:</h4>
+                    <ul className="text-sm text-amber-700 space-y-1">
+                      <li>• Mandatory quarterly compliance audits for all listed companies</li>
+                      <li>• Enhanced transparency in stakeholder engagement processes</li>
+                      <li>• Integration of social responsibility metrics into business operations</li>
+                      <li>• Establishment of dedicated ombudsman offices</li>
+                    </ul>
+                  </div>
+                  
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {mainStory.tags.map((tag, index) => (
+                      <span key={index} className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full hover:bg-amber-100 hover:text-amber-700 transition-colors cursor-pointer">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  {/* Author & Stats */}
+                  <div className="space-y-4 pt-6 border-t border-slate-200">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
+                        <User className="w-6 h-6 text-white" />
                       </div>
-                      
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2">
-                        {mainStory.tags.map((tag, index) => (
-                          <span key={index} className="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full hover:bg-amber-100 hover:text-amber-700 transition-colors cursor-pointer">
-                            #{tag}
-                          </span>
-                        ))}
+                      <div className="flex-1">
+                        <p className="text-slate-900 font-semibold">{mainStory.author}</p>
+                        <p className="text-slate-500 text-sm">{mainStory.authorTitle}</p>
                       </div>
                     </div>
                     
-                    {/* Author & Stats */}
-                    <div className="space-y-4 pt-6 border-t border-slate-200">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
-                          <User className="w-6 h-6 text-white" />
+                    {/* Engagement Stats */}
+                    <div className="flex items-center justify-between text-sm text-slate-500">
+                      <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-1">
+                          <Heart className="w-4 h-4" />
+                          <span>{mainStory.likes}</span>
                         </div>
-                        <div className="flex-1">
-                          <p className="text-slate-900 font-semibold">{mainStory.author}</p>
-                          <p className="text-slate-500 text-sm">{mainStory.authorTitle}</p>
+                        <div className="flex items-center gap-1">
+                          <Share2 className="w-4 h-4" />
+                          <span>{mainStory.shares}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <MessageCircle className="w-4 h-4" />
+                          <span>{mainStory.comments}</span>
                         </div>
                       </div>
-                      
-                      {/* Engagement Stats */}
-                      <div className="flex items-center justify-between text-sm text-slate-500">
-                        <div className="flex items-center gap-4">
-                          <div className="flex items-center gap-1">
-                            <Heart className="w-4 h-4" />
-                            <span>{mainStory.likes}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Share2 className="w-4 h-4" />
-                            <span>{mainStory.shares}</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <MessageCircle className="w-4 h-4" />
-                            <span>{mainStory.comments}</span>
-                          </div>
-                        </div>
-                        <button className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 transition-colors group/btn bg-amber-50 hover:bg-amber-100 rounded-full px-4 py-2">
-                          Read Full Story
-                          <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                        </button>
-                      </div>
+                      <button className="inline-flex items-center text-amber-600 font-bold hover:text-amber-700 transition-colors group/btn bg-amber-50 hover:bg-amber-100 rounded-full px-4 py-2">
+                        Read Full Story
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </button>
                     </div>
                   </div>
                 </div>
