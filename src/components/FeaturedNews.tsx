@@ -200,7 +200,7 @@ const FeaturedNews = memo(() => {
                       {story.title}
                     </h3>
                     
-                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">
+                    <p className="text-slate-600 text-sm leading-relaxed line-clamp-2">
                       {story.excerpt}
                     </p>
                   </div>
