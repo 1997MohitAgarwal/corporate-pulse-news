@@ -54,15 +54,12 @@ const MarketWatch = memo(() => {
 
   return (
     <section id="market-watch" className="py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-indigo-50/40 to-purple-50/30 relative overflow-hidden">
-      {/* Floating background elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-xl animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-br from-emerald-400/10 to-teal-400/10 rounded-full blur-xl animate-pulse delay-700"></div>
       
       <div className="container mx-auto px-4 lg:px-6 relative">
-        {/* Enhanced Premium Header */}
         <div className="text-center mb-16 lg:mb-20">
           <div className="relative inline-block mb-8">
-            {/* Glowing background effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
             <div className="relative flex items-center gap-4 bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 text-white px-10 py-6 rounded-3xl shadow-2xl shadow-orange-500/30">
               <div className="flex items-center gap-2">
@@ -92,8 +89,7 @@ const MarketWatch = memo(() => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
-          {/* Live Market Indices */}
-          <Card className="h-[500px] overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 border-0 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30 backdrop-blur-sm animate-scale-in">
+          <Card className="h-[500px] overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-indigo-100 hover:border-indigo-400 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30 backdrop-blur-sm animate-scale-in">
             <div className="p-6 h-full flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 rounded-xl shadow-lg">
@@ -104,7 +100,7 @@ const MarketWatch = memo(() => {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
                 {marketData.map((item, index) => (
-                  <div key={index} className="p-4 bg-white/80 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-indigo-100 hover:border-indigo-300 backdrop-blur-sm hover:scale-105">
+                  <div key={index} className="p-4 bg-white/80 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-indigo-100 hover:border-indigo-300 backdrop-blur-sm">
                     <div className="flex items-center justify-between mb-2">
                       <span className="font-semibold text-slate-900 text-sm">{item.symbol}</span>
                       <div className={`flex items-center gap-1 text-sm font-bold ${
@@ -121,8 +117,7 @@ const MarketWatch = memo(() => {
             </div>
           </Card>
 
-          {/* Market Impact News with Custom Scrollbar - Fixed container overflow */}
-          <Card className="h-[500px] shadow-2xl hover:shadow-3xl transition-all duration-500 border-0 bg-gradient-to-br from-white via-emerald-50/50 to-teal-50/30 backdrop-blur-sm animate-scale-in delay-200">
+          <Card className="h-[500px] shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-emerald-100 hover:border-emerald-400 bg-gradient-to-br from-white via-emerald-50/50 to-teal-50/30 backdrop-blur-sm animate-scale-in delay-200">
             <div className="p-6 h-full flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-3 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-xl shadow-lg">
@@ -131,11 +126,10 @@ const MarketWatch = memo(() => {
                 <h3 className="text-2xl font-bold text-slate-900">Market Impact News</h3>
               </div>
               
-              {/* Fixed overflow container with proper scrollbar */}
               <div className="flex-1 overflow-hidden">
                 <div className="h-full overflow-y-auto space-y-4 pr-2 custom-scrollbar">
                   {marketNews.map((news, index) => (
-                    <div key={index} className="p-4 border border-slate-200 rounded-xl hover:border-emerald-400 hover:shadow-lg transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm hover:scale-[1.02] group overflow-hidden">
+                    <div key={index} className="p-4 border-2 border-slate-100 hover:border-emerald-300 rounded-xl hover:shadow-lg transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm group overflow-hidden">
                       <div className="flex items-start justify-between mb-2">
                         <Badge 
                           className={`text-xs font-semibold flex-shrink-0 ${
@@ -160,23 +154,25 @@ const MarketWatch = memo(() => {
         </div>
       </div>
 
-      <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 8px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: linear-gradient(to bottom, #f1f5f9, #e2e8f0);
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #10b981, #059669);
-          border-radius: 10px;
-          border: 2px solid #f1f5f9;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #059669, #047857);
-        }
-      `}</style>
+      <style>
+        {`
+          .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+          }
+          .custom-scrollbar::-webkit-scrollbar-track {
+            background: linear-gradient(to bottom, #f1f5f9, #e2e8f0);
+            border-radius: 10px;
+          }
+          .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #10b981, #059669);
+            border-radius: 10px;
+            border: 2px solid #f1f5f9;
+          }
+          .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #059669, #047857);
+          }
+        `}
+      </style>
     </section>
   );
 });

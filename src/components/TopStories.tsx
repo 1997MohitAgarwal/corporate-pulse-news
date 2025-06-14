@@ -56,7 +56,7 @@ const TopStories = () => {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-br from-white via-slate-50 to-white relative overflow-hidden will-change-transform">
+    <section className="py-24 bg-gradient-to-br from-white via-slate-50 to-white relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50/20 to-purple-50/20"></div>
       <div className="absolute top-20 right-20 w-32 h-32 bg-amber-200/10 rounded-full blur-2xl"></div>
       <div className="absolute bottom-20 left-20 w-40 h-40 bg-blue-200/10 rounded-full blur-2xl"></div>
@@ -75,14 +75,13 @@ const TopStories = () => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 items-stretch">
-          {/* Featured Story */}
           <div className="lg:col-span-2">
-            <Card className="group overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-300 border-0 rounded-3xl h-full flex flex-col transform hover:-translate-y-1 will-change-transform">
+            <Card className="group overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-slate-100 hover:border-blue-300 rounded-3xl h-full flex flex-col">
               <div className="relative overflow-hidden">
                 <OptimizedImage
                   src={featuredStory.image}
                   alt={featuredStory.title}
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-80 object-cover group-hover:brightness-110 transition-all duration-500"
                   width={800}
                   height={320}
                 />
@@ -120,15 +119,14 @@ const TopStories = () => {
             </Card>
           </div>
 
-          {/* Side Stories */}
           <div className="flex flex-col gap-6 h-full">
             {sideStories.map((story, index) => (
-              <Card key={index} className="group overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-300 border-0 rounded-2xl transform hover:-translate-y-1 flex-1 flex flex-col will-change-transform">
+              <Card key={index} className="group overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-slate-100 hover:border-blue-300 rounded-2xl flex-1 flex flex-col">
                 <div className="relative overflow-hidden">
                   <OptimizedImage
                     src={story.image}
                     alt={story.title}
-                    className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-40 object-cover group-hover:brightness-110 transition-all duration-500"
                     width={400}
                     height={160}
                   />

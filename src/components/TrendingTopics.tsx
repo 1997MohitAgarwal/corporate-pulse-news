@@ -39,10 +39,25 @@ const TrendingTopics = () => {
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa')] bg-cover bg-center opacity-5"></div>
       <div className="container mx-auto px-6 relative">
         <div className="text-center mb-16">
-          <Badge className="mb-6 bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 border-none px-6 py-3 text-lg font-semibold">
-            <TrendingUp className="w-5 h-5 mr-2" />
-            Hot Topics
-          </Badge>
+          <div className="relative inline-block mb-8">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
+            <div className="relative flex items-center gap-4 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 text-white px-10 py-6 rounded-3xl shadow-2xl shadow-orange-500/30">
+              <div className="flex items-center gap-2">
+                <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm">
+                  <TrendingUp className="w-7 h-7" />
+                </div>
+                <span className="w-6 h-6 text-yellow-200 animate-pulse">★</span>
+              </div>
+              <div className="text-center">
+                <span className="font-bold text-xl tracking-wide">TRENDING INTELLIGENCE HUB</span>
+                <div className="text-yellow-200 text-sm font-medium mt-1">Hot Topics & Analysis</div>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 text-yellow-200 animate-pulse delay-300">★</span>
+                <span className="w-6 h-6 animate-pulse delay-500">✨</span>
+              </div>
+            </div>
+          </div>
           <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
             Trending This Week
           </h2>
@@ -53,12 +68,12 @@ const TrendingTopics = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {trends.map((trend, index) => (
-            <Card key={index} className="group relative overflow-hidden bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/20 transition-all duration-500 transform hover:-translate-y-4 hover:scale-105 rounded-3xl">
+            <Card key={index} className="group relative overflow-hidden bg-white/10 backdrop-blur-lg border-2 border-white/20 hover:border-amber-400/60 transition-all duration-500 rounded-3xl">
               <div className="relative overflow-hidden">
                 <img
                   src={trend.image}
                   alt={trend.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-64 object-cover group-hover:brightness-110 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute top-4 left-4">
@@ -99,8 +114,7 @@ const TrendingTopics = () => {
                 </button>
               </div>
 
-              {/* Animated border effect */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-400/20 via-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-400/10 via-blue-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             </Card>
           ))}
         </div>

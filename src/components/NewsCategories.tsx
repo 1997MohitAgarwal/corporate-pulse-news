@@ -1,3 +1,4 @@
+
 import { useState, memo, useCallback, useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -96,7 +97,6 @@ const NewsCategories = memo(() => {
 
   return (
     <section id="news-categories" className="py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-orange-50/30 to-amber-50/20 relative overflow-hidden">
-      {/* Enhanced background decorations */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-orange-300/10 to-red-300/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-br from-amber-300/10 to-yellow-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -104,10 +104,8 @@ const NewsCategories = memo(() => {
       </div>
 
       <div className="container mx-auto px-4 lg:px-6 relative">
-        {/* Premium Section Header */}
         <div className="text-center mb-16 lg:mb-20">
           <div className="relative inline-block mb-8">
-            {/* Glowing background effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
             <div className="relative flex items-center gap-4 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 text-white px-10 py-6 rounded-3xl shadow-2xl shadow-orange-500/30">
               <div className="flex items-center gap-2">
@@ -136,16 +134,15 @@ const NewsCategories = memo(() => {
           </p>
         </div>
 
-        {/* Enhanced Category Tabs */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category, index) => (
             <button
               key={category}
               onClick={() => handleTabChange(category)}
-              className={`px-8 py-4 rounded-2xl font-bold transition-all duration-500 transform hover:scale-110 relative overflow-hidden group ${
+              className={`px-8 py-4 rounded-2xl font-bold transition-all duration-500 relative overflow-hidden group ${
                 activeTab === category
-                  ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-2xl shadow-orange-300/50 scale-105"
-                  : "bg-white/80 text-slate-700 hover:bg-white hover:text-orange-600 shadow-xl hover:shadow-2xl border-2 border-orange-100 hover:border-orange-300 backdrop-blur-sm"
+                  ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-2xl shadow-orange-300/50 border-2 border-orange-400"
+                  : "bg-white/80 text-slate-700 hover:bg-white hover:text-orange-600 shadow-xl hover:shadow-2xl border-2 border-orange-100 hover:border-orange-400 backdrop-blur-sm"
               }`}
               style={{
                 animationDelay: `${index * 100}ms`
@@ -162,15 +159,14 @@ const NewsCategories = memo(() => {
           ))}
         </div>
 
-        {/* Enhanced News Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {newsData[activeTab]?.map((article, index) => (
-            <Card key={index} className="group overflow-hidden bg-white/90 shadow-2xl hover:shadow-3xl transition-all duration-500 border-0 rounded-3xl transform hover:-translate-y-3 hover:rotate-1 backdrop-blur-sm">
+            <Card key={index} className="group overflow-hidden bg-white/90 shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-orange-100 hover:border-orange-400 rounded-3xl backdrop-blur-sm">
               <div className="relative overflow-hidden rounded-t-3xl">
                 <OptimizedImage
                   src={article.image}
                   alt={article.title}
-                  className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-56 object-cover group-hover:brightness-110 transition-all duration-700"
                   width={400}
                   height={224}
                 />
