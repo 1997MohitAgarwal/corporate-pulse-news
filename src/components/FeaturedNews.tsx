@@ -55,52 +55,69 @@ const FeaturedNews = memo(() => {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
-          {/* Left Side - Two Equal Height Cards */}
-          <div className="lg:col-span-2 grid gap-6 lg:gap-8">
+          {/* Left Side - Two Cards */}
+          <div className="lg:col-span-2 space-y-6 lg:space-y-8">
             {leftSideStories.map((article, index) => (
-              <Card key={index} className="group overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border-0 bg-white rounded-2xl">
-                <div className="grid md:grid-cols-5 h-full">
-                  {/* Image Section - Fixed Width */}
-                  <div className="md:col-span-2 relative overflow-hidden bg-slate-200">
+              <Card key={index} className="group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white rounded-3xl hover:scale-[1.02]">
+                <div className="grid md:grid-cols-5 min-h-[300px]">
+                  {/* Image Section */}
+                  <div className="md:col-span-2 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 z-10"></div>
                     <OptimizedImage
                       src={article.image}
                       alt={article.title}
-                      className="w-full h-48 md:h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      width={400}
-                      height={300}
+                      className="w-full h-64 md:h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      width={600}
+                      height={400}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                    <Badge className="absolute top-4 left-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md border-0 font-medium">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-20"></div>
+                    <Badge className="absolute top-6 left-6 z-30 bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg border-0 font-semibold text-sm px-4 py-2">
                       {article.category}
                     </Badge>
-                  </div>
-                  
-                  {/* Content Section */}
-                  <div className="md:col-span-3 p-6 lg:p-8 flex flex-col justify-between">
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-4 text-slate-500 text-sm">
-                        <div className="flex items-center gap-1">
+                    
+                    {/* Floating Stats */}
+                    <div className="absolute bottom-6 left-6 right-6 z-30">
+                      <div className="flex items-center gap-3 text-white/90 text-sm">
+                        <div className="flex items-center gap-1 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1.5">
                           <Clock className="w-4 h-4" />
                           {article.time}
                         </div>
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center gap-1 bg-black/40 backdrop-blur-sm rounded-full px-3 py-1.5">
                           <Eye className="w-4 h-4" />
                           {article.views}
                         </div>
                       </div>
+                    </div>
+                  </div>
+                  
+                  {/* Content Section */}
+                  <div className="md:col-span-3 p-8 lg:p-10 flex flex-col justify-between bg-gradient-to-br from-white to-slate-50/50">
+                    <div className="space-y-6">
+                      <div className="space-y-4">
+                        <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors leading-tight line-height-[1.2]">
+                          {article.title}
+                        </h3>
+                        
+                        <p className="text-slate-600 leading-relaxed text-lg line-clamp-4">
+                          {article.excerpt}
+                        </p>
+                      </div>
                       
-                      <h3 className="text-xl lg:text-2xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors leading-tight">
-                        {article.title}
-                      </h3>
-                      
-                      <p className="text-slate-600 leading-relaxed line-clamp-3">
-                        {article.excerpt}
-                      </p>
+                      {/* Author Info */}
+                      <div className="flex items-center gap-3 pt-4 border-t border-slate-200">
+                        <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                          <span className="text-white font-semibold text-sm">LT</span>
+                        </div>
+                        <div>
+                          <p className="text-slate-900 font-semibold text-sm">Legal Tribune</p>
+                          <p className="text-slate-500 text-xs">Corporate Law Expert</p>
+                        </div>
+                      </div>
                     </div>
                     
-                    <button className="inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors group/btn self-start mt-6">
+                    <button className="inline-flex items-center justify-center text-amber-600 font-bold hover:text-amber-700 transition-colors group/btn self-start mt-8 bg-amber-50 hover:bg-amber-100 rounded-full px-6 py-3">
                       Read Full Article
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
                   </div>
                 </div>
@@ -110,36 +127,41 @@ const FeaturedNews = memo(() => {
 
           {/* Right Side - Single Large Card */}
           <div className="h-full">
-            <Card className="group overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col border-0 bg-white rounded-2xl">
+            <Card className="group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col border-0 bg-white rounded-3xl hover:scale-[1.02]">
               {/* Image Header */}
-              <div className="relative overflow-hidden bg-slate-200">
+              <div className="relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-pink-600/20 z-10"></div>
                 <OptimizedImage
                   src={rightSideStory.image}
                   alt={rightSideStory.title}
-                  className="w-full h-56 lg:h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                  width={400}
-                  height={256}
+                  className="w-full h-80 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-700"
+                  width={600}
+                  height={400}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-20"></div>
                 
                 {/* Overlaid Content */}
-                <div className="absolute inset-0 p-6 flex flex-col justify-between">
+                <div className="absolute inset-0 p-8 flex flex-col justify-between z-30">
                   <div className="flex justify-between items-start">
-                    <Badge className="bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-md border-0 font-medium">
+                    <Badge className="bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg border-0 font-semibold text-sm px-4 py-2">
                       {rightSideStory.category}
                     </Badge>
-                    <div className="text-xs text-white/90 bg-black/30 backdrop-blur-sm rounded-full px-3 py-1">
+                    <div className="text-sm text-white/90 bg-black/40 backdrop-blur-sm rounded-full px-4 py-2 font-medium">
                       {rightSideStory.readTime}
                     </div>
                   </div>
                   
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-4 text-white/80 text-sm">
-                      <div className="flex items-center gap-1 bg-black/30 backdrop-blur-sm rounded-full px-3 py-1">
+                  <div className="space-y-4">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-white leading-tight">
+                      {rightSideStory.title}
+                    </h3>
+                    
+                    <div className="flex items-center gap-4 text-white/90 text-sm">
+                      <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-4 py-2">
                         <Clock className="w-4 h-4" />
                         {rightSideStory.time}
                       </div>
-                      <div className="flex items-center gap-1 bg-black/30 backdrop-blur-sm rounded-full px-3 py-1">
+                      <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm rounded-full px-4 py-2">
                         <Eye className="w-4 h-4" />
                         {rightSideStory.views}
                       </div>
@@ -149,16 +171,23 @@ const FeaturedNews = memo(() => {
               </div>
               
               {/* Content Section */}
-              <div className="p-6 lg:p-8 flex-grow flex flex-col space-y-4">
-                <h3 className="text-xl lg:text-2xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors leading-tight">
-                  {rightSideStory.title}
-                </h3>
-                
-                <p className="text-slate-600 leading-relaxed flex-grow">
+              <div className="p-8 lg:p-10 flex-grow flex flex-col space-y-6 bg-gradient-to-br from-white to-slate-50/50">
+                <p className="text-slate-600 leading-relaxed text-lg flex-grow">
                   {rightSideStory.excerpt}
                 </p>
                 
-                <button className="inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors group/btn self-start mt-auto">
+                {/* Author Info */}
+                <div className="flex items-center gap-3 pt-4 border-t border-slate-200">
+                  <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
+                    <span className="text-white font-semibold text-sm">SC</span>
+                  </div>
+                  <div>
+                    <p className="text-slate-900 font-semibold text-sm">Supreme Court Reporter</p>
+                    <p className="text-slate-500 text-xs">Legal Correspondent</p>
+                  </div>
+                </div>
+                
+                <button className="inline-flex items-center justify-center text-amber-600 font-bold hover:text-amber-700 transition-colors group/btn self-start mt-auto bg-amber-50 hover:bg-amber-100 rounded-full px-6 py-3">
                   Read Full Story
                   <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
