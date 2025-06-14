@@ -43,7 +43,7 @@ const MarketWatch = memo(() => {
   ], []);
 
   return (
-    <section id="market-watch" className="py-16 lg:py-20 bg-gradient-to-br from-white via-orange-50/30 to-slate-50">
+    <section id="market-watch" className="py-16 lg:py-20 bg-gradient-to-br from-slate-50 via-orange-50/20 to-blue-50/30">
       <div className="container mx-auto px-4 lg:px-6">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
@@ -63,7 +63,7 @@ const MarketWatch = memo(() => {
 
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Live Market Indices */}
-          <Card className="h-[500px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-white to-orange-50/50">
+          <Card className="h-[500px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-white via-orange-50/30 to-slate-50/50">
             <div className="p-6 h-full flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg">
@@ -91,19 +91,20 @@ const MarketWatch = memo(() => {
             </div>
           </Card>
 
-          {/* Market Impact News */}
-          <Card className="h-[500px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-white to-slate-50">
+          {/* Market Impact News - Redesigned without scrollbar */}
+          <Card className="h-[500px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border-0 bg-gradient-to-br from-blue-50 via-indigo-50/50 to-purple-50/30">
             <div className="p-6 h-full flex flex-col">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg">
+                <div className="p-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg">
                   <Activity className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900">Market Impact News</h3>
               </div>
               
-              <div className="space-y-4 flex-1 overflow-y-auto">
+              {/* Fixed height container without scrollbar */}
+              <div className="flex-1 flex flex-col justify-between gap-3">
                 {marketNews.map((news, index) => (
-                  <div key={index} className="p-4 border border-slate-200 rounded-xl hover:border-orange-300 hover:shadow-md transition-all duration-200 cursor-pointer bg-white">
+                  <div key={index} className="p-3 border border-slate-200 rounded-xl hover:border-orange-300 hover:shadow-md transition-all duration-200 cursor-pointer bg-white/80 backdrop-blur-sm flex-1">
                     <div className="flex items-start justify-between mb-2">
                       <Badge 
                         className={`text-xs font-semibold ${
@@ -114,9 +115,9 @@ const MarketWatch = memo(() => {
                       >
                         {news.impact} Impact
                       </Badge>
-                      <span className="text-slate-500 text-sm">{news.time}</span>
+                      <span className="text-slate-500 text-xs">{news.time}</span>
                     </div>
-                    <h4 className="font-semibold text-slate-900 text-sm leading-relaxed hover:text-orange-600 transition-colors">
+                    <h4 className="font-semibold text-slate-900 text-sm leading-relaxed hover:text-orange-600 transition-colors line-clamp-2">
                       {news.title}
                     </h4>
                   </div>

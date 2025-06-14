@@ -15,15 +15,15 @@ const HeroSection = memo(() => {
   }, []);
 
   return (
-    <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-orange-900 text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71')] bg-cover bg-center opacity-10"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-red-500/10"></div>
+    <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3')] bg-cover bg-center opacity-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-indigo-500/10"></div>
       
       <div className="container mx-auto px-4 lg:px-6 py-16 lg:py-20 relative">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Main Content */}
           <div className="space-y-6 lg:space-y-8">
-            <Badge className="bg-orange-500/20 text-orange-400 border-orange-500/30 shadow-lg">
+            <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30 shadow-lg">
               <TrendingUp className="w-4 h-4 mr-2" />
               Live Updates from India
             </Badge>
@@ -32,7 +32,7 @@ const HeroSection = memo(() => {
               <span className="bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
                 Corporate News
               </span>
-              <span className="block bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
                 That Matters
               </span>
             </h1>
@@ -45,7 +45,7 @@ const HeroSection = memo(() => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white font-semibold shadow-xl"
+                className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-semibold shadow-xl"
                 onClick={handleExploreNews}
               >
                 <Search className="w-5 h-5 mr-2" />
@@ -54,7 +54,7 @@ const HeroSection = memo(() => {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border-white/20 text-white hover:bg-white/10 hover:text-orange-400 transition-colors"
+                className="border-white/20 text-white hover:bg-white/10 hover:text-blue-400 transition-colors"
                 onClick={handleMarketAnalysis}
               >
                 Market Analysis
@@ -94,7 +94,7 @@ const HeroSection = memo(() => {
                 <p className="text-slate-300 mb-4 text-sm lg:text-base line-clamp-2">
                   Major policy shift expected to impact corporate borrowing rates and digital payment systems...
                 </p>
-                <Button variant="ghost" className="text-orange-400 hover:text-orange-300 p-0 hover:bg-transparent">
+                <Button variant="ghost" className="text-blue-400 hover:text-blue-300 p-0 hover:bg-transparent">
                   Read Full Story →
                 </Button>
               </div>
