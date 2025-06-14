@@ -10,8 +10,8 @@ const FeaturedNews = memo(() => {
       id: 1,
       title: "Supreme Court Ruling on Corporate Liability Transforms Business Landscape",
       excerpt: "Landmark decision affects how Indian corporations handle class action lawsuits and regulatory compliance across all major industries.",
-      fullContent: "This groundbreaking Supreme Court judgment establishes new precedents for corporate accountability, requiring enhanced transparency measures and stricter compliance protocols for all listed companies. The ruling mandates comprehensive disclosure of environmental impact assessments, detailed reporting of stakeholder engagement processes, and implementation of robust grievance redressal mechanisms. Companies must now maintain detailed records of all regulatory interactions and demonstrate proactive compliance measures. The judgment specifically addresses gaps in existing corporate governance frameworks and introduces mandatory quarterly compliance audits. Industry experts predict this will lead to significant restructuring of legal departments across major corporations, with increased focus on preventive legal strategies rather than reactive compliance measures.",
-      additionalContent: "The Supreme Court's five-judge bench, led by Chief Justice, emphasized that corporate entities can no longer rely solely on traditional compliance frameworks. The new standards require integration of social responsibility metrics into core business operations, mandatory third-party verification of compliance claims, and establishment of dedicated ombudsman offices for stakeholder grievances. Legal practitioners note that this ruling will particularly impact multinational corporations operating in India, as they must now align global practices with these enhanced domestic requirements.",
+      fullContent: "The Supreme Court judgment establishes new precedents for corporate accountability, requiring enhanced transparency measures and stricter compliance protocols for all listed companies. The ruling mandates comprehensive disclosure of environmental impact assessments, detailed reporting of stakeholder engagement processes, and implementation of robust grievance redressal mechanisms. Companies must now maintain detailed records of all regulatory interactions and demonstrate proactive compliance measures. The judgment specifically addresses gaps in existing corporate governance frameworks and introduces mandatory quarterly compliance audits. Industry experts predict this will lead to significant restructuring of legal departments across major corporations, with increased focus on preventive legal strategies rather than reactive compliance measures.",
+      additionalContent: "The Supreme Court's five-judge bench emphasized that corporate entities can no longer rely solely on traditional compliance frameworks. The new standards require integration of social responsibility metrics into core business operations, mandatory third-party verification of compliance claims, and establishment of dedicated ombudsman offices for stakeholder grievances. Legal practitioners note that this ruling will particularly impact multinational corporations operating in India, as they must now align global practices with these enhanced domestic requirements.",
       image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=75",
       category: "Legal",
       subCategory: "Supreme Court",
@@ -31,7 +31,7 @@ const FeaturedNews = memo(() => {
     {
       id: 2,
       title: "Global Supply Chain Disruption Impact on Indian Corporate Strategies",
-      excerpt: "Comprehensive analysis of how international trade disruptions are reshaping corporate legal strategies.",
+      excerpt: "Analysis of how international trade disruptions are reshaping corporate legal strategies.",
       image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=600&q=75",
       category: "Global Trade",
       time: "3 hours ago",
@@ -217,8 +217,8 @@ const FeaturedNews = memo(() => {
           <div className="space-y-6">
             {sideStories.map((story) => (
               <Card key={story.id} className="group overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-0 bg-white rounded-2xl hover:scale-[1.02]">
-                {/* Image Section */}
-                <div className="relative h-48 overflow-hidden">
+                {/* Image Section - Made consistent height */}
+                <div className="relative h-40 overflow-hidden">
                   <img
                     src={story.image}
                     alt={story.title}
