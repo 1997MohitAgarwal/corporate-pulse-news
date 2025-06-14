@@ -3,9 +3,9 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import BreakingNews from "@/components/BreakingNews";
 import FeaturedNews from "@/components/FeaturedNews";
+import NewsCategories from "@/components/NewsCategories";
+import TopStories from "@/components/TopStories";
 import MarketWatch from "@/components/MarketWatch";
-import LegalInsights from "@/components/LegalInsights";
-import NewsletterCTA from "@/components/NewsletterCTA";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -15,9 +15,9 @@ const Index = () => {
       <HeroSection />
       <BreakingNews />
       <FeaturedNews />
+      <TopStories />
+      <NewsCategories />
       <MarketWatch />
-      <LegalInsights />
-      <NewsletterCTA />
       <Footer />
     </div>
   );
