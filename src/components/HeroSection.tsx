@@ -92,7 +92,7 @@ const HeroSection = memo(() => {
           </div>
 
           {/* News Preview Card */}
-          <div className="relative px-6 sm:px-0">
+          <div className="relative">
             <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-amber-500/10 rounded-3xl"></div>
               
@@ -170,10 +170,10 @@ const HeroSection = memo(() => {
             </div>
             
             {/* Floating News Elements */}
-            <div className="absolute -top-6 -right-12 w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-xl animate-bounce">
+            <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-xl animate-bounce">
               <TrendingUp className="w-6 h-6 text-white" />
             </div>
-            <div className="absolute -bottom-6 -left-12 w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-xl">
+            <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-xl">
               <Globe className="w-6 h-6 text-white" />
             </div>
           </div>
