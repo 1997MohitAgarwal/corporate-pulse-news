@@ -14,7 +14,6 @@ const MarketWatch = memo(() => {
       change: "+1.2%", 
       trend: "up", 
       icon: BarChart3,
-      color: "from-blue-500 to-cyan-500"
     },
     { 
       symbol: "SENSEX", 
@@ -22,7 +21,6 @@ const MarketWatch = memo(() => {
       change: "+0.8%", 
       trend: "up", 
       icon: TrendingUpIcon,
-      color: "from-emerald-500 to-teal-500"
     },
     { 
       symbol: "BANKNIFTY", 
@@ -30,7 +28,6 @@ const MarketWatch = memo(() => {
       change: "-0.3%", 
       trend: "down", 
       icon: Landmark,
-      color: "from-red-500 to-pink-500"
     },
     { 
       symbol: "GOLD", 
@@ -38,7 +35,6 @@ const MarketWatch = memo(() => {
       change: "+0.5%", 
       trend: "up", 
       icon: Coins,
-      color: "from-yellow-500 to-orange-500"
     },
     { 
       symbol: "CRUDE OIL", 
@@ -46,7 +42,6 @@ const MarketWatch = memo(() => {
       change: "-1.1%", 
       trend: "down", 
       icon: Fuel,
-      color: "from-purple-500 to-violet-500"
     },
     { 
       symbol: "USD/INR", 
@@ -54,17 +49,16 @@ const MarketWatch = memo(() => {
       change: "+0.3%", 
       trend: "up", 
       icon: DollarSign,
-      color: "from-indigo-500 to-blue-500"
     }
   ], []);
 
   const topSectors = useMemo(() => [
-    { name: "Technology", change: "+3.2%", trend: "up", icon: Cpu, color: "from-blue-500 to-cyan-500" },
-    { name: "Banking", change: "+2.1%", trend: "up", icon: Landmark, color: "from-emerald-500 to-teal-500" },
-    { name: "Pharma", change: "+1.8%", trend: "up", icon: Pill, color: "from-purple-500 to-violet-500" },
-    { name: "Auto", change: "+1.5%", trend: "up", icon: Car, color: "from-orange-500 to-red-500" },
-    { name: "FMCG", change: "-0.5%", trend: "down", icon: ShoppingCart, color: "from-pink-500 to-rose-500" },
-    { name: "Metal", change: "-1.2%", trend: "down", icon: Factory, color: "from-slate-500 to-gray-500" }
+    { name: "Technology", change: "+3.2%", trend: "up", icon: Cpu },
+    { name: "Banking", change: "+2.1%", trend: "up", icon: Landmark },
+    { name: "Pharma", change: "+1.8%", trend: "up", icon: Pill },
+    { name: "Auto", change: "+1.5%", trend: "up", icon: Car },
+    { name: "FMCG", change: "-0.5%", trend: "down", icon: ShoppingCart },
+    { name: "Metal", change: "-1.2%", trend: "down", icon: Factory }
   ], []);
 
   const sectorStocks = useMemo(() => ({
@@ -115,108 +109,104 @@ const MarketWatch = memo(() => {
   const marketNews = useMemo(() => [
     {
       title: "RBI Maintains Repo Rate at 6.5% Amid Inflation Concerns",
-      time: "1h",
+      time: "1h ago",
       impact: "High",
       category: "Policy"
     },
     {
       title: "IT Stocks Rally on AI Investment Surge in India",
-      time: "2h",
+      time: "2h ago",
       impact: "Medium",
       category: "Technology"
     },
     {
       title: "Banking Sector Shows Strong Q4 Performance",
-      time: "3h",
+      time: "3h ago",
       impact: "High",
       category: "Banking"
     },
     {
       title: "Auto Sector Faces Supply Chain Challenges",
-      time: "4h",
+      time: "4h ago",
       impact: "Medium",
       category: "Auto"
     },
     {
       title: "Pharma Exports Hit Record High This Quarter",
-      time: "5h",
+      time: "5h ago",
       impact: "Medium",
       category: "Pharma"
     },
     {
       title: "Metal Prices Decline on Global Demand Concerns",
-      time: "6h",
+      time: "6h ago",
       impact: "High",
       category: "Metal"
     }
   ], []);
 
   return (
-    <section id="market-watch" className="py-16 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/20 to-orange-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 rounded-full blur-2xl animate-pulse delay-500"></div>
+    <section id="market-watch" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/40 relative overflow-hidden">
+      {/* Subtle Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-64 h-64 bg-blue-400/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-indigo-400/5 rounded-full blur-3xl"></div>
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl mb-8 shadow-2xl transform hover:scale-105 transition-all duration-300">
-            <Sparkles className="w-6 h-6" />
-            <span className="text-xl font-bold tracking-wide">LIVE MARKET INTELLIGENCE</span>
-            <BarChart3 className="w-6 h-6" />
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-full mb-6 shadow-lg">
+            <Activity className="w-5 h-5" />
+            <span className="font-semibold">Live Market Data</span>
           </div>
           
-          <h2 className="text-5xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent">
             Market Watch
           </h2>
           
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Real-time market data with advanced analytics and insights
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Real-time market insights and analytics at your fingertips
           </p>
         </div>
 
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {/* Market Indices */}
-          <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl overflow-hidden hover:scale-[1.02] transition-all duration-500 shadow-2xl">
-            <div className="p-8">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl">
-                  <BarChart3 className="w-6 h-6 text-white" />
+          <Card className="bg-white/70 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300 h-fit">
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-blue-100 rounded-lg">
+                  <BarChart3 className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white">Market Indices</h3>
-                  <p className="text-gray-300">Live Performance</p>
+                  <h3 className="text-lg font-semibold text-gray-900">Market Indices</h3>
+                  <p className="text-sm text-gray-500">Live Performance</p>
                 </div>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {marketData.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
-                    <div key={index} className="group p-4 rounded-2xl bg-gradient-to-r from-white/10 to-white/5 border border-white/10 hover:border-white/30 transition-all duration-300 transform hover:scale-105">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className={`p-2 rounded-lg bg-gradient-to-r ${item.color}`}>
-                            <IconComponent className="w-4 h-4 text-white" />
-                          </div>
-                          <div>
-                            <span className="font-semibold text-white text-sm">{item.symbol}</span>
-                            <div className="text-lg font-bold text-white">{item.value}</div>
-                          </div>
+                    <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-gray-50/50 hover:bg-gray-100/50 transition-colors duration-200">
+                      <div className="flex items-center gap-3">
+                        <div className="p-1.5 rounded-md bg-white shadow-sm">
+                          <IconComponent className="w-4 h-4 text-gray-600" />
                         </div>
-                        
-                        <div className={`flex items-center gap-1 px-3 py-1 rounded-full text-sm font-bold ${
-                          item.trend === 'up' 
-                            ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white' 
-                            : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
-                        }`}>
-                          {item.trend === 'up' ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
-                          <span>{item.change}</span>
+                        <div>
+                          <span className="font-medium text-gray-900 text-sm">{item.symbol}</span>
+                          <div className="text-base font-semibold text-gray-900">{item.value}</div>
                         </div>
+                      </div>
+                      
+                      <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-sm font-medium ${
+                        item.trend === 'up' 
+                          ? 'bg-emerald-100 text-emerald-700' 
+                          : 'bg-red-100 text-red-700'
+                      }`}>
+                        {item.trend === 'up' ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
+                        <span>{item.change}</span>
                       </div>
                     </div>
                   );
@@ -226,47 +216,45 @@ const MarketWatch = memo(() => {
           </Card>
 
           {/* Top Sectors */}
-          <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl overflow-hidden hover:scale-[1.02] transition-all duration-500 shadow-2xl">
-            <div className="p-8">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl">
-                  <Zap className="w-6 h-6 text-white" />
+          <Card className="bg-white/70 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300 h-fit">
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-indigo-100 rounded-lg">
+                  <Zap className="w-5 h-5 text-indigo-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white">Top Sectors</h3>
-                  <p className="text-gray-300">Market Leaders</p>
+                  <h3 className="text-lg font-semibold text-gray-900">Top Sectors</h3>
+                  <p className="text-sm text-gray-500">Market Leaders</p>
                 </div>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {topSectors.map((sector, index) => {
                   const IconComponent = sector.icon;
                   return (
                     <div 
                       key={index} 
-                      className={`group p-4 rounded-2xl cursor-pointer transition-all duration-300 transform hover:scale-105 ${
+                      className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all duration-200 ${
                         selectedSector === sector.name
-                          ? 'bg-gradient-to-r from-purple-500/30 to-pink-500/30 border-2 border-purple-400'
-                          : 'bg-gradient-to-r from-white/10 to-white/5 border border-white/10 hover:border-white/30'
+                          ? 'bg-indigo-50 border border-indigo-200'
+                          : 'bg-gray-50/50 hover:bg-gray-100/50'
                       }`}
                       onClick={() => setSelectedSector(sector.name)}
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className={`p-2 rounded-lg bg-gradient-to-r ${sector.color}`}>
-                            <IconComponent className="w-4 h-4 text-white" />
-                          </div>
-                          <span className="font-semibold text-white">{sector.name}</span>
+                      <div className="flex items-center gap-3">
+                        <div className="p-1.5 rounded-md bg-white shadow-sm">
+                          <IconComponent className="w-4 h-4 text-gray-600" />
                         </div>
-                        
-                        <div className={`flex items-center gap-1 px-3 py-1 rounded-full text-sm font-bold ${
-                          sector.trend === 'up'
-                            ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white'
-                            : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
-                        }`}>
-                          {sector.trend === 'up' ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
-                          <span>{sector.change}</span>
-                        </div>
+                        <span className="font-medium text-gray-900 text-sm">{sector.name}</span>
+                      </div>
+                      
+                      <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-sm font-medium ${
+                        sector.trend === 'up'
+                          ? 'bg-emerald-100 text-emerald-700'
+                          : 'bg-red-100 text-red-700'
+                      }`}>
+                        {sector.trend === 'up' ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
+                        <span>{sector.change}</span>
                       </div>
                     </div>
                   );
@@ -276,42 +264,40 @@ const MarketWatch = memo(() => {
           </Card>
 
           {/* Trending Stocks */}
-          <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl overflow-hidden hover:scale-[1.02] transition-all duration-500 shadow-2xl">
-            <div className="p-8">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-3 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl">
-                  <Star className="w-6 h-6 text-white" />
+          <Card className="bg-white/70 backdrop-blur-sm border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300 h-fit">
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-emerald-100 rounded-lg">
+                  <Star className="w-5 h-5 text-emerald-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white">Trending Stocks</h3>
-                  <p className="text-gray-300">{selectedSector} Sector</p>
+                  <h3 className="text-lg font-semibold text-gray-900">Trending Stocks</h3>
+                  <p className="text-sm text-gray-500">{selectedSector} Sector</p>
                 </div>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {sectorStocks[selectedSector]?.map((stock, index) => (
-                  <div key={index} className="group p-4 rounded-2xl bg-gradient-to-r from-white/10 to-white/5 border border-white/10 hover:border-white/30 transition-all duration-300 cursor-pointer transform hover:scale-105">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-xl font-bold flex items-center justify-center text-sm ${
-                          stock.trend === 'up' ? 'bg-emerald-500 text-white' : 'bg-red-500 text-white'
-                        }`}>
-                          {stock.name.charAt(0)}
-                        </div>
-                        <div>
-                          <span className="font-semibold text-white block">{stock.name}</span>
-                          <div className="text-sm text-gray-300">{stock.price}</div>
-                        </div>
-                      </div>
-                      
-                      <div className={`flex items-center gap-1 px-3 py-1 rounded-full text-sm font-bold ${
-                        stock.trend === 'up'
-                          ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white'
-                          : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
+                  <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-gray-50/50 hover:bg-gray-100/50 transition-colors duration-200 cursor-pointer">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-8 h-8 rounded-lg font-semibold flex items-center justify-center text-xs text-white ${
+                        stock.trend === 'up' ? 'bg-emerald-500' : 'bg-red-500'
                       }`}>
-                        {stock.trend === 'up' ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
-                        <span>{stock.change}</span>
+                        {stock.name.charAt(0)}
                       </div>
+                      <div>
+                        <span className="font-medium text-gray-900 text-sm block">{stock.name}</span>
+                        <div className="text-xs text-gray-500">{stock.price}</div>
+                      </div>
+                    </div>
+                    
+                    <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-sm font-medium ${
+                      stock.trend === 'up'
+                        ? 'bg-emerald-100 text-emerald-700'
+                        : 'bg-red-100 text-red-700'
+                    }`}>
+                      {stock.trend === 'up' ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
+                      <span>{stock.change}</span>
                     </div>
                   </div>
                 ))}
@@ -320,77 +306,73 @@ const MarketWatch = memo(() => {
           </Card>
         </div>
 
-        {/* Market News Carousel */}
-        <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl overflow-hidden shadow-2xl">
-          <div className="p-8">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl">
-                <Activity className="w-6 h-6 text-white" />
+        {/* Market News */}
+        <Card className="bg-white/70 backdrop-blur-sm border border-gray-200/50 shadow-lg">
+          <div className="p-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 bg-orange-100 rounded-lg">
+                <Activity className="w-5 h-5 text-orange-600" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white">Market Impact News</h3>
-                <p className="text-gray-300">Latest Updates</p>
+                <h3 className="text-lg font-semibold text-gray-900">Market News</h3>
+                <p className="text-sm text-gray-500">Latest Updates</p>
               </div>
             </div>
             
-            {/* Fast Moving News Carousel */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-800/50 to-gray-800/50 p-6">
-              <div className="flex animate-scroll-fast gap-8">
+            {/* Moving News Carousel */}
+            <div className="relative overflow-hidden rounded-lg bg-gradient-to-r from-gray-50 to-slate-50 p-4">
+              <div className="flex animate-scroll gap-6">
                 {/* First set */}
                 {marketNews.map((news, index) => (
-                  <div key={`first-${index}`} className="flex-shrink-0 w-80 group p-6 border border-white/20 hover:border-white/40 rounded-2xl hover:shadow-xl transition-all duration-300 cursor-pointer bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm transform hover:scale-105">
-                    <div className="flex items-start justify-between mb-4 gap-3">
+                  <div key={`first-${index}`} className="flex-shrink-0 w-72 group p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer border border-gray-100">
+                    <div className="flex items-start justify-between mb-3 gap-2">
                       <Badge 
-                        className={`text-xs font-semibold flex-shrink-0 px-3 py-1 border-0 ${
+                        className={`text-xs font-medium px-2 py-1 ${
                           news.impact === 'High' 
-                            ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white' 
-                            : 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white'
+                            ? 'bg-red-100 text-red-700 hover:bg-red-100' 
+                            : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-100'
                         }`}
                       >
-                        {news.impact} Impact
+                        {news.impact}
                       </Badge>
-                      <div className="flex items-center gap-2 text-gray-300 text-xs">
+                      <div className="flex items-center gap-1 text-gray-400 text-xs">
                         <Eye className="w-3 h-3" />
                         <span>{news.time}</span>
                       </div>
                     </div>
-                    <h4 className="font-bold text-white text-lg leading-relaxed group-hover:text-blue-300 transition-colors line-clamp-3">
+                    <h4 className="font-medium text-gray-900 text-sm leading-relaxed group-hover:text-blue-600 transition-colors line-clamp-3 mb-2">
                       {news.title}
                     </h4>
-                    <div className="mt-3">
-                      <Badge className="text-xs bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
-                        {news.category}
-                      </Badge>
-                    </div>
+                    <Badge className="text-xs bg-blue-100 text-blue-700 hover:bg-blue-100">
+                      {news.category}
+                    </Badge>
                   </div>
                 ))}
                 
                 {/* Second set for seamless loop */}
                 {marketNews.map((news, index) => (
-                  <div key={`second-${index}`} className="flex-shrink-0 w-80 group p-6 border border-white/20 hover:border-white/40 rounded-2xl hover:shadow-xl transition-all duration-300 cursor-pointer bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm transform hover:scale-105">
-                    <div className="flex items-start justify-between mb-4 gap-3">
+                  <div key={`second-${index}`} className="flex-shrink-0 w-72 group p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer border border-gray-100">
+                    <div className="flex items-start justify-between mb-3 gap-2">
                       <Badge 
-                        className={`text-xs font-semibold flex-shrink-0 px-3 py-1 border-0 ${
+                        className={`text-xs font-medium px-2 py-1 ${
                           news.impact === 'High' 
-                            ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white' 
-                            : 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white'
+                            ? 'bg-red-100 text-red-700 hover:bg-red-100' 
+                            : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-100'
                         }`}
                       >
-                        {news.impact} Impact
+                        {news.impact}
                       </Badge>
-                      <div className="flex items-center gap-2 text-gray-300 text-xs">
+                      <div className="flex items-center gap-1 text-gray-400 text-xs">
                         <Eye className="w-3 h-3" />
                         <span>{news.time}</span>
                       </div>
                     </div>
-                    <h4 className="font-bold text-white text-lg leading-relaxed group-hover:text-blue-300 transition-colors line-clamp-3">
+                    <h4 className="font-medium text-gray-900 text-sm leading-relaxed group-hover:text-blue-600 transition-colors line-clamp-3 mb-2">
                       {news.title}
                     </h4>
-                    <div className="mt-3">
-                      <Badge className="text-xs bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
-                        {news.category}
-                      </Badge>
-                    </div>
+                    <Badge className="text-xs bg-blue-100 text-blue-700 hover:bg-blue-100">
+                      {news.category}
+                    </Badge>
                   </div>
                 ))}
               </div>
