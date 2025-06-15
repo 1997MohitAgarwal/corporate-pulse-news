@@ -1,9 +1,8 @@
-
 import { Scale, Mail, Phone, MapPin, Heart, Users, Award } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+    <footer id="contact" className="bg-gradient-to-r from-slate-900 via-slate-800 to-blue-900 text-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-20">
         <div className="w-full h-full bg-gradient-to-r from-orange-500/5 to-red-500/5"></div>
       </div>
