@@ -1,5 +1,3 @@
-
-
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -64,40 +62,52 @@ const MarketWatch = memo(() => {
 
   const sectorStocks = useMemo(() => ({
     "Technology": [
-      { name: "TCS", price: "₹3,892", change: "+2.8%", trend: "up" },
-      { name: "Infosys", price: "₹1,567", change: "+3.1%", trend: "up" },
-      { name: "Wipro", price: "₹456", change: "+1.9%", trend: "up" },
-      { name: "HCL Tech", price: "₹1,234", change: "+2.5%", trend: "up" }
+      { name: "TCS", price: "₹3,892", change: "+2.8%", trend: "up", logo: "https://logo.clearbit.com/tcs.com" },
+      { name: "Infosys", price: "₹1,567", change: "+3.1%", trend: "up", logo: "https://logo.clearbit.com/infosys.com" },
+      { name: "Wipro", price: "₹456", change: "+1.9%", trend: "up", logo: "https://logo.clearbit.com/wipro.com" },
+      { name: "HCL Tech", price: "₹1,234", change: "+2.5%", trend: "up", logo: "https://logo.clearbit.com/hcltech.com" },
+      { name: "Tech Mahindra", price: "₹1,089", change: "+2.1%", trend: "up", logo: "https://logo.clearbit.com/techmahindra.com" },
+      { name: "LTI Mindtree", price: "₹4,567", change: "+1.7%", trend: "up", logo: "https://logo.clearbit.com/ltimindtree.com" }
     ],
     "Banking": [
-      { name: "HDFC Bank", price: "₹1,678", change: "+1.8%", trend: "up" },
-      { name: "ICICI Bank", price: "₹987", change: "+2.2%", trend: "up" },
-      { name: "SBI", price: "₹612", change: "+1.5%", trend: "up" },
-      { name: "Axis Bank", price: "₹1,123", change: "+1.9%", trend: "up" }
+      { name: "HDFC Bank", price: "₹1,678", change: "+1.8%", trend: "up", logo: "https://logo.clearbit.com/hdfcbank.com" },
+      { name: "ICICI Bank", price: "₹987", change: "+2.2%", trend: "up", logo: "https://logo.clearbit.com/icicibank.com" },
+      { name: "SBI", price: "₹612", change: "+1.5%", trend: "up", logo: "https://logo.clearbit.com/sbi.co.in" },
+      { name: "Axis Bank", price: "₹1,123", change: "+1.9%", trend: "up", logo: "https://logo.clearbit.com/axisbank.com" },
+      { name: "Kotak Bank", price: "₹1,845", change: "+2.3%", trend: "up", logo: "https://logo.clearbit.com/kotak.com" },
+      { name: "IndusInd Bank", price: "₹1,256", change: "+1.4%", trend: "up", logo: "https://logo.clearbit.com/indusind.com" }
     ],
     "Pharma": [
-      { name: "Sun Pharma", price: "₹1,245", change: "+2.1%", trend: "up" },
-      { name: "Dr. Reddy's", price: "₹4,567", change: "+1.7%", trend: "up" },
-      { name: "Cipla", price: "₹1,089", change: "+2.3%", trend: "up" },
-      { name: "Aurobindo", price: "₹765", change: "+1.4%", trend: "up" }
+      { name: "Sun Pharma", price: "₹1,245", change: "+2.1%", trend: "up", logo: "https://logo.clearbit.com/sunpharma.com" },
+      { name: "Dr. Reddy's", price: "₹4,567", change: "+1.7%", trend: "up", logo: "https://logo.clearbit.com/drreddys.com" },
+      { name: "Cipla", price: "₹1,089", change: "+2.3%", trend: "up", logo: "https://logo.clearbit.com/cipla.com" },
+      { name: "Aurobindo", price: "₹765", change: "+1.4%", trend: "up", logo: "https://logo.clearbit.com/aurobindo.com" },
+      { name: "Lupin", price: "₹891", change: "+1.9%", trend: "up", logo: "https://logo.clearbit.com/lupin.com" },
+      { name: "Biocon", price: "₹267", change: "+2.5%", trend: "up", logo: "https://logo.clearbit.com/biocon.com" }
     ],
     "Auto": [
-      { name: "Maruti", price: "₹10,234", change: "+1.2%", trend: "up" },
-      { name: "Tata Motors", price: "₹567", change: "+2.1%", trend: "up" },
-      { name: "Bajaj Auto", price: "₹4,567", change: "+0.8%", trend: "up" },
-      { name: "Hero Moto", price: "₹2,890", change: "+1.6%", trend: "up" }
+      { name: "Maruti", price: "₹10,234", change: "+1.2%", trend: "up", logo: "https://logo.clearbit.com/marutisuzuki.com" },
+      { name: "Tata Motors", price: "₹567", change: "+2.1%", trend: "up", logo: "https://logo.clearbit.com/tatamotors.com" },
+      { name: "Bajaj Auto", price: "₹4,567", change: "+0.8%", trend: "up", logo: "https://logo.clearbit.com/bajajauto.com" },
+      { name: "Hero Moto", price: "₹2,890", change: "+1.6%", trend: "up", logo: "https://logo.clearbit.com/heromotocorp.com" },
+      { name: "M&M", price: "₹1,456", change: "+1.3%", trend: "up", logo: "https://logo.clearbit.com/mahindra.com" },
+      { name: "TVS Motor", price: "₹1,234", change: "+2.0%", trend: "up", logo: "https://logo.clearbit.com/tvsmotor.com" }
     ],
     "FMCG": [
-      { name: "HUL", price: "₹2,456", change: "-0.3%", trend: "down" },
-      { name: "ITC", price: "₹456", change: "-0.7%", trend: "down" },
-      { name: "Nestle", price: "₹22,345", change: "-0.2%", trend: "down" },
-      { name: "Britannia", price: "₹4,789", change: "-0.5%", trend: "down" }
+      { name: "HUL", price: "₹2,456", change: "-0.3%", trend: "down", logo: "https://logo.clearbit.com/unilever.in" },
+      { name: "ITC", price: "₹456", change: "-0.7%", trend: "down", logo: "https://logo.clearbit.com/itcportal.com" },
+      { name: "Nestle", price: "₹22,345", change: "-0.2%", trend: "down", logo: "https://logo.clearbit.com/nestle.in" },
+      { name: "Britannia", price: "₹4,789", change: "-0.5%", trend: "down", logo: "https://logo.clearbit.com/britannia.co.in" },
+      { name: "Dabur", price: "₹567", change: "-0.4%", trend: "down", logo: "https://logo.clearbit.com/dabur.com" },
+      { name: "Godrej", price: "₹1,234", change: "-0.6%", trend: "down", logo: "https://logo.clearbit.com/godrej.com" }
     ],
     "Metal": [
-      { name: "Tata Steel", price: "₹123", change: "-1.8%", trend: "down" },
-      { name: "JSW Steel", price: "₹789", change: "-2.1%", trend: "down" },
-      { name: "Hindalco", price: "₹456", change: "-0.9%", trend: "down" },
-      { name: "SAIL", price: "₹98", change: "-1.5%", trend: "down" }
+      { name: "Tata Steel", price: "₹123", change: "-1.8%", trend: "down", logo: "https://logo.clearbit.com/tatasteel.com" },
+      { name: "JSW Steel", price: "₹789", change: "-2.1%", trend: "down", logo: "https://logo.clearbit.com/jsw.in" },
+      { name: "Hindalco", price: "₹456", change: "-0.9%", trend: "down", logo: "https://logo.clearbit.com/hindalco.com" },
+      { name: "SAIL", price: "₹98", change: "-1.5%", trend: "down", logo: "https://logo.clearbit.com/sail.co.in" },
+      { name: "Vedanta", price: "₹234", change: "-1.2%", trend: "down", logo: "https://logo.clearbit.com/vedantalimited.com" },
+      { name: "NMDC", price: "₹145", change: "-1.7%", trend: "down", logo: "https://logo.clearbit.com/nmdc.co.in" }
     ]
   }), []);
 
@@ -269,17 +279,34 @@ const MarketWatch = memo(() => {
                 </div>
               </div>
               
-              <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-3">
                 {sectorStocks[selectedSector]?.map((stock, index) => (
-                  <Card key={index} className={`p-3 transition-all duration-300 border-2 hover:shadow-lg ${
+                  <Card key={index} className={`p-3 transition-all duration-300 border-2 hover:shadow-lg cursor-pointer ${
                     stock.trend === 'up'
-                      ? 'border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50 hover:border-emerald-400'
-                      : 'border-red-200 bg-gradient-to-r from-red-50 to-pink-50 hover:border-red-400'
+                      ? 'border-emerald-200 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 hover:border-emerald-400'
+                      : 'border-red-200 bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 hover:border-red-400'
                   }`}>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="font-semibold text-slate-900 text-sm">{stock.name}</div>
-                        <div className="text-xs text-slate-600">{stock.price}</div>
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <div className={`p-1.5 rounded-lg overflow-hidden bg-white shadow-sm border ${
+                          stock.trend === 'up' ? 'border-emerald-200' : 'border-red-200'
+                        }`}>
+                          <img 
+                            src={stock.logo} 
+                            alt={`${stock.name} logo`}
+                            className="w-4 h-4 object-contain"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                              e.currentTarget.nextElementSibling.style.display = 'flex';
+                            }}
+                          />
+                          <div className={`w-4 h-4 rounded text-xs font-bold flex items-center justify-center hidden ${
+                            stock.trend === 'up' ? 'bg-emerald-100 text-emerald-600' : 'bg-red-100 text-red-600'
+                          }`}>
+                            {stock.name.charAt(0)}
+                          </div>
+                        </div>
+                        <span className="font-semibold text-slate-900 text-xs">{stock.name}</span>
                       </div>
                       
                       <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${
@@ -291,6 +318,8 @@ const MarketWatch = memo(() => {
                         <span>{stock.change}</span>
                       </div>
                     </div>
+                    
+                    <div className="text-sm font-bold text-slate-900">{stock.price}</div>
                   </Card>
                 ))}
               </div>
@@ -359,4 +388,3 @@ const MarketWatch = memo(() => {
 MarketWatch.displayName = "MarketWatch";
 
 export default MarketWatch;
-
