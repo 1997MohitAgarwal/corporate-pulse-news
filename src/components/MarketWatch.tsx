@@ -115,7 +115,7 @@ const MarketWatch = memo(() => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
-          <Card className="h-[500px] overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-indigo-100 hover:border-indigo-400 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30 backdrop-blur-sm animate-scale-in">
+          <Card className="h-[600px] overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-indigo-100 hover:border-indigo-400 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30 backdrop-blur-sm animate-scale-in">
             <div className="p-6 h-full flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 rounded-xl shadow-lg">
@@ -124,11 +124,11 @@ const MarketWatch = memo(() => {
                 <h3 className="text-2xl font-bold text-slate-900">Live Market Indices</h3>
               </div>
               
-              <div className="grid grid-cols-2 lg:grid-cols-2 gap-4 flex-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
                 {marketData.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
-                    <div key={index} className={`group p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
+                    <div key={index} className={`group p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden min-h-[140px] flex flex-col justify-between ${
                       item.trend === 'up' 
                         ? 'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 border-emerald-200 hover:border-emerald-400' 
                         : 'bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 border-red-200 hover:border-red-400'
@@ -140,7 +140,7 @@ const MarketWatch = memo(() => {
                           : 'bg-gradient-to-br from-red-400 to-pink-400'
                       }`}></div>
                       
-                      <div className="relative z-10">
+                      <div className="relative z-10 flex flex-col h-full">
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center gap-2">
                             <div className={`p-2 rounded-lg ${
@@ -150,23 +150,23 @@ const MarketWatch = memo(() => {
                             }`}>
                               <IconComponent className="w-4 h-4" />
                             </div>
-                            <span className="font-bold text-slate-900 text-sm tracking-wide">{item.symbol}</span>
+                            <span className="font-bold text-slate-900 text-xs tracking-wide truncate">{item.symbol}</span>
                           </div>
                         </div>
                         
-                        <div className="text-xl font-bold text-slate-900 mb-3">{item.value}</div>
+                        <div className="text-lg font-bold text-slate-900 mb-3 truncate">{item.value}</div>
                         
-                        <div className={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-bold shadow-md transition-all duration-300 ${
+                        <div className={`flex items-center gap-2 px-2 py-1 rounded-full text-xs font-bold shadow-md transition-all duration-300 self-start ${
                           item.trend === 'up' 
                             ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600' 
                             : 'bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-red-600 hover:to-pink-600'
                         }`}>
-                          {item.trend === 'up' ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
+                          {item.trend === 'up' ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
                           {item.change}
                         </div>
                         
                         {/* Progress bar indicator */}
-                        <div className="w-full bg-gray-200 rounded-full h-2 mt-3 overflow-hidden">
+                        <div className="w-full bg-gray-200 rounded-full h-2 mt-auto overflow-hidden">
                           <div className={`h-full rounded-full transition-all duration-700 ${
                             item.trend === 'up' 
                               ? 'bg-gradient-to-r from-emerald-400 to-teal-400 w-4/5' 
@@ -181,7 +181,7 @@ const MarketWatch = memo(() => {
             </div>
           </Card>
 
-          <Card className="h-[500px] shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-emerald-100 hover:border-emerald-400 bg-gradient-to-br from-white via-emerald-50/50 to-teal-50/30 backdrop-blur-sm animate-scale-in delay-200">
+          <Card className="h-[600px] shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-emerald-100 hover:border-emerald-400 bg-gradient-to-br from-white via-emerald-50/50 to-teal-50/30 backdrop-blur-sm animate-scale-in delay-200">
             <div className="p-6 h-full flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-3 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-xl shadow-lg">
