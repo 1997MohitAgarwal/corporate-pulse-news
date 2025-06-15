@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, Scale, Search, Bell, User } from "lucide-react";
+import { Menu, X, Scale, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -27,44 +27,41 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 backdrop-blur-lg shadow-2xl sticky top-0 z-50 border-b border-white/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Navbar */}
-        <div className="flex items-center justify-between h-16 lg:h-18">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 flex-shrink-0">
             <div className="relative">
-              <div className="p-2 sm:p-3 bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-200">
-                <Scale className="w-5 h-5 sm:w-6 sm:h-6 text-slate-900" />
+              <div className="p-2 bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-200">
+                <Scale className="w-5 h-5 text-slate-900" />
               </div>
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
             </div>
-            <div className="text-xl sm:text-2xl font-bold">
+            <div className="text-xl font-bold">
               <span className="text-white">Lex</span>
               <span className="text-amber-400">Corp</span>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-2">
+          <div className="hidden lg:flex items-center space-x-1">
             {navItems.map((item, index) => (
               <a
                 key={index}
                 href={item.href}
-                className={`relative px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ${
+                className={`px-3 py-2 rounded-lg font-medium text-sm transition-all duration-300 ${
                   item.isActive
                     ? "text-amber-400 bg-white/10"
                     : "text-white/80 hover:text-amber-400 hover:bg-white/5"
                 }`}
               >
                 {item.label}
-                {item.isActive && (
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-amber-400 rounded-full"></div>
-                )}
               </a>
             ))}
           </div>
 
           {/* Right Side Actions */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
-            {/* Search Form - Desktop */}
+          <div className="flex items-center space-x-2">
+            {/* Search Form - Desktop and Medium */}
             <form onSubmit={handleSearch} className="hidden md:flex items-center">
               <div className="relative">
                 <input
@@ -72,7 +69,7 @@ const Navbar = () => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search legal news..."
-                  className="w-48 lg:w-56 px-4 py-2 pr-10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent bg-white/10 backdrop-blur-sm text-white placeholder-white/60 text-sm"
+                  className="w-40 md:w-48 lg:w-56 px-3 py-2 pr-10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent bg-white/10 backdrop-blur-sm text-white placeholder-white/60 text-sm"
                 />
                 <button
                   type="submit"
@@ -82,14 +79,8 @@ const Navbar = () => {
                 </button>
               </div>
             </form>
-            
-            {/* Notification Bell */}
-            <Button variant="ghost" size="sm" className="relative p-2 rounded-lg hover:bg-white/10 text-white/80 hover:text-white">
-              <Bell className="w-4 h-4" />
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-            </Button>
 
-            {/* User Profile - Desktop */}
+            {/* User Profile - Desktop and Medium */}
             <Button variant="ghost" size="sm" className="hidden md:flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10 text-white/80 hover:text-white">
               <div className="w-6 h-6 bg-gradient-to-br from-slate-600 to-slate-800 rounded-full flex items-center justify-center">
                 <User className="w-3 h-3 text-white" />
