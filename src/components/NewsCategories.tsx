@@ -266,13 +266,13 @@ const NewsCategories = memo(() => {
 
         {/* Enhanced Category Navigation */}
         <div className="mb-12">
-          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-4 shadow-2xl border border-orange-100">
-            <div className="flex flex-wrap justify-center gap-2 lg:gap-3">
+          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-orange-100">
+            <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
               {categories.map((category, index) => (
                 <button
                   key={category}
                   onClick={() => handleTabChange(category)}
-                  className={`px-4 lg:px-6 py-3 rounded-2xl font-semibold transition-all duration-300 relative overflow-hidden group text-sm lg:text-base ${
+                  className={`px-5 lg:px-7 py-3 rounded-3xl font-medium transition-all duration-300 relative overflow-hidden group text-xs lg:text-sm ${
                     activeTab === category
                       ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg shadow-orange-300/50 scale-105"
                       : "bg-gray-50 text-slate-700 hover:bg-orange-50 hover:text-orange-600 hover:shadow-md border border-gray-200 hover:border-orange-300"
@@ -282,7 +282,7 @@ const NewsCategories = memo(() => {
                   }}
                 >
                   {activeTab !== category && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-red-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-red-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
                   )}
                   <span className="relative z-10 font-medium">{category}</span>
                   {activeTab === category && (
