@@ -309,23 +309,45 @@ const MarketWatch = memo(() => {
               
               <div className="space-y-3 flex-1">
                 {sectorStocks[selectedSector]?.map((stock, index) => (
-                  <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-white hover:bg-gray-50 transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg border border-gray-100 h-[70px]">
+                  <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-white hover:bg-gray-50 transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg border border-gray-100 h-[70px] group">
                     <div className="flex items-center gap-3">
-                      <div className={`w-8 h-8 rounded-lg font-semibold flex items-center justify-center text-sm text-white shadow-sm ${
-                        stock.trend === 'up' ? 'bg-emerald-500' : 'bg-red-500'
-                      }`}>
-                        {stock.name.charAt(0)}
+                      <div className="relative">
+                        {/* Main icon container with gradient */}
+                        <div className={`w-10 h-10 rounded-xl font-bold flex items-center justify-center text-sm text-white shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:scale-105 ${
+                          stock.trend === 'up' 
+                            ? 'bg-gradient-to-br from-emerald-400 to-emerald-600' 
+                            : 'bg-gradient-to-br from-red-400 to-red-600'
+                        }`}>
+                          {stock.name.charAt(0)}
+                          
+                          {/* Subtle shine effect */}
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-white/20 to-transparent opacity-60"></div>
+                        </div>
+                        
+                        {/* Trend indicator dot */}
+                        <div className={`absolute -top-1 -right-1 w-4 h-4 rounded-full border-2 border-white shadow-sm flex items-center justify-center ${
+                          stock.trend === 'up' 
+                            ? 'bg-green-500' 
+                            : 'bg-red-500'
+                        }`}>
+                          {stock.trend === 'up' ? (
+                            <TrendingUp className="w-2.5 h-2.5 text-white" />
+                          ) : (
+                            <TrendingDown className="w-2.5 h-2.5 text-white" />
+                          )}
+                        </div>
                       </div>
+                      
                       <div>
-                        <span className="font-medium text-gray-900 text-sm block">{stock.name}</span>
-                        <div className="text-xs text-gray-500">{stock.price}</div>
+                        <span className="font-medium text-gray-900 text-sm block group-hover:text-emerald-700 transition-colors">{stock.name}</span>
+                        <div className="text-xs text-gray-500 font-medium">{stock.price}</div>
                       </div>
                     </div>
                     
-                    <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-sm font-medium ${
+                    <div className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
                       stock.trend === 'up'
-                        ? 'bg-emerald-100 text-emerald-700'
-                        : 'bg-red-100 text-red-700'
+                        ? 'bg-emerald-100 text-emerald-700 group-hover:bg-emerald-200'
+                        : 'bg-red-100 text-red-700 group-hover:bg-red-200'
                     }`}>
                       {stock.trend === 'up' ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
                       <span>{stock.change}</span>
