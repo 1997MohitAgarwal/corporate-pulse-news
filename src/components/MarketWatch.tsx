@@ -176,13 +176,13 @@ const MarketWatch = memo(() => {
                 {marketData.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
-                    <div key={index} className={`group p-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
+                    <div key={index} className={`group p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
                       item.trend === 'up' 
                         ? 'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 border-emerald-200 hover:border-emerald-400' 
                         : 'bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 border-red-200 hover:border-red-400'
                     }`}>
                       <div className="relative z-10">
-                        <div className="flex items-center gap-2 mb-2">
+                        <div className="flex items-center gap-2 mb-3">
                           <div className={`p-1.5 rounded-lg ${
                             item.trend === 'up' 
                               ? 'bg-emerald-100 text-emerald-600' 
@@ -193,7 +193,7 @@ const MarketWatch = memo(() => {
                           <span className="font-bold text-slate-900 text-sm">{item.symbol}</span>
                         </div>
                         
-                        <div className="text-base font-bold text-slate-900 mb-2">{item.value}</div>
+                        <div className="text-base font-bold text-slate-900 mb-3">{item.value}</div>
                         
                         <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${
                           item.trend === 'up' 
@@ -279,14 +279,14 @@ const MarketWatch = memo(() => {
                 </div>
               </div>
               
-              <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-3">
                 {sectorStocks[selectedSector]?.map((stock, index) => (
                   <Card key={index} className={`p-3 transition-all duration-300 border-2 hover:shadow-lg cursor-pointer ${
                     stock.trend === 'up'
-                      ? 'border-emerald-200 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 hover:border-emerald-400'
-                      : 'border-red-200 bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 hover:border-red-400'
+                      ? 'border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50 hover:border-emerald-400'
+                      : 'border-red-200 bg-gradient-to-r from-red-50 to-pink-50 hover:border-red-400'
                   }`}>
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <div className={`p-1.5 rounded-lg overflow-hidden bg-white shadow-sm border ${
                           stock.trend === 'up' ? 'border-emerald-200' : 'border-red-200'
@@ -296,8 +296,12 @@ const MarketWatch = memo(() => {
                             alt={`${stock.name} logo`}
                             className="w-4 h-4 object-contain"
                             onError={(e) => {
-                              e.currentTarget.style.display = 'none';
-                              e.currentTarget.nextElementSibling.style.display = 'flex';
+                              const target = e.currentTarget;
+                              const fallback = target.nextElementSibling as HTMLElement;
+                              target.style.display = 'none';
+                              if (fallback) {
+                                fallback.style.display = 'flex';
+                              }
                             }}
                           />
                           <div className={`w-4 h-4 rounded text-xs font-bold flex items-center justify-center hidden ${
@@ -306,7 +310,10 @@ const MarketWatch = memo(() => {
                             {stock.name.charAt(0)}
                           </div>
                         </div>
-                        <span className="font-semibold text-slate-900 text-xs">{stock.name}</span>
+                        <div>
+                          <span className="font-semibold text-slate-900 text-sm">{stock.name}</span>
+                          <div className="text-xs font-bold text-slate-900">{stock.price}</div>
+                        </div>
                       </div>
                       
                       <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${
@@ -318,8 +325,6 @@ const MarketWatch = memo(() => {
                         <span>{stock.change}</span>
                       </div>
                     </div>
-                    
-                    <div className="text-sm font-bold text-slate-900">{stock.price}</div>
                   </Card>
                 ))}
               </div>
