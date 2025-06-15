@@ -1,4 +1,3 @@
-
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -152,21 +151,16 @@ const MarketWatch = memo(() => {
   ], []);
 
   return (
-    <section id="market-watch" className="py-8 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/40 relative overflow-hidden">
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-blue-400/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-indigo-400/5 rounded-full blur-3xl"></div>
-      </div>
-      
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Header */}
+    <section id="market-watch" className="py-20 bg-white">
+      <div className="container mx-auto px-6">
+        {/* Header - matching Legal Intelligence Hub style */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent">
-            Market Watch
-          </h2>
-          
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <Badge className="mb-4 bg-amber-500 text-white">
+            <BarChart3 className="w-4 h-4 mr-2" />
+            Market Intelligence
+          </Badge>
+          <h2 className="text-4xl font-bold text-slate-900 mb-4">Market Watch</h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Real-time market insights and analytics at your fingertips
           </p>
         </div>
