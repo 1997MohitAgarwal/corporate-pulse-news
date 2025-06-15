@@ -1,7 +1,8 @@
+
 import { memo, useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, TrendingDown, Activity, BarChart3, Sparkles, Crown, Star } from "lucide-react";
+import { TrendingUp, TrendingDown, Activity, BarChart3, Sparkles } from "lucide-react";
 
 const MarketWatch = memo(() => {
   const marketData = useMemo(() => [
@@ -90,17 +91,41 @@ const MarketWatch = memo(() => {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
                 {marketData.map((item, index) => (
-                  <div key={index} className="p-4 bg-white/80 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-indigo-100 hover:border-indigo-300 backdrop-blur-sm">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-semibold text-slate-900 text-sm">{item.symbol}</span>
-                      <div className={`flex items-center gap-1 text-sm font-bold ${
-                        item.trend === 'up' ? 'text-emerald-600' : 'text-red-500'
-                      }`}>
-                        {item.trend === 'up' ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
-                        {item.change}
+                  <div key={index} className={`group p-5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
+                    item.trend === 'up' 
+                      ? 'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 border-emerald-200 hover:border-emerald-400' 
+                      : 'bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 border-red-200 hover:border-red-400'
+                  }`}>
+                    {/* Animated background element */}
+                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 ${
+                      item.trend === 'up' 
+                        ? 'bg-gradient-to-br from-emerald-400 to-teal-400' 
+                        : 'bg-gradient-to-br from-red-400 to-pink-400'
+                    }`}></div>
+                    
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="font-bold text-slate-900 text-sm tracking-wide">{item.symbol}</span>
+                        <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-bold shadow-md transition-all duration-300 ${
+                          item.trend === 'up' 
+                            ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600' 
+                            : 'bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-red-600 hover:to-pink-600'
+                        }`}>
+                          {item.trend === 'up' ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
+                          {item.change}
+                        </div>
+                      </div>
+                      <div className="text-2xl font-bold text-slate-900 mb-2">{item.value}</div>
+                      
+                      {/* Progress bar indicator */}
+                      <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+                        <div className={`h-full rounded-full transition-all duration-700 ${
+                          item.trend === 'up' 
+                            ? 'bg-gradient-to-r from-emerald-400 to-teal-400 w-4/5' 
+                            : 'bg-gradient-to-r from-red-400 to-pink-400 w-3/5'
+                        }`}></div>
                       </div>
                     </div>
-                    <div className="text-xl font-bold text-slate-900">{item.value}</div>
                   </div>
                 ))}
               </div>
