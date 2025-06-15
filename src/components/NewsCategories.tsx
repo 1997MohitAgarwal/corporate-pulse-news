@@ -1,4 +1,3 @@
-
 import { useState, memo, useCallback, useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -264,33 +263,31 @@ const NewsCategories = memo(() => {
           </p>
         </div>
 
-        {/* Enhanced Category Navigation */}
+        {/* Simplified Category Navigation */}
         <div className="mb-12">
-          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-orange-100">
-            <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
-              {categories.map((category, index) => (
-                <button
-                  key={category}
-                  onClick={() => handleTabChange(category)}
-                  className={`px-5 lg:px-7 py-3 rounded-3xl font-medium transition-all duration-300 relative overflow-hidden group text-xs lg:text-sm ${
-                    activeTab === category
-                      ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg shadow-orange-300/50 scale-105"
-                      : "bg-gray-50 text-slate-700 hover:bg-orange-50 hover:text-orange-600 hover:shadow-md border border-gray-200 hover:border-orange-300"
-                  }`}
-                  style={{
-                    animationDelay: `${index * 50}ms`
-                  }}
-                >
-                  {activeTab !== category && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-red-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
-                  )}
-                  <span className="relative z-10 font-medium">{category}</span>
-                  {activeTab === category && (
-                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-white rounded-full"></div>
-                  )}
-                </button>
-              ))}
-            </div>
+          <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
+            {categories.map((category, index) => (
+              <button
+                key={category}
+                onClick={() => handleTabChange(category)}
+                className={`px-6 lg:px-8 py-3 rounded-full font-medium transition-all duration-300 relative overflow-hidden group text-sm ${
+                  activeTab === category
+                    ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg shadow-orange-300/50 scale-105"
+                    : "bg-white/80 backdrop-blur-sm text-slate-700 hover:bg-orange-50 hover:text-orange-600 hover:shadow-md border border-gray-200/50 hover:border-orange-300 hover:scale-105"
+                }`}
+                style={{
+                  animationDelay: `${index * 50}ms`
+                }}
+              >
+                {activeTab !== category && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-red-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></div>
+                )}
+                <span className="relative z-10 font-medium">{category}</span>
+                {activeTab === category && (
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-white rounded-full"></div>
+                )}
+              </button>
+            ))}
           </div>
         </div>
 
