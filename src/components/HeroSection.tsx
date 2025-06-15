@@ -170,10 +170,10 @@ const HeroSection = memo(() => {
             </div>
             
             {/* Floating News Elements */}
-            <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-xl animate-bounce">
+            <div className="absolute -top-6 -right-12 w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-xl animate-bounce">
               <TrendingUp className="w-6 h-6 text-white" />
             </div>
-            <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-xl">
+            <div className="absolute -bottom-6 -left-12 w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-xl">
               <Globe className="w-6 h-6 text-white" />
             </div>
           </div>
