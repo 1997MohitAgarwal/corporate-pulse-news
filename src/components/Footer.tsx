@@ -89,10 +89,18 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-slate-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-slate-400 text-center md:text-left flex items-center gap-1">
-              © 2024 LexCorp. All rights reserved. Made with <Heart className="w-4 h-4 text-orange-400" /> in India
+            <div className="text-slate-400 text-center md:text-left text-sm">
+              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-1 sm:gap-2">
+                <span>© 2024 LexCorp. All rights reserved.</span>
+                <div className="flex items-center gap-1">
+                  <span className="hidden sm:inline">Made with</span>
+                  <span className="sm:hidden">Made with</span>
+                  <Heart className="w-4 h-4 text-orange-400" />
+                  <span>in India</span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4 sm:gap-6">
               <a href="#" className="text-slate-400 hover:text-orange-400 transition-colors text-sm">Privacy Policy</a>
               <a href="#" className="text-slate-400 hover:text-orange-400 transition-colors text-sm">Terms of Service</a>
             </div>
