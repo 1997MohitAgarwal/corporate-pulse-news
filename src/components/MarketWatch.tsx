@@ -145,7 +145,7 @@ const MarketWatch = memo(() => {
   ], []);
 
   return (
-    <section id="market-watch" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/40 relative overflow-hidden">
+    <section id="market-watch" className="py-8 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/40 relative overflow-hidden">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-20 w-64 h-64 bg-blue-400/5 rounded-full blur-3xl"></div>
