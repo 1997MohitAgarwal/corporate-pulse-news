@@ -1,4 +1,3 @@
-
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -189,7 +188,7 @@ const MarketWatch = memo(() => {
                 {marketData.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
-                    <div key={index} className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-gray-50 to-blue-50/30 hover:from-gray-100 hover:to-blue-100/50 transition-all duration-200 shadow-md hover:shadow-lg border border-gray-100/50">
+                    <div key={index} className="flex items-center justify-between p-4 rounded-lg bg-slate-100/70 hover:bg-slate-200/70 transition-all duration-200 shadow-md hover:shadow-lg border border-slate-200/50">
                       <div className="flex items-center gap-3">
                         <div className="p-2 rounded-md bg-white shadow-sm border border-gray-100">
                           <IconComponent className="w-4 h-4 text-gray-600" />
@@ -236,8 +235,8 @@ const MarketWatch = memo(() => {
                       key={index} 
                       className={`flex items-center justify-between p-4 rounded-lg cursor-pointer transition-all duration-200 shadow-md hover:shadow-lg border ${
                         selectedSector === sector.name
-                          ? 'bg-gradient-to-r from-indigo-50 to-purple-50/30 border-indigo-200 shadow-lg'
-                          : 'bg-gradient-to-r from-gray-50 to-indigo-50/30 hover:from-gray-100 hover:to-indigo-100/50 border-gray-100/50'
+                          ? 'bg-blue-100/80 border-blue-300/60 shadow-lg'
+                          : 'bg-indigo-50/70 hover:bg-indigo-100/80 border-indigo-200/50'
                       }`}
                       onClick={() => setSelectedSector(sector.name)}
                     >
@@ -278,7 +277,7 @@ const MarketWatch = memo(() => {
               
               <div className="space-y-3">
                 {sectorStocks[selectedSector]?.map((stock, index) => (
-                  <div key={index} className="flex items-center justify-between p-4 rounded-lg bg-gradient-to-r from-gray-50 to-emerald-50/30 hover:from-gray-100 hover:to-emerald-100/50 transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg border border-gray-100/50">
+                  <div key={index} className="flex items-center justify-between p-4 rounded-lg bg-emerald-50/70 hover:bg-emerald-100/80 transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg border border-emerald-200/50">
                     <div className="flex items-center gap-3">
                       <div className={`w-10 h-10 rounded-lg font-semibold flex items-center justify-center text-sm text-white shadow-sm ${
                         stock.trend === 'up' ? 'bg-emerald-500' : 'bg-red-500'
@@ -320,11 +319,11 @@ const MarketWatch = memo(() => {
             </div>
             
             {/* Moving News Carousel */}
-            <div className="relative overflow-hidden rounded-lg bg-gradient-to-r from-gray-50 to-slate-50 p-4 shadow-inner">
+            <div className="relative overflow-hidden rounded-lg bg-orange-50/60 p-4 shadow-inner border border-orange-100/50">
               <div className="flex animate-scroll-fast gap-6">
                 {/* First set */}
                 {marketNews.map((news, index) => (
-                  <div key={`first-${index}`} className="flex-shrink-0 w-72 group p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-gray-100/50">
+                  <div key={`first-${index}`} className="flex-shrink-0 w-72 group p-4 bg-orange-100/60 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-orange-200/50">
                     <div className="flex items-start justify-between mb-3 gap-2">
                       <Badge 
                         className={`text-xs font-medium px-2 py-1 ${
@@ -351,7 +350,7 @@ const MarketWatch = memo(() => {
                 
                 {/* Second set for seamless loop */}
                 {marketNews.map((news, index) => (
-                  <div key={`second-${index}`} className="flex-shrink-0 w-72 group p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-gray-100/50">
+                  <div key={`second-${index}`} className="flex-shrink-0 w-72 group p-4 bg-orange-100/60 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-orange-200/50">
                     <div className="flex items-start justify-between mb-3 gap-2">
                       <Badge 
                         className={`text-xs font-medium px-2 py-1 ${
