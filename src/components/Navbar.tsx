@@ -18,8 +18,8 @@ const Navbar = () => {
 
   const navItems = [
     { label: "Home", href: "#", isActive: true },
-    { label: "Legal Intelligence", href: "#news-categories" },
-    { label: "Market Watch", href: "#market-watch" },
+    { label: "Corporate News", href: "#news-categories" },
+    { label: "Market Insights", href: "#market-watch" },
     { label: "Contact", href: "#contact" }
   ];
 
@@ -34,7 +34,6 @@ const Navbar = () => {
               <div className="p-2 bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-200">
                 <Scale className="w-5 h-5 text-slate-900" />
               </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
             </div>
             <div className="text-xl font-bold">
               <span className="text-white">Lex</span>
