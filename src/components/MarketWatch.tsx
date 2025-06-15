@@ -1,9 +1,11 @@
-import { memo, useMemo } from "react";
+import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, TrendingDown, Activity, BarChart3, Sparkles, Landmark, Building2, Coins, Fuel, DollarSign, TrendingUpIcon } from "lucide-react";
+import { TrendingUp, TrendingDown, Activity, BarChart3, Sparkles, Landmark, Building2, Coins, Fuel, DollarSign, TrendingUpIcon, Zap, Factory, Briefcase, ShoppingCart, Cpu, Car, Pill, Wheat } from "lucide-react";
 
 const MarketWatch = memo(() => {
+  const [selectedSector, setSelectedSector] = useState("Technology");
+
   const marketData = useMemo(() => [
     { 
       symbol: "NIFTY 50", 
@@ -49,6 +51,54 @@ const MarketWatch = memo(() => {
     }
   ], []);
 
+  const topSectors = useMemo(() => [
+    { name: "Technology", change: "+3.2%", trend: "up", icon: Cpu },
+    { name: "Banking", change: "+2.1%", trend: "up", icon: Landmark },
+    { name: "Pharma", change: "+1.8%", trend: "up", icon: Pill },
+    { name: "Auto", change: "+1.5%", trend: "up", icon: Car },
+    { name: "FMCG", change: "-0.5%", trend: "down", icon: ShoppingCart },
+    { name: "Metal", change: "-1.2%", trend: "down", icon: Factory }
+  ], []);
+
+  const sectorStocks = useMemo(() => ({
+    "Technology": [
+      { name: "TCS", price: "₹3,892", change: "+2.8%", trend: "up" },
+      { name: "Infosys", price: "₹1,567", change: "+3.1%", trend: "up" },
+      { name: "Wipro", price: "₹456", change: "+1.9%", trend: "up" },
+      { name: "HCL Tech", price: "₹1,234", change: "+2.5%", trend: "up" }
+    ],
+    "Banking": [
+      { name: "HDFC Bank", price: "₹1,678", change: "+1.8%", trend: "up" },
+      { name: "ICICI Bank", price: "₹987", change: "+2.2%", trend: "up" },
+      { name: "SBI", price: "₹612", change: "+1.5%", trend: "up" },
+      { name: "Axis Bank", price: "₹1,123", change: "+1.9%", trend: "up" }
+    ],
+    "Pharma": [
+      { name: "Sun Pharma", price: "₹1,245", change: "+2.1%", trend: "up" },
+      { name: "Dr. Reddy's", price: "₹4,567", change: "+1.7%", trend: "up" },
+      { name: "Cipla", price: "₹1,089", change: "+2.3%", trend: "up" },
+      { name: "Aurobindo", price: "₹765", change: "+1.4%", trend: "up" }
+    ],
+    "Auto": [
+      { name: "Maruti", price: "₹10,234", change: "+1.2%", trend: "up" },
+      { name: "Tata Motors", price: "₹567", change: "+2.1%", trend: "up" },
+      { name: "Bajaj Auto", price: "₹4,567", change: "+0.8%", trend: "up" },
+      { name: "Hero Moto", price: "₹2,890", change: "+1.6%", trend: "up" }
+    ],
+    "FMCG": [
+      { name: "HUL", price: "₹2,456", change: "-0.3%", trend: "down" },
+      { name: "ITC", price: "₹456", change: "-0.7%", trend: "down" },
+      { name: "Nestle", price: "₹22,345", change: "-0.2%", trend: "down" },
+      { name: "Britannia", price: "₹4,789", change: "-0.5%", trend: "down" }
+    ],
+    "Metal": [
+      { name: "Tata Steel", price: "₹123", change: "-1.8%", trend: "down" },
+      { name: "JSW Steel", price: "₹789", change: "-2.1%", trend: "down" },
+      { name: "Hindalco", price: "₹456", change: "-0.9%", trend: "down" },
+      { name: "SAIL", price: "₹98", change: "-1.5%", trend: "down" }
+    ]
+  }), []);
+
   const marketNews = useMemo(() => [
     {
       title: "RBI Maintains Repo Rate at 6.5% Amid Inflation Concerns",
@@ -68,21 +118,6 @@ const MarketWatch = memo(() => {
     {
       title: "Auto Sector Faces Supply Chain Challenges",
       time: "4 hours ago",
-      impact: "Medium"
-    },
-    {
-      title: "Pharma Exports Reach Record High This Quarter",
-      time: "5 hours ago",
-      impact: "High"
-    },
-    {
-      title: "Renewable Energy Investments Hit New Milestone",
-      time: "6 hours ago",
-      impact: "High"
-    },
-    {
-      title: "Textile Industry Prepares for Export Boom",
-      time: "7 hours ago",
       impact: "Medium"
     }
   ], []);
@@ -114,66 +149,47 @@ const MarketWatch = memo(() => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
+          {/* Live Market Indices */}
           <Card className="overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-indigo-100 hover:border-indigo-400 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30 backdrop-blur-sm animate-scale-in">
-            <div className="p-4 sm:p-5">
+            <div className="p-4">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 sm:p-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 rounded-xl shadow-lg">
-                  <BarChart3 className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
+                <div className="p-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 rounded-xl shadow-lg">
+                  <BarChart3 className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-lg sm:text-2xl font-bold text-slate-900">Live Market Indices</h3>
+                <h3 className="text-lg font-bold text-slate-900">Live Market Indices</h3>
               </div>
               
-              <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-2.5">
+              <div className="grid grid-cols-2 gap-2">
                 {marketData.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
-                    <div key={index} className={`group p-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
+                    <div key={index} className={`group p-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
                       item.trend === 'up' 
                         ? 'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 border-emerald-200 hover:border-emerald-400' 
                         : 'bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 border-red-200 hover:border-red-400'
                     }`}>
-                      {/* Animated background element */}
-                      <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 ${
-                        item.trend === 'up' 
-                          ? 'bg-gradient-to-br from-emerald-400 to-teal-400' 
-                          : 'bg-gradient-to-br from-red-400 to-pink-400'
-                      }`}></div>
-                      
                       <div className="relative z-10">
-                        <div className="flex items-center justify-between mb-1.5">
-                          <div className="flex items-center gap-1">
-                            <div className={`p-1 rounded-lg ${
-                              item.trend === 'up' 
-                                ? 'bg-emerald-100 text-emerald-600' 
-                                : 'bg-red-100 text-red-600'
-                            }`}>
-                              <IconComponent className="w-3 h-3" />
-                            </div>
-                            <span className="font-bold text-slate-900 text-xs tracking-wide">{item.symbol}</span>
+                        <div className="flex items-center gap-1 mb-1">
+                          <div className={`p-1 rounded-lg ${
+                            item.trend === 'up' 
+                              ? 'bg-emerald-100 text-emerald-600' 
+                              : 'bg-red-100 text-red-600'
+                          }`}>
+                            <IconComponent className="w-3 h-3" />
                           </div>
+                          <span className="font-bold text-slate-900 text-xs">{item.symbol}</span>
                         </div>
                         
-                        <div className="text-base lg:text-lg font-bold text-slate-900 mb-1.5">{item.value}</div>
+                        <div className="text-sm font-bold text-slate-900 mb-1">{item.value}</div>
                         
-                        <div className="flex items-center justify-between">
-                          <div className={`flex items-center gap-1 px-1.5 py-0.5 rounded-full text-xs font-bold shadow-md transition-all duration-300 ${
-                            item.trend === 'up' 
-                              ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600' 
-                              : 'bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-red-600 hover:to-pink-600'
-                          }`}>
-                            {item.trend === 'up' ? <TrendingUp className="w-2.5 h-2.5" /> : <TrendingDown className="w-2.5 h-2.5" />}
-                            <span>{item.change}</span>
-                          </div>
-                          
-                          {/* Progress bar indicator */}
-                          <div className="w-5 bg-gray-200 rounded-full h-1 overflow-hidden">
-                            <div className={`h-full rounded-full transition-all duration-700 ${
-                              item.trend === 'up' 
-                                ? 'bg-gradient-to-r from-emerald-400 to-teal-400 w-4/5' 
-                                : 'bg-gradient-to-r from-red-400 to-pink-400 w-3/5'
-                            }`}></div>
-                          </div>
+                        <div className={`flex items-center gap-1 px-1 py-0.5 rounded-full text-xs font-bold ${
+                          item.trend === 'up' 
+                            ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white' 
+                            : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
+                        }`}>
+                          {item.trend === 'up' ? <TrendingUp className="w-2.5 h-2.5" /> : <TrendingDown className="w-2.5 h-2.5" />}
+                          <span>{item.change}</span>
                         </div>
                       </div>
                     </div>
@@ -183,39 +199,136 @@ const MarketWatch = memo(() => {
             </div>
           </Card>
 
-          <Card className="shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-emerald-100 hover:border-emerald-400 bg-gradient-to-br from-white via-emerald-50/50 to-teal-50/30 backdrop-blur-sm animate-scale-in delay-200">
-            <div className="p-4 sm:p-5">
+          {/* Top Performing Sectors */}
+          <Card className="shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-purple-100 hover:border-purple-400 bg-gradient-to-br from-white via-purple-50/50 to-pink-50/30 backdrop-blur-sm animate-scale-in delay-100">
+            <div className="p-4">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 sm:p-3 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-xl shadow-lg">
-                  <Activity className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
+                <div className="p-2 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 rounded-xl shadow-lg">
+                  <Zap className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-lg sm:text-2xl font-bold text-slate-900">Market Impact News</h3>
+                <h3 className="text-lg font-bold text-slate-900">Top Sectors</h3>
               </div>
               
-              <div className="max-h-[350px] overflow-y-auto space-y-3 pr-2 custom-scrollbar">
-                {marketNews.map((news, index) => (
-                  <div key={index} className="p-3 border-2 border-slate-100 hover:border-emerald-300 rounded-xl hover:shadow-lg transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm group overflow-hidden">
-                    <div className="flex items-start justify-between mb-2 gap-2">
-                      <Badge 
-                        className={`text-xs font-semibold flex-shrink-0 ${
-                          news.impact === 'High' 
-                            ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white border-0 shadow-md' 
-                            : 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white border-0 shadow-md'
-                        }`}
-                      >
-                        {news.impact} Impact
-                      </Badge>
-                      <span className="text-slate-500 text-xs font-medium flex-shrink-0">{news.time}</span>
+              <div className="space-y-2">
+                {topSectors.map((sector, index) => {
+                  const IconComponent = sector.icon;
+                  return (
+                    <div 
+                      key={index} 
+                      className={`p-2 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border-2 ${
+                        selectedSector === sector.name
+                          ? 'border-purple-400 bg-gradient-to-r from-purple-100 to-pink-100'
+                          : sector.trend === 'up'
+                            ? 'border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50 hover:border-emerald-400'
+                            : 'border-red-200 bg-gradient-to-r from-red-50 to-pink-50 hover:border-red-400'
+                      }`}
+                      onClick={() => setSelectedSector(sector.name)}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <div className={`p-1 rounded-lg ${
+                            selectedSector === sector.name
+                              ? 'bg-purple-200 text-purple-600'
+                              : sector.trend === 'up'
+                                ? 'bg-emerald-100 text-emerald-600'
+                                : 'bg-red-100 text-red-600'
+                          }`}>
+                            <IconComponent className="w-3 h-3" />
+                          </div>
+                          <span className="font-semibold text-slate-900 text-sm">{sector.name}</span>
+                        </div>
+                        
+                        <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${
+                          sector.trend === 'up'
+                            ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white'
+                            : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
+                        }`}>
+                          {sector.trend === 'up' ? <TrendingUp className="w-2.5 h-2.5" /> : <TrendingDown className="w-2.5 h-2.5" />}
+                          <span>{sector.change}</span>
+                        </div>
+                      </div>
                     </div>
-                    <h4 className="font-semibold text-slate-900 text-sm leading-relaxed group-hover:text-emerald-600 transition-colors break-words">
-                      {news.title}
-                    </h4>
+                  );
+                })}
+              </div>
+            </div>
+          </Card>
+
+          {/* Trending Stocks in Selected Sector */}
+          <Card className="shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-emerald-100 hover:border-emerald-400 bg-gradient-to-br from-white via-emerald-50/50 to-teal-50/30 backdrop-blur-sm animate-scale-in delay-200">
+            <div className="p-4">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-xl shadow-lg">
+                  <Activity className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900">Trending Stocks</h3>
+                  <p className="text-xs text-slate-600">{selectedSector} Sector</p>
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                {sectorStocks[selectedSector]?.map((stock, index) => (
+                  <div key={index} className={`p-2 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border-2 ${
+                    stock.trend === 'up'
+                      ? 'border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50 hover:border-emerald-400'
+                      : 'border-red-200 bg-gradient-to-r from-red-50 to-pink-50 hover:border-red-400'
+                  }`}>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="font-semibold text-slate-900 text-sm">{stock.name}</div>
+                        <div className="text-xs text-slate-600">{stock.price}</div>
+                      </div>
+                      
+                      <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${
+                        stock.trend === 'up'
+                          ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white'
+                          : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
+                      }`}>
+                        {stock.trend === 'up' ? <TrendingUp className="w-2.5 h-2.5" /> : <TrendingDown className="w-2.5 h-2.5" />}
+                        <span>{stock.change}</span>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
           </Card>
         </div>
+
+        {/* Market Impact News - Full Width Below */}
+        <Card className="mt-6 shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-blue-100 hover:border-blue-400 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30 backdrop-blur-sm animate-scale-in delay-300">
+          <div className="p-4">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-xl shadow-lg">
+                <Activity className="w-5 h-5 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900">Market Impact News</h3>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
+              {marketNews.map((news, index) => (
+                <div key={index} className="p-3 border-2 border-slate-100 hover:border-blue-300 rounded-xl hover:shadow-lg transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm group">
+                  <div className="flex items-start justify-between mb-2 gap-2">
+                    <Badge 
+                      className={`text-xs font-semibold flex-shrink-0 ${
+                        news.impact === 'High' 
+                          ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white border-0 shadow-md' 
+                          : 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white border-0 shadow-md'
+                      }`}
+                    >
+                      {news.impact} Impact
+                    </Badge>
+                    <span className="text-slate-500 text-xs font-medium flex-shrink-0">{news.time}</span>
+                  </div>
+                  <h4 className="font-semibold text-slate-900 text-sm leading-relaxed group-hover:text-blue-600 transition-colors">
+                    {news.title}
+                  </h4>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Card>
       </div>
 
       <style>
