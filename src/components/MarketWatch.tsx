@@ -1,17 +1,64 @@
-
 import { memo, useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, TrendingDown, Activity, BarChart3, Sparkles } from "lucide-react";
+import { TrendingUp, TrendingDown, Activity, BarChart3, Sparkles, Landmark, Building2, Coins, Fuel, DollarSign, TrendingUpIcon } from "lucide-react";
 
 const MarketWatch = memo(() => {
   const marketData = useMemo(() => [
-    { symbol: "NIFTY 50", value: "21,567.23", change: "+1.2%", trend: "up" },
-    { symbol: "SENSEX", value: "71,123.45", change: "+0.8%", trend: "up" },
-    { symbol: "BANKNIFTY", value: "46,892.67", change: "-0.3%", trend: "down" },
-    { symbol: "GOLD", value: "₹63,892", change: "+0.5%", trend: "up" },
-    { symbol: "CRUDE OIL", value: "₹6,892", change: "-1.1%", trend: "down" },
-    { symbol: "USD/INR", value: "83.25", change: "+0.3%", trend: "up" }
+    { 
+      symbol: "NIFTY 50", 
+      value: "21,567.23", 
+      change: "+1.2%", 
+      trend: "up", 
+      icon: BarChart3,
+      volume: "₹45,892 Cr",
+      dayRange: "21,420 - 21,680"
+    },
+    { 
+      symbol: "SENSEX", 
+      value: "71,123.45", 
+      change: "+0.8%", 
+      trend: "up", 
+      icon: TrendingUpIcon,
+      volume: "₹52,143 Cr",
+      dayRange: "70,890 - 71,340"
+    },
+    { 
+      symbol: "BANKNIFTY", 
+      value: "46,892.67", 
+      change: "-0.3%", 
+      trend: "down", 
+      icon: Landmark,
+      volume: "₹28,567 Cr",
+      dayRange: "46,720 - 47,120"
+    },
+    { 
+      symbol: "GOLD", 
+      value: "₹63,892", 
+      change: "+0.5%", 
+      trend: "up", 
+      icon: Coins,
+      volume: "₹8,245 Cr",
+      dayRange: "₹63,540 - ₹64,120"
+    },
+    { 
+      symbol: "CRUDE OIL", 
+      value: "₹6,892", 
+      change: "-1.1%", 
+      trend: "down", 
+      icon: Fuel,
+      volume: "₹12,834 Cr",
+      dayRange: "₹6,780 - ₹6,950"
+    },
+    { 
+      symbol: "USD/INR", 
+      value: "83.25", 
+      change: "+0.3%", 
+      trend: "up", 
+      icon: DollarSign,
+      volume: "$2.8B",
+      dayRange: "83.12 - 83.45"
+    }
   ], []);
 
   const marketNews = useMemo(() => [
@@ -90,44 +137,69 @@ const MarketWatch = memo(() => {
               </div>
               
               <div className="grid grid-cols-2 lg:grid-cols-2 gap-3 flex-1">
-                {marketData.map((item, index) => (
-                  <div key={index} className={`group p-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
-                    item.trend === 'up' 
-                      ? 'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 border-emerald-200 hover:border-emerald-400' 
-                      : 'bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 border-red-200 hover:border-red-400'
-                  }`}>
-                    {/* Animated background element */}
-                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 ${
+                {marketData.map((item, index) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <div key={index} className={`group p-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
                       item.trend === 'up' 
-                        ? 'bg-gradient-to-br from-emerald-400 to-teal-400' 
-                        : 'bg-gradient-to-br from-red-400 to-pink-400'
-                    }`}></div>
-                    
-                    <div className="relative z-10">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-bold text-slate-900 text-xs tracking-wide truncate">{item.symbol}</span>
-                        <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold shadow-md transition-all duration-300 ${
-                          item.trend === 'up' 
-                            ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600' 
-                            : 'bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-red-600 hover:to-pink-600'
-                        }`}>
-                          {item.trend === 'up' ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
-                          {item.change}
+                        ? 'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 border-emerald-200 hover:border-emerald-400' 
+                        : 'bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 border-red-200 hover:border-red-400'
+                    }`}>
+                      {/* Animated background element */}
+                      <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300 ${
+                        item.trend === 'up' 
+                          ? 'bg-gradient-to-br from-emerald-400 to-teal-400' 
+                          : 'bg-gradient-to-br from-red-400 to-pink-400'
+                      }`}></div>
+                      
+                      <div className="relative z-10">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <div className={`p-1.5 rounded-lg ${
+                              item.trend === 'up' 
+                                ? 'bg-emerald-100 text-emerald-600' 
+                                : 'bg-red-100 text-red-600'
+                            }`}>
+                              <IconComponent className="w-3 h-3" />
+                            </div>
+                            <span className="font-bold text-slate-900 text-xs tracking-wide truncate">{item.symbol}</span>
+                          </div>
+                          <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold shadow-md transition-all duration-300 ${
+                            item.trend === 'up' 
+                              ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600' 
+                              : 'bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-red-600 hover:to-pink-600'
+                          }`}>
+                            {item.trend === 'up' ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
+                            {item.change}
+                          </div>
+                        </div>
+                        
+                        <div className="text-lg font-bold text-slate-900 mb-2">{item.value}</div>
+                        
+                        {/* Additional data */}
+                        <div className="space-y-1 mb-2">
+                          <div className="flex justify-between text-xs text-slate-600">
+                            <span>Volume:</span>
+                            <span className="font-semibold">{item.volume}</span>
+                          </div>
+                          <div className="flex justify-between text-xs text-slate-600">
+                            <span>Range:</span>
+                            <span className="font-semibold">{item.dayRange}</span>
+                          </div>
+                        </div>
+                        
+                        {/* Progress bar indicator */}
+                        <div className="w-full bg-gray-200 rounded-full h-1 overflow-hidden">
+                          <div className={`h-full rounded-full transition-all duration-700 ${
+                            item.trend === 'up' 
+                              ? 'bg-gradient-to-r from-emerald-400 to-teal-400 w-4/5' 
+                              : 'bg-gradient-to-r from-red-400 to-pink-400 w-3/5'
+                          }`}></div>
                         </div>
                       </div>
-                      <div className="text-lg font-bold text-slate-900 mb-2">{item.value}</div>
-                      
-                      {/* Progress bar indicator */}
-                      <div className="w-full bg-gray-200 rounded-full h-1 overflow-hidden">
-                        <div className={`h-full rounded-full transition-all duration-700 ${
-                          item.trend === 'up' 
-                            ? 'bg-gradient-to-r from-emerald-400 to-teal-400 w-4/5' 
-                            : 'bg-gradient-to-r from-red-400 to-pink-400 w-3/5'
-                        }`}></div>
-                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </Card>
