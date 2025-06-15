@@ -1,4 +1,3 @@
-
 import { memo, useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -60,30 +59,21 @@ const MarketWatch = memo(() => {
       <div className="container mx-auto px-4 lg:px-6 relative">
         <div className="text-center mb-16 lg:mb-20">
           <div className="relative inline-block mb-8">
-            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
-            <div className="relative flex items-center gap-4 bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 text-white px-10 py-6 rounded-3xl shadow-2xl shadow-orange-500/30">
-              <div className="flex items-center gap-2">
-                <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm">
-                  <Crown className="w-7 h-7" />
-                </div>
-                <Star className="w-6 h-6 text-yellow-200 animate-pulse" />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-indigo-500 rounded-2xl blur-lg opacity-30 animate-pulse"></div>
+            <div className="relative flex items-center gap-3 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white px-8 py-4 rounded-2xl shadow-xl shadow-blue-500/30">
+              <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
+                <BarChart3 className="w-5 h-5" />
               </div>
-              <div className="text-center">
-                <span className="font-bold text-xl tracking-wide">PREMIUM MARKET INTELLIGENCE</span>
-                <div className="text-yellow-200 text-sm font-medium mt-1">Elite Financial Insights</div>
-              </div>
-              <div className="flex items-center gap-2">
-                <Star className="w-6 h-6 text-yellow-200 animate-pulse delay-300" />
-                <Sparkles className="w-6 h-6 animate-pulse delay-500" />
-              </div>
+              <span className="font-bold text-lg tracking-wide">ELITE MARKET INTELLIGENCE</span>
+              <Sparkles className="w-5 h-5 animate-pulse" />
             </div>
           </div>
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">
-            <span className="bg-gradient-to-r from-slate-900 via-orange-600 to-red-600 bg-clip-text text-transparent">
-              Elite Market Watch
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-slate-900 via-blue-700 to-purple-700 bg-clip-text text-transparent">
+              Market Watch
             </span>
           </h2>
-          <p className="text-xl lg:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed animate-fade-in delay-300">
+          <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto">
             Real-time premium market data and exclusive insights that drive intelligent investment decisions
           </p>
         </div>
