@@ -2,7 +2,7 @@
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, TrendingDown, Activity, BarChart3, Sparkles, Landmark, Building2, Coins, Fuel, DollarSign, TrendingUpIcon, Zap, Factory, Briefcase, ShoppingCart, Cpu, Car, Pill } from "lucide-react";
+import { TrendingUp, TrendingDown, Activity, BarChart3, Sparkles, Landmark, Building2, Coins, Fuel, DollarSign, TrendingUpIcon, Zap, Factory, Briefcase, ShoppingCart, Cpu, Car, Pill, Eye, Star } from "lucide-react";
 
 const MarketWatch = memo(() => {
   const [selectedSector, setSelectedSector] = useState("Technology");
@@ -13,52 +13,58 @@ const MarketWatch = memo(() => {
       value: "21,567.23", 
       change: "+1.2%", 
       trend: "up", 
-      icon: BarChart3
+      icon: BarChart3,
+      color: "from-blue-500 to-cyan-500"
     },
     { 
       symbol: "SENSEX", 
       value: "71,123.45", 
       change: "+0.8%", 
       trend: "up", 
-      icon: TrendingUpIcon
+      icon: TrendingUpIcon,
+      color: "from-emerald-500 to-teal-500"
     },
     { 
       symbol: "BANKNIFTY", 
       value: "46,892.67", 
       change: "-0.3%", 
       trend: "down", 
-      icon: Landmark
+      icon: Landmark,
+      color: "from-red-500 to-pink-500"
     },
     { 
       symbol: "GOLD", 
       value: "₹63,892", 
       change: "+0.5%", 
       trend: "up", 
-      icon: Coins
+      icon: Coins,
+      color: "from-yellow-500 to-orange-500"
     },
     { 
       symbol: "CRUDE OIL", 
       value: "₹6,892", 
       change: "-1.1%", 
       trend: "down", 
-      icon: Fuel
+      icon: Fuel,
+      color: "from-purple-500 to-violet-500"
     },
     { 
       symbol: "USD/INR", 
       value: "83.25", 
       change: "+0.3%", 
       trend: "up", 
-      icon: DollarSign
+      icon: DollarSign,
+      color: "from-indigo-500 to-blue-500"
     }
   ], []);
 
   const topSectors = useMemo(() => [
-    { name: "Technology", change: "+3.2%", trend: "up", icon: Cpu },
-    { name: "Banking", change: "+2.1%", trend: "up", icon: Landmark },
-    { name: "Pharma", change: "+1.8%", trend: "up", icon: Pill },
-    { name: "Auto", change: "+1.5%", trend: "up", icon: Car },
-    { name: "FMCG", change: "-0.5%", trend: "down", icon: ShoppingCart },
-    { name: "Metal", change: "-1.2%", trend: "down", icon: Factory }
+    { name: "Technology", change: "+3.2%", trend: "up", icon: Cpu, color: "from-blue-500 to-cyan-500" },
+    { name: "Banking", change: "+2.1%", trend: "up", icon: Landmark, color: "from-emerald-500 to-teal-500" },
+    { name: "Pharma", change: "+1.8%", trend: "up", icon: Pill, color: "from-purple-500 to-violet-500" },
+    { name: "Auto", change: "+1.5%", trend: "up", icon: Car, color: "from-orange-500 to-red-500" },
+    { name: "FMCG", change: "-0.5%", trend: "down", icon: ShoppingCart, color: "from-pink-500 to-rose-500" },
+    { name: "Metal", change: "-1.2%", trend: "down", icon: Factory, color: "from-slate-500 to-gray-500" }
   ], []);
 
   const sectorStocks = useMemo(() => ({
@@ -109,116 +115,106 @@ const MarketWatch = memo(() => {
   const marketNews = useMemo(() => [
     {
       title: "RBI Maintains Repo Rate at 6.5% Amid Inflation Concerns",
-      time: "1h ago",
-      impact: "High"
+      time: "1h",
+      impact: "High",
+      category: "Policy"
     },
     {
       title: "IT Stocks Rally on AI Investment Surge in India",
-      time: "2h ago",
-      impact: "Medium"
+      time: "2h",
+      impact: "Medium",
+      category: "Technology"
     },
     {
       title: "Banking Sector Shows Strong Q4 Performance",
-      time: "3h ago",
-      impact: "High"
+      time: "3h",
+      impact: "High",
+      category: "Banking"
     },
     {
       title: "Auto Sector Faces Supply Chain Challenges",
-      time: "4h ago",
-      impact: "Medium"
+      time: "4h",
+      impact: "Medium",
+      category: "Auto"
     },
     {
       title: "Pharma Exports Hit Record High This Quarter",
-      time: "5h ago",
-      impact: "Medium"
+      time: "5h",
+      impact: "Medium",
+      category: "Pharma"
     },
     {
       title: "Metal Prices Decline on Global Demand Concerns",
-      time: "6h ago",
-      impact: "High"
+      time: "6h",
+      impact: "High",
+      category: "Metal"
     }
   ], []);
 
   return (
-    <section id="market-watch" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/40 relative overflow-hidden">
-      {/* Enhanced Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-48 h-48 lg:w-96 lg:h-96 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 lg:w-80 lg:h-80 bg-gradient-to-br from-emerald-400/10 to-teal-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 lg:w-64 lg:h-64 bg-gradient-to-br from-violet-400/5 to-pink-400/5 rounded-full blur-2xl animate-pulse delay-500"></div>
+    <section id="market-watch" className="py-16 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-pink-500/20 to-orange-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 rounded-full blur-2xl animate-pulse delay-500"></div>
       </div>
       
-      <div className="container mx-auto px-3 sm:px-4 lg:px-8 relative z-10">
-        {/* Enhanced Header */}
-        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <div className="relative inline-block mb-4 sm:mb-6">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-600 rounded-xl lg:rounded-2xl blur-xl opacity-40 animate-pulse"></div>
-            <div className="relative flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-xl lg:rounded-2xl shadow-2xl shadow-blue-500/30 transform hover:scale-105 transition-all duration-300">
-              <div className="p-1.5 sm:p-2 bg-white/20 rounded-lg lg:rounded-xl backdrop-blur-sm">
-                <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
-              </div>
-              <span className="font-bold text-sm sm:text-base lg:text-lg tracking-wide">MARKET INTELLIGENCE HUB</span>
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 animate-pulse" />
-            </div>
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl mb-8 shadow-2xl transform hover:scale-105 transition-all duration-300">
+            <Sparkles className="w-6 h-6" />
+            <span className="text-xl font-bold tracking-wide">LIVE MARKET INTELLIGENCE</span>
+            <BarChart3 className="w-6 h-6" />
           </div>
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-slate-900 via-blue-800 to-purple-800 bg-clip-text text-transparent">
-              Live Market Watch
-            </span>
+          <h2 className="text-5xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
+            Market Watch
           </h2>
           
-          <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed px-4">
-            Real-time premium market intelligence with advanced analytics that empowers your investment decisions
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Real-time market data with advanced analytics and insights
           </p>
         </div>
 
-        {/* Enhanced Main Grid with Fixed Heights */}
-        <div className="grid xl:grid-cols-3 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
-          {/* Live Market Indices - Enhanced */}
-          <Card className="group overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-700 border-0 bg-gradient-to-br from-white via-blue-50/60 to-indigo-50/40 backdrop-blur-sm hover:scale-[1.02] animate-fade-in h-[520px] sm:h-[580px] lg:h-[620px]">
-            <div className="relative p-4 sm:p-6 lg:p-8 h-full flex flex-col">
-              <div className="absolute top-0 right-0 w-24 h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-2xl"></div>
-              
-              <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-                <div className="p-2 sm:p-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 rounded-xl lg:rounded-2xl shadow-lg">
-                  <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" />
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+          {/* Market Indices */}
+          <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl overflow-hidden hover:scale-[1.02] transition-all duration-500 shadow-2xl">
+            <div className="p-8">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="p-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl">
+                  <BarChart3 className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900">Market Indices</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium">Live Performance</p>
+                  <h3 className="text-2xl font-bold text-white">Market Indices</h3>
+                  <p className="text-gray-300">Live Performance</p>
                 </div>
               </div>
               
-              <div className="grid grid-cols-2 gap-3 sm:gap-4 flex-1">
+              <div className="space-y-4">
                 {marketData.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
-                    <div key={index} className={`group/item p-3 sm:p-4 lg:p-5 rounded-xl lg:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border-2 backdrop-blur-sm relative overflow-hidden transform hover:scale-105 ${
-                      item.trend === 'up' 
-                        ? 'bg-gradient-to-br from-emerald-50 via-green-50/80 to-teal-50/60 border-emerald-200 hover:border-emerald-400' 
-                        : 'bg-gradient-to-br from-red-50 via-pink-50/80 to-rose-50/60 border-red-200 hover:border-red-400'
-                    }`}>
-                      <div className="relative z-10">
-                        <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                          <div className={`p-1.5 sm:p-2 rounded-lg lg:rounded-xl transition-colors ${
-                            item.trend === 'up' 
-                              ? 'bg-emerald-100 text-emerald-600 group-hover/item:bg-emerald-200' 
-                              : 'bg-red-100 text-red-600 group-hover/item:bg-red-200'
-                          }`}>
-                            <IconComponent className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <div key={index} className="group p-4 rounded-2xl bg-gradient-to-r from-white/10 to-white/5 border border-white/10 hover:border-white/30 transition-all duration-300 transform hover:scale-105">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className={`p-2 rounded-lg bg-gradient-to-r ${item.color}`}>
+                            <IconComponent className="w-4 h-4 text-white" />
                           </div>
-                          <span className="font-bold text-slate-900 text-xs sm:text-sm">{item.symbol}</span>
+                          <div>
+                            <span className="font-semibold text-white text-sm">{item.symbol}</span>
+                            <div className="text-lg font-bold text-white">{item.value}</div>
+                          </div>
                         </div>
                         
-                        <div className="text-sm sm:text-base lg:text-lg font-bold text-slate-900 mb-3 sm:mb-4">{item.value}</div>
-                        
-                        <div className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-md ${
+                        <div className={`flex items-center gap-1 px-3 py-1 rounded-full text-sm font-bold ${
                           item.trend === 'up' 
-                            ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white' 
+                            ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white' 
                             : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
                         }`}>
-                          {item.trend === 'up' ? <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" /> : <TrendingDown className="w-3 h-3 sm:w-4 sm:h-4" />}
+                          {item.trend === 'up' ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
                           <span>{item.change}</span>
                         </div>
                       </div>
@@ -229,174 +225,172 @@ const MarketWatch = memo(() => {
             </div>
           </Card>
 
-          {/* Top Performing Sectors - Enhanced */}
-          <Card className="group shadow-2xl hover:shadow-3xl transition-all duration-700 border-0 bg-gradient-to-br from-white via-purple-50/60 to-pink-50/40 backdrop-blur-sm hover:scale-[1.02] animate-fade-in delay-200 h-[520px] sm:h-[580px] lg:h-[620px]">
-            <div className="relative p-4 sm:p-6 lg:p-8 h-full flex flex-col">
-              <div className="absolute top-0 right-0 w-24 h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-2xl"></div>
-              
-              <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-                <div className="p-2 sm:p-3 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-600 rounded-xl lg:rounded-2xl shadow-lg">
-                  <Zap className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" />
+          {/* Top Sectors */}
+          <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl overflow-hidden hover:scale-[1.02] transition-all duration-500 shadow-2xl">
+            <div className="p-8">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="p-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl">
+                  <Zap className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900">Top Sectors</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium">Market Leaders</p>
+                  <h3 className="text-2xl font-bold text-white">Top Sectors</h3>
+                  <p className="text-gray-300">Market Leaders</p>
                 </div>
               </div>
               
-              <div className="space-y-3 sm:space-y-4 flex-1 overflow-y-auto">
+              <div className="space-y-4">
                 {topSectors.map((sector, index) => {
                   const IconComponent = sector.icon;
                   return (
-                    <Card 
+                    <div 
                       key={index} 
-                      className={`p-3 sm:p-4 cursor-pointer transition-all duration-500 border-2 hover:shadow-lg transform hover:scale-[1.02] ${
+                      className={`group p-4 rounded-2xl cursor-pointer transition-all duration-300 transform hover:scale-105 ${
                         selectedSector === sector.name
-                          ? 'border-purple-400 bg-gradient-to-r from-purple-100 to-pink-100 shadow-lg scale-[1.02]'
-                          : sector.trend === 'up'
-                            ? 'border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50 hover:border-emerald-400'
-                            : 'border-red-200 bg-gradient-to-r from-red-50 to-pink-50 hover:border-red-400'
+                          ? 'bg-gradient-to-r from-purple-500/30 to-pink-500/30 border-2 border-purple-400'
+                          : 'bg-gradient-to-r from-white/10 to-white/5 border border-white/10 hover:border-white/30'
                       }`}
                       onClick={() => setSelectedSector(sector.name)}
                     >
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 sm:gap-3">
-                          <div className={`p-1.5 sm:p-2 rounded-lg lg:rounded-xl transition-colors ${
-                            selectedSector === sector.name
-                              ? 'bg-purple-200 text-purple-600'
-                              : sector.trend === 'up'
-                                ? 'bg-emerald-100 text-emerald-600'
-                                : 'bg-red-100 text-red-600'
-                          }`}>
-                            <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <div className="flex items-center gap-3">
+                          <div className={`p-2 rounded-lg bg-gradient-to-r ${sector.color}`}>
+                            <IconComponent className="w-4 h-4 text-white" />
                           </div>
-                          <span className="font-semibold text-slate-900 text-sm sm:text-base lg:text-lg">{sector.name}</span>
+                          <span className="font-semibold text-white">{sector.name}</span>
                         </div>
                         
-                        <div className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-md ${
+                        <div className={`flex items-center gap-1 px-3 py-1 rounded-full text-sm font-bold ${
                           sector.trend === 'up'
-                            ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white'
+                            ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white'
                             : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
                         }`}>
-                          {sector.trend === 'up' ? <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" /> : <TrendingDown className="w-3 h-3 sm:w-4 sm:h-4" />}
+                          {sector.trend === 'up' ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
                           <span>{sector.change}</span>
                         </div>
                       </div>
-                    </Card>
+                    </div>
                   );
                 })}
               </div>
             </div>
           </Card>
 
-          {/* Trending Stocks - Enhanced */}
-          <Card className="group shadow-2xl hover:shadow-3xl transition-all duration-700 border-0 bg-gradient-to-br from-white via-emerald-50/60 to-teal-50/40 backdrop-blur-sm hover:scale-[1.02] animate-fade-in delay-400 h-[520px] sm:h-[580px] lg:h-[620px]">
-            <div className="relative p-4 sm:p-6 lg:p-8 h-full flex flex-col">
-              <div className="absolute top-0 right-0 w-24 h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-emerald-400/10 to-teal-400/10 rounded-full blur-2xl"></div>
-              
-              <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-                <div className="p-2 sm:p-3 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-600 rounded-xl lg:rounded-2xl shadow-lg">
-                  <Activity className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" />
+          {/* Trending Stocks */}
+          <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl overflow-hidden hover:scale-[1.02] transition-all duration-500 shadow-2xl">
+            <div className="p-8">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="p-3 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-xl">
+                  <Star className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900">Trending Stocks</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium">{selectedSector} Sector</p>
+                  <h3 className="text-2xl font-bold text-white">Trending Stocks</h3>
+                  <p className="text-gray-300">{selectedSector} Sector</p>
                 </div>
               </div>
               
-              <div className="space-y-3 sm:space-y-4 flex-1 overflow-y-auto">
+              <div className="space-y-4">
                 {sectorStocks[selectedSector]?.map((stock, index) => (
-                  <Card key={index} className={`p-3 sm:p-4 transition-all duration-500 border-2 hover:shadow-lg cursor-pointer transform hover:scale-[1.02] ${
-                    stock.trend === 'up'
-                      ? 'border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50 hover:border-emerald-400'
-                      : 'border-red-200 bg-gradient-to-r from-red-50 to-pink-50 hover:border-red-400'
-                  }`}>
+                  <div key={index} className="group p-4 rounded-2xl bg-gradient-to-r from-white/10 to-white/5 border border-white/10 hover:border-white/30 transition-all duration-300 cursor-pointer transform hover:scale-105">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3 sm:gap-4">
-                        <div className={`w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-lg lg:rounded-xl font-bold flex items-center justify-center text-sm sm:text-base lg:text-lg ${
-                          stock.trend === 'up' ? 'bg-emerald-100 text-emerald-600' : 'bg-red-100 text-red-600'
+                      <div className="flex items-center gap-3">
+                        <div className={`w-10 h-10 rounded-xl font-bold flex items-center justify-center text-sm ${
+                          stock.trend === 'up' ? 'bg-emerald-500 text-white' : 'bg-red-500 text-white'
                         }`}>
                           {stock.name.charAt(0)}
                         </div>
                         <div>
-                          <span className="font-semibold text-slate-900 text-sm sm:text-base lg:text-lg block">{stock.name}</span>
-                          <div className="text-xs sm:text-sm font-bold text-slate-700">{stock.price}</div>
+                          <span className="font-semibold text-white block">{stock.name}</span>
+                          <div className="text-sm text-gray-300">{stock.price}</div>
                         </div>
                       </div>
                       
-                      <div className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-md ${
+                      <div className={`flex items-center gap-1 px-3 py-1 rounded-full text-sm font-bold ${
                         stock.trend === 'up'
-                          ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white'
+                          ? 'bg-gradient-to-r from-emerald-500 to-green-500 text-white'
                           : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
                       }`}>
-                        {stock.trend === 'up' ? <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" /> : <TrendingDown className="w-3 h-3 sm:w-4 sm:h-4" />}
+                        {stock.trend === 'up' ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
                         <span>{stock.change}</span>
                       </div>
                     </div>
-                  </Card>
+                  </div>
                 ))}
               </div>
             </div>
           </Card>
         </div>
 
-        {/* Market Impact News - Enhanced Moving Carousel */}
-        <Card className="shadow-2xl hover:shadow-3xl transition-all duration-700 border-0 bg-gradient-to-br from-white via-slate-50/60 to-blue-50/40 backdrop-blur-sm hover:scale-[1.01] animate-fade-in delay-600">
-          <div className="relative p-4 sm:p-6 lg:p-8">
-            <div className="absolute top-0 right-0 w-32 h-32 lg:w-40 lg:h-40 bg-gradient-to-br from-blue-400/10 to-indigo-400/10 rounded-full blur-2xl"></div>
-            
-            <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-              <div className="p-2 sm:p-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 rounded-xl lg:rounded-2xl shadow-lg">
-                <Activity className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" />
+        {/* Market News Carousel */}
+        <Card className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20 rounded-3xl overflow-hidden shadow-2xl">
+          <div className="p-8">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl">
+                <Activity className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-900">Market Impact News</h3>
-                <p className="text-xs sm:text-sm text-slate-600 font-medium">Latest Market Movers</p>
+                <h3 className="text-2xl font-bold text-white">Market Impact News</h3>
+                <p className="text-gray-300">Latest Updates</p>
               </div>
             </div>
             
-            {/* Moving News Carousel */}
-            <div className="relative overflow-hidden rounded-xl lg:rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 p-4 sm:p-6">
-              <div className="flex animate-scroll gap-6 sm:gap-8">
-                {/* First set of news */}
+            {/* Fast Moving News Carousel */}
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-800/50 to-gray-800/50 p-6">
+              <div className="flex animate-scroll-fast gap-8">
+                {/* First set */}
                 {marketNews.map((news, index) => (
-                  <div key={`first-${index}`} className="flex-shrink-0 w-72 sm:w-80 lg:w-96 group p-4 sm:p-6 border-2 border-slate-100 hover:border-blue-300 rounded-xl lg:rounded-2xl hover:shadow-xl transition-all duration-500 cursor-pointer bg-white/90 backdrop-blur-sm transform hover:scale-105">
-                    <div className="flex items-start justify-between mb-3 sm:mb-4 gap-3">
+                  <div key={`first-${index}`} className="flex-shrink-0 w-80 group p-6 border border-white/20 hover:border-white/40 rounded-2xl hover:shadow-xl transition-all duration-300 cursor-pointer bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm transform hover:scale-105">
+                    <div className="flex items-start justify-between mb-4 gap-3">
                       <Badge 
-                        className={`text-xs font-semibold flex-shrink-0 px-2 sm:px-3 py-1 ${
+                        className={`text-xs font-semibold flex-shrink-0 px-3 py-1 border-0 ${
                           news.impact === 'High' 
-                            ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white border-0 shadow-lg' 
-                            : 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white border-0 shadow-lg'
+                            ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white' 
+                            : 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white'
                         }`}
                       >
                         {news.impact} Impact
                       </Badge>
-                      <span className="text-slate-500 text-xs font-medium flex-shrink-0">{news.time}</span>
+                      <div className="flex items-center gap-2 text-gray-300 text-xs">
+                        <Eye className="w-3 h-3" />
+                        <span>{news.time}</span>
+                      </div>
                     </div>
-                    <h4 className="font-bold text-slate-900 text-sm sm:text-base lg:text-lg leading-relaxed group-hover:text-blue-600 transition-colors line-clamp-3">
+                    <h4 className="font-bold text-white text-lg leading-relaxed group-hover:text-blue-300 transition-colors line-clamp-3">
                       {news.title}
                     </h4>
+                    <div className="mt-3">
+                      <Badge className="text-xs bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
+                        {news.category}
+                      </Badge>
+                    </div>
                   </div>
                 ))}
                 
-                {/* Second set of news (duplicate for seamless loop) */}
+                {/* Second set for seamless loop */}
                 {marketNews.map((news, index) => (
-                  <div key={`second-${index}`} className="flex-shrink-0 w-72 sm:w-80 lg:w-96 group p-4 sm:p-6 border-2 border-slate-100 hover:border-blue-300 rounded-xl lg:rounded-2xl hover:shadow-xl transition-all duration-500 cursor-pointer bg-white/90 backdrop-blur-sm transform hover:scale-105">
-                    <div className="flex items-start justify-between mb-3 sm:mb-4 gap-3">
+                  <div key={`second-${index}`} className="flex-shrink-0 w-80 group p-6 border border-white/20 hover:border-white/40 rounded-2xl hover:shadow-xl transition-all duration-300 cursor-pointer bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm transform hover:scale-105">
+                    <div className="flex items-start justify-between mb-4 gap-3">
                       <Badge 
-                        className={`text-xs font-semibold flex-shrink-0 px-2 sm:px-3 py-1 ${
+                        className={`text-xs font-semibold flex-shrink-0 px-3 py-1 border-0 ${
                           news.impact === 'High' 
-                            ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white border-0 shadow-lg' 
-                            : 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white border-0 shadow-lg'
+                            ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white' 
+                            : 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white'
                         }`}
                       >
                         {news.impact} Impact
                       </Badge>
-                      <span className="text-slate-500 text-xs font-medium flex-shrink-0">{news.time}</span>
+                      <div className="flex items-center gap-2 text-gray-300 text-xs">
+                        <Eye className="w-3 h-3" />
+                        <span>{news.time}</span>
+                      </div>
                     </div>
-                    <h4 className="font-bold text-slate-900 text-sm sm:text-base lg:text-lg leading-relaxed group-hover:text-blue-600 transition-colors line-clamp-3">
+                    <h4 className="font-bold text-white text-lg leading-relaxed group-hover:text-blue-300 transition-colors line-clamp-3">
                       {news.title}
                     </h4>
+                    <div className="mt-3">
+                      <Badge className="text-xs bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
+                        {news.category}
+                      </Badge>
+                    </div>
                   </div>
                 ))}
               </div>

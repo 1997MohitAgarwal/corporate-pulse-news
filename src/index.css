@@ -146,8 +146,21 @@
   }
 }
 
+@keyframes scroll-fast {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .animate-scroll {
   animation: scroll 60s linear infinite;
+}
+
+.animate-scroll-fast {
+  animation: scroll-fast 25s linear infinite;
 }
 
 @keyframes fade-in-up {
@@ -202,7 +215,8 @@
 }
 
 /* Pause animation on hover for better UX */
-.animate-scroll:hover {
+.animate-scroll:hover,
+.animate-scroll-fast:hover {
   animation-play-state: paused;
 }
 
@@ -211,10 +225,18 @@
   .animate-scroll {
     animation-duration: 80s;
   }
+  
+  .animate-scroll-fast {
+    animation-duration: 35s;
+  }
 }
 
 @media (min-width: 1024px) {
   .animate-scroll {
     animation-duration: 50s;
+  }
+  
+  .animate-scroll-fast {
+    animation-duration: 20s;
   }
 }
