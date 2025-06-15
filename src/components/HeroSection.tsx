@@ -35,7 +35,7 @@ const HeroSection = memo(() => {
             </div>
             
             <div className="space-y-6">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight">
                 <span className="block bg-gradient-to-r from-white via-blue-100 to-slate-200 bg-clip-text text-transparent">
                   Corporate Law
                 </span>
@@ -44,7 +44,7 @@ const HeroSection = memo(() => {
                 </span>
               </h1>
               
-              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-300 leading-relaxed max-w-2xl">
+              <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-slate-300 leading-relaxed max-w-2xl">
                 Your trusted source for breaking corporate law news, regulatory updates, 
                 and strategic business intelligence across India's legal landscape.
               </p>
