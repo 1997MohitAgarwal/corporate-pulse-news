@@ -1,4 +1,3 @@
-
 import { memo, useMemo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -115,9 +114,9 @@ const MarketWatch = memo(() => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
           <Card className="overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-indigo-100 hover:border-indigo-400 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30 backdrop-blur-sm animate-scale-in">
-            <div className="p-4 sm:p-6">
+            <div className="p-4 sm:p-5">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 sm:p-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 rounded-xl shadow-lg">
                   <BarChart3 className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
@@ -125,11 +124,11 @@ const MarketWatch = memo(() => {
                 <h3 className="text-lg sm:text-2xl font-bold text-slate-900">Live Market Indices</h3>
               </div>
               
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-2.5">
                 {marketData.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
-                    <div key={index} className={`group p-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
+                    <div key={index} className={`group p-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
                       item.trend === 'up' 
                         ? 'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 border-emerald-200 hover:border-emerald-400' 
                         : 'bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 border-red-200 hover:border-red-400'
@@ -142,8 +141,8 @@ const MarketWatch = memo(() => {
                       }`}></div>
                       
                       <div className="relative z-10">
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-1.5">
+                        <div className="flex items-center justify-between mb-1.5">
+                          <div className="flex items-center gap-1">
                             <div className={`p-1 rounded-lg ${
                               item.trend === 'up' 
                                 ? 'bg-emerald-100 text-emerald-600' 
@@ -151,24 +150,24 @@ const MarketWatch = memo(() => {
                             }`}>
                               <IconComponent className="w-3 h-3" />
                             </div>
-                            <span className="font-bold text-slate-900 text-xs lg:text-sm tracking-wide">{item.symbol}</span>
+                            <span className="font-bold text-slate-900 text-xs tracking-wide">{item.symbol}</span>
                           </div>
                         </div>
                         
-                        <div className="text-lg lg:text-xl font-bold text-slate-900 mb-2">{item.value}</div>
+                        <div className="text-base lg:text-lg font-bold text-slate-900 mb-1.5">{item.value}</div>
                         
                         <div className="flex items-center justify-between">
-                          <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold shadow-md transition-all duration-300 ${
+                          <div className={`flex items-center gap-1 px-1.5 py-0.5 rounded-full text-xs font-bold shadow-md transition-all duration-300 ${
                             item.trend === 'up' 
                               ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600' 
                               : 'bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-red-600 hover:to-pink-600'
                           }`}>
-                            {item.trend === 'up' ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
+                            {item.trend === 'up' ? <TrendingUp className="w-2.5 h-2.5" /> : <TrendingDown className="w-2.5 h-2.5" />}
                             <span>{item.change}</span>
                           </div>
                           
                           {/* Progress bar indicator */}
-                          <div className="w-6 lg:w-8 bg-gray-200 rounded-full h-1 overflow-hidden">
+                          <div className="w-5 bg-gray-200 rounded-full h-1 overflow-hidden">
                             <div className={`h-full rounded-full transition-all duration-700 ${
                               item.trend === 'up' 
                                 ? 'bg-gradient-to-r from-emerald-400 to-teal-400 w-4/5' 
@@ -185,36 +184,34 @@ const MarketWatch = memo(() => {
           </Card>
 
           <Card className="shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-emerald-100 hover:border-emerald-400 bg-gradient-to-br from-white via-emerald-50/50 to-teal-50/30 backdrop-blur-sm animate-scale-in delay-200">
-            <div className="p-4 sm:p-6 h-full flex flex-col">
-              <div className="flex items-center gap-3 mb-4 sm:mb-6">
+            <div className="p-4 sm:p-5">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 sm:p-3 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-xl shadow-lg">
                   <Activity className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
                 </div>
                 <h3 className="text-lg sm:text-2xl font-bold text-slate-900">Market Impact News</h3>
               </div>
               
-              <div className="flex-1 overflow-hidden">
-                <div className="h-full max-h-[400px] sm:max-h-[500px] overflow-y-auto space-y-4 pr-2 custom-scrollbar">
-                  {marketNews.map((news, index) => (
-                    <div key={index} className="p-3 sm:p-4 border-2 border-slate-100 hover:border-emerald-300 rounded-xl hover:shadow-lg transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm group overflow-hidden">
-                      <div className="flex items-start justify-between mb-2 gap-2">
-                        <Badge 
-                          className={`text-xs font-semibold flex-shrink-0 ${
-                            news.impact === 'High' 
-                              ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white border-0 shadow-md' 
-                              : 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white border-0 shadow-md'
-                          }`}
-                        >
-                          {news.impact} Impact
-                        </Badge>
-                        <span className="text-slate-500 text-xs font-medium flex-shrink-0">{news.time}</span>
-                      </div>
-                      <h4 className="font-semibold text-slate-900 text-sm leading-relaxed group-hover:text-emerald-600 transition-colors break-words">
-                        {news.title}
-                      </h4>
+              <div className="max-h-[350px] overflow-y-auto space-y-3 pr-2 custom-scrollbar">
+                {marketNews.map((news, index) => (
+                  <div key={index} className="p-3 border-2 border-slate-100 hover:border-emerald-300 rounded-xl hover:shadow-lg transition-all duration-300 cursor-pointer bg-white/90 backdrop-blur-sm group overflow-hidden">
+                    <div className="flex items-start justify-between mb-2 gap-2">
+                      <Badge 
+                        className={`text-xs font-semibold flex-shrink-0 ${
+                          news.impact === 'High' 
+                            ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white border-0 shadow-md' 
+                            : 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white border-0 shadow-md'
+                        }`}
+                      >
+                        {news.impact} Impact
+                      </Badge>
+                      <span className="text-slate-500 text-xs font-medium flex-shrink-0">{news.time}</span>
                     </div>
-                  ))}
-                </div>
+                    <h4 className="font-semibold text-slate-900 text-sm leading-relaxed group-hover:text-emerald-600 transition-colors break-words">
+                      {news.title}
+                    </h4>
+                  </div>
+                ))}
               </div>
             </div>
           </Card>
