@@ -1,4 +1,3 @@
-
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -158,19 +157,23 @@ const MarketWatch = memo(() => {
         <div className="text-center mb-16">
           {/* Animated gradient background */}
           <div className="relative inline-block mb-8">
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 rounded-full blur-xl opacity-20 animate-pulse"></div>
-            <Badge className="relative bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 text-white border-0 px-6 py-2 text-sm font-semibold shadow-lg backdrop-blur-sm">
-              <BookOpen className="w-4 h-4 mr-2" />
-              Market Intelligence
-              <Sparkles className="w-4 h-4 ml-2 animate-pulse" />
-            </Badge>
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 rounded-2xl blur-lg opacity-30 animate-pulse"></div>
+            <div className="relative flex items-center gap-3 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 text-white px-8 py-4 rounded-2xl shadow-xl shadow-orange-500/30">
+              <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
+                <BookOpen className="w-5 h-5" />
+              </div>
+              <span className="font-bold text-lg tracking-wide">MARKET INTELLIGENCE HUB</span>
+              <Sparkles className="w-5 h-5 animate-pulse" />
+            </div>
           </div>
           
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent leading-tight">
-            Market Watch
+          <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-slate-900 via-orange-600 to-red-600 bg-clip-text text-transparent">
+              Market Watch
+            </span>
           </h2>
           
-          <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg lg:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Real-time market insights and analytics at your fingertips
           </p>
         </div>
