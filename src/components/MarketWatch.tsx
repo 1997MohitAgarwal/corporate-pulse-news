@@ -1,7 +1,8 @@
+
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, TrendingDown, Activity, BarChart3, Zap, Star, Eye, Landmark, Cpu, Pill, Car, ShoppingCart, Factory } from "lucide-react";
+import { TrendingUp, TrendingDown, Activity, BarChart3, Zap, Star, Eye, Landmark, Cpu, Pill, Car, ShoppingCart, Factory, BookOpen, Sparkles } from "lucide-react";
 
 const MarketWatch = memo(() => {
   const [selectedSector, setSelectedSector] = useState("Technology");
@@ -153,14 +154,23 @@ const MarketWatch = memo(() => {
   return (
     <section id="market-watch" className="py-20 bg-white">
       <div className="container mx-auto px-6">
-        {/* Header - matching Legal Intelligence Hub style */}
+        {/* Header - matching Legal Intelligence Hub style exactly */}
         <div className="text-center mb-16">
-          <Badge className="mb-4 bg-amber-500 text-white">
-            <BarChart3 className="w-4 h-4 mr-2" />
-            Market Intelligence
-          </Badge>
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">Market Watch</h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          {/* Animated gradient background */}
+          <div className="relative inline-block mb-8">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 rounded-full blur-xl opacity-20 animate-pulse"></div>
+            <Badge className="relative bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 text-white border-0 px-6 py-2 text-sm font-semibold shadow-lg backdrop-blur-sm">
+              <BookOpen className="w-4 h-4 mr-2" />
+              Market Intelligence
+              <Sparkles className="w-4 h-4 ml-2" />
+            </Badge>
+          </div>
+          
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent leading-tight">
+            Market Watch
+          </h2>
+          
+          <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
             Real-time market insights and analytics at your fingertips
           </p>
         </div>
