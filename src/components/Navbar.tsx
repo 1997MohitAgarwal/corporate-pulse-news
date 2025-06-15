@@ -35,14 +35,14 @@ const Navbar = () => {
                 <Scale className="w-5 h-5 text-white" />
               </div>
             </div>
-            <div className="text-lg lg:text-xl font-bold">
-              <span className="text-white">Corporate Law</span>
-              <span className="text-orange-400"> News Hub</span>
+            <div className="text-xl lg:text-2xl font-bold">
+              <span className="text-white">Lex</span>
+              <span className="text-orange-400">Corp</span>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item, index) => (
               <a
                 key={index}
