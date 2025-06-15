@@ -20,12 +20,10 @@ const Index = memo(() => {
       <div className="relative z-10">
         <Navbar />
         <HeroSection />
-        <div className="py-8 lg:py-12 space-y-8 lg:space-y-12">
-          <BreakingNews />
-          <FeaturedNews />
-          <NewsCategories />
-          <MarketWatch />
-        </div>
+        <BreakingNews />
+        <FeaturedNews />
+        <NewsCategories />
+        <MarketWatch />
         <Footer />
       </div>
     </div>

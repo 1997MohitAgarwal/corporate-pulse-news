@@ -89,13 +89,13 @@ const MarketWatch = memo(() => {
   ], []);
 
   return (
-    <section id="market-watch" className="py-12 lg:py-16 bg-gradient-to-br from-slate-50 via-indigo-50/40 to-purple-50/30 relative overflow-hidden">
+    <section id="market-watch" className="py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-indigo-50/40 to-purple-50/30 relative overflow-hidden">
       <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-400/10 to-purple-400/10 rounded-full blur-xl animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-br from-emerald-400/10 to-teal-400/10 rounded-full blur-xl animate-pulse delay-700"></div>
       
       <div className="container mx-auto px-4 lg:px-6 relative">
-        <div className="text-center mb-12 lg:mb-16">
-          <div className="relative inline-block mb-6">
+        <div className="text-center mb-16 lg:mb-20">
+          <div className="relative inline-block mb-8">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-indigo-500 rounded-2xl blur-lg opacity-30 animate-pulse"></div>
             <div className="relative flex items-center gap-3 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white px-8 py-4 rounded-2xl shadow-xl shadow-blue-500/30">
               <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
