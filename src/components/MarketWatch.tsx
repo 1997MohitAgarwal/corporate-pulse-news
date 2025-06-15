@@ -1,4 +1,5 @@
 
+
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -202,23 +203,23 @@ const MarketWatch = memo(() => {
 
           {/* Top Performing Sectors */}
           <Card className="shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-purple-100 hover:border-purple-400 bg-gradient-to-br from-white via-purple-50/50 to-pink-50/30 backdrop-blur-sm animate-scale-in delay-100">
-            <div className="p-4">
-              <div className="flex items-center gap-3 mb-4">
+            <div className="p-5">
+              <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 rounded-xl shadow-lg">
                   <Zap className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">Top Sectors</h3>
               </div>
               
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {topSectors.map((sector, index) => {
                   const IconComponent = sector.icon;
                   return (
-                    <div 
+                    <Card 
                       key={index} 
-                      className={`p-2 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border-2 ${
+                      className={`p-3 cursor-pointer transition-all duration-300 border-2 hover:shadow-lg ${
                         selectedSector === sector.name
-                          ? 'border-purple-400 bg-gradient-to-r from-purple-100 to-pink-100'
+                          ? 'border-purple-400 bg-gradient-to-r from-purple-100 to-pink-100 shadow-md'
                           : sector.trend === 'up'
                             ? 'border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50 hover:border-emerald-400'
                             : 'border-red-200 bg-gradient-to-r from-red-50 to-pink-50 hover:border-red-400'
@@ -227,14 +228,14 @@ const MarketWatch = memo(() => {
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <div className={`p-1 rounded-lg ${
+                          <div className={`p-1.5 rounded-lg ${
                             selectedSector === sector.name
                               ? 'bg-purple-200 text-purple-600'
                               : sector.trend === 'up'
                                 ? 'bg-emerald-100 text-emerald-600'
                                 : 'bg-red-100 text-red-600'
                           }`}>
-                            <IconComponent className="w-3 h-3" />
+                            <IconComponent className="w-3.5 h-3.5" />
                           </div>
                           <span className="font-semibold text-slate-900 text-sm">{sector.name}</span>
                         </div>
@@ -248,7 +249,7 @@ const MarketWatch = memo(() => {
                           <span>{sector.change}</span>
                         </div>
                       </div>
-                    </div>
+                    </Card>
                   );
                 })}
               </div>
@@ -257,8 +258,8 @@ const MarketWatch = memo(() => {
 
           {/* Trending Stocks in Selected Sector */}
           <Card className="shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-emerald-100 hover:border-emerald-400 bg-gradient-to-br from-white via-emerald-50/50 to-teal-50/30 backdrop-blur-sm animate-scale-in delay-200">
-            <div className="p-4">
-              <div className="flex items-center gap-3 mb-4">
+            <div className="p-5">
+              <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-xl shadow-lg">
                   <Activity className="w-5 h-5 text-white" />
                 </div>
@@ -268,9 +269,9 @@ const MarketWatch = memo(() => {
                 </div>
               </div>
               
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {sectorStocks[selectedSector]?.map((stock, index) => (
-                  <div key={index} className={`p-2 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border-2 ${
+                  <Card key={index} className={`p-3 transition-all duration-300 border-2 hover:shadow-lg ${
                     stock.trend === 'up'
                       ? 'border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50 hover:border-emerald-400'
                       : 'border-red-200 bg-gradient-to-r from-red-50 to-pink-50 hover:border-red-400'
@@ -290,7 +291,7 @@ const MarketWatch = memo(() => {
                         <span>{stock.change}</span>
                       </div>
                     </div>
-                  </div>
+                  </Card>
                 ))}
               </div>
             </div>
@@ -358,3 +359,4 @@ const MarketWatch = memo(() => {
 MarketWatch.displayName = "MarketWatch";
 
 export default MarketWatch;
+
