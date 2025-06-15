@@ -1,8 +1,7 @@
-
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, TrendingDown, Activity, BarChart3, Sparkles, Landmark, Building2, Coins, Fuel, DollarSign, TrendingUpIcon, Zap, Factory, Briefcase, ShoppingCart, Cpu, Car, Pill, Eye, Star } from "lucide-react";
+import { TrendingUp, TrendingDown, Activity, BarChart3, Zap, Star, Eye, Landmark, Cpu, Pill, Car, ShoppingCart, Factory } from "lucide-react";
 
 const MarketWatch = memo(() => {
   const [selectedSector, setSelectedSector] = useState("Technology");
@@ -20,7 +19,7 @@ const MarketWatch = memo(() => {
       value: "71,123.45", 
       change: "+0.8%", 
       trend: "up", 
-      icon: TrendingUpIcon,
+      icon: TrendingUp,
     },
     { 
       symbol: "BANKNIFTY", 
@@ -34,21 +33,21 @@ const MarketWatch = memo(() => {
       value: "₹63,892", 
       change: "+0.5%", 
       trend: "up", 
-      icon: Coins,
+      icon: Star,
     },
     { 
       symbol: "CRUDE OIL", 
       value: "₹6,892", 
       change: "-1.1%", 
       trend: "down", 
-      icon: Fuel,
+      icon: Activity,
     },
     { 
       symbol: "USD/INR", 
       value: "83.25", 
       change: "+0.3%", 
       trend: "up", 
-      icon: DollarSign,
+      icon: TrendingUp,
     }
   ], []);
 
