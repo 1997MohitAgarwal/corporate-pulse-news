@@ -1,8 +1,7 @@
-
 import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Eye, ArrowRight, User, Calendar } from "lucide-react";
+import { Clock, Eye, ArrowRight, User, Calendar, BookOpen, Sparkles } from "lucide-react";
 
 const FeaturedNews = memo(() => {
   const featuredStories = [
@@ -54,9 +53,15 @@ const FeaturedNews = memo(() => {
       <div className="container mx-auto px-4 lg:px-6">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 text-white px-6 py-3 rounded-full mb-6 shadow-lg">
-            <ArrowRight className="w-5 h-5" />
-            <span className="font-semibold">Editor's Choice</span>
+          <div className="relative inline-block mb-6">
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 rounded-2xl blur-lg opacity-30 animate-pulse"></div>
+            <div className="relative flex items-center gap-3 bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 text-white px-8 py-4 rounded-2xl shadow-xl shadow-amber-500/30">
+              <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
+                <BookOpen className="w-5 h-5" />
+              </div>
+              <span className="font-bold text-lg tracking-wide">EDITOR'S CHOICE</span>
+              <Sparkles className="w-5 h-5 animate-pulse" />
+            </div>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-slate-900 via-amber-700 to-orange-700 bg-clip-text text-transparent">
