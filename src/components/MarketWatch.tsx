@@ -154,7 +154,7 @@ const MarketWatch = memo(() => {
   return (
     <section id="market-watch" className="py-20 bg-white">
       <div className="container mx-auto px-6">
-        {/* Header - matching Legal Intelligence Hub style exactly */}
+        {/* Header - exactly matching Legal Intelligence Hub style */}
         <div className="text-center mb-16">
           {/* Animated gradient background */}
           <div className="relative inline-block mb-8">
@@ -162,7 +162,7 @@ const MarketWatch = memo(() => {
             <Badge className="relative bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 text-white border-0 px-6 py-2 text-sm font-semibold shadow-lg backdrop-blur-sm">
               <BookOpen className="w-4 h-4 mr-2" />
               Market Intelligence
-              <Sparkles className="w-4 h-4 ml-2" />
+              <Sparkles className="w-4 h-4 ml-2 animate-pulse" />
             </Badge>
           </div>
           
