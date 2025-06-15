@@ -49,10 +49,10 @@ const FeaturedNews = memo(() => {
   const sideStories = featuredStories.filter(story => !story.isMain);
 
   return (
-    <section className="py-8 lg:py-12 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
+    <section className="py-8 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
       <div className="container mx-auto px-4 lg:px-6">
         {/* Section Header */}
-        <div className="text-center mb-12 lg:mb-16">
+        <div className="text-center mb-8">
           <div className="relative inline-block mb-6">
             <div className="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 rounded-2xl blur-lg opacity-30 animate-pulse"></div>
             <div className="relative flex items-center gap-3 bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 text-white px-8 py-4 rounded-2xl shadow-xl shadow-amber-500/30">
