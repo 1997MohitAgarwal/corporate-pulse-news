@@ -1,4 +1,3 @@
-
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -173,7 +172,7 @@ const MarketWatch = memo(() => {
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {/* Market Indices */}
-          <Card className="bg-gradient-to-br from-blue-100 to-blue-200/80 backdrop-blur-sm border border-blue-300/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
+          <Card className="bg-gradient-to-br from-blue-600 to-blue-700 backdrop-blur-sm border border-blue-300/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-blue-200 rounded-lg">
@@ -216,7 +215,7 @@ const MarketWatch = memo(() => {
           </Card>
 
           {/* Top Sectors */}
-          <Card className="bg-gradient-to-br from-indigo-100 to-indigo-200/80 backdrop-blur-sm border border-indigo-300/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
+          <Card className="bg-gradient-to-br from-indigo-600 to-indigo-700 backdrop-blur-sm border border-indigo-300/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-indigo-200 rounded-lg">
@@ -264,7 +263,7 @@ const MarketWatch = memo(() => {
           </Card>
 
           {/* Trending Stocks */}
-          <Card className="bg-gradient-to-br from-emerald-100 to-emerald-200/80 backdrop-blur-sm border border-emerald-300/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
+          <Card className="bg-gradient-to-br from-emerald-600 to-emerald-700 backdrop-blur-sm border border-emerald-300/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-emerald-200 rounded-lg">
@@ -307,24 +306,24 @@ const MarketWatch = memo(() => {
         </div>
 
         {/* Market News */}
-        <Card className="bg-gradient-to-br from-orange-100 to-orange-200/80 backdrop-blur-sm border border-orange-300/50 shadow-xl">
+        <Card className="bg-gradient-to-br from-slate-600 to-slate-700 backdrop-blur-sm border border-slate-300/50 shadow-xl">
           <div className="p-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-orange-200 rounded-lg">
-                <Activity className="w-5 h-5 text-orange-700" />
+              <div className="p-2 bg-slate-200 rounded-lg">
+                <Activity className="w-5 h-5 text-slate-700" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-orange-900">Market News</h3>
-                <p className="text-sm text-orange-700">Latest Updates</p>
+                <h3 className="text-lg font-semibold text-slate-100">Market News</h3>
+                <p className="text-sm text-slate-300">Latest Updates</p>
               </div>
             </div>
             
             {/* Moving News Carousel */}
-            <div className="relative overflow-hidden rounded-lg bg-orange-50/60 p-4 shadow-inner border border-orange-200/50">
+            <div className="relative overflow-hidden rounded-lg bg-slate-500/30 p-4 shadow-inner border border-slate-400/30">
               <div className="flex animate-scroll-fast gap-6">
                 {/* First set */}
                 {marketNews.map((news, index) => (
-                  <div key={`first-${index}`} className="flex-shrink-0 w-72 group p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-gray-100">
+                  <div key={`first-${index}`} className="flex-shrink-0 w-72 group p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100">
                     <div className="flex items-start justify-between mb-3 gap-2">
                       <Badge 
                         className={`text-xs font-medium px-2 py-1 ${
@@ -351,7 +350,7 @@ const MarketWatch = memo(() => {
                 
                 {/* Second set for seamless loop */}
                 {marketNews.map((news, index) => (
-                  <div key={`second-${index}`} className="flex-shrink-0 w-72 group p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-gray-100">
+                  <div key={`second-${index}`} className="flex-shrink-0 w-72 group p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100">
                     <div className="flex items-start justify-between mb-3 gap-2">
                       <Badge 
                         className={`text-xs font-medium px-2 py-1 ${
