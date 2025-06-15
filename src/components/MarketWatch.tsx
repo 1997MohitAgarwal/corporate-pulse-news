@@ -1,3 +1,4 @@
+
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -172,15 +173,15 @@ const MarketWatch = memo(() => {
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {/* Market Indices */}
-          <Card className="bg-white/70 backdrop-blur-sm border border-gray-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
+          <Card className="bg-gradient-to-br from-blue-100 to-blue-200/80 backdrop-blur-sm border border-blue-300/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-blue-100 rounded-lg">
-                  <BarChart3 className="w-5 h-5 text-blue-600" />
+                <div className="p-2 bg-blue-200 rounded-lg">
+                  <BarChart3 className="w-5 h-5 text-blue-700" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Market Indices</h3>
-                  <p className="text-sm text-gray-500">Live Performance</p>
+                  <h3 className="text-lg font-semibold text-blue-900">Market Indices</h3>
+                  <p className="text-sm text-blue-700">Live Performance</p>
                 </div>
               </div>
               
@@ -188,9 +189,9 @@ const MarketWatch = memo(() => {
                 {marketData.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
-                    <div key={index} className="flex items-center justify-between p-4 rounded-lg bg-slate-100/70 hover:bg-slate-200/70 transition-all duration-200 shadow-md hover:shadow-lg border border-slate-200/50">
+                    <div key={index} className="flex items-center justify-between p-4 rounded-lg bg-white hover:bg-gray-50 transition-all duration-200 shadow-md hover:shadow-lg border border-gray-100">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-md bg-white shadow-sm border border-gray-100">
+                        <div className="p-2 rounded-md bg-gray-50 shadow-sm border border-gray-100">
                           <IconComponent className="w-4 h-4 text-gray-600" />
                         </div>
                         <div>
@@ -215,15 +216,15 @@ const MarketWatch = memo(() => {
           </Card>
 
           {/* Top Sectors */}
-          <Card className="bg-white/70 backdrop-blur-sm border border-gray-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
+          <Card className="bg-gradient-to-br from-indigo-100 to-indigo-200/80 backdrop-blur-sm border border-indigo-300/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-indigo-100 rounded-lg">
-                  <Zap className="w-5 h-5 text-indigo-600" />
+                <div className="p-2 bg-indigo-200 rounded-lg">
+                  <Zap className="w-5 h-5 text-indigo-700" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Top Sectors</h3>
-                  <p className="text-sm text-gray-500">Market Leaders</p>
+                  <h3 className="text-lg font-semibold text-indigo-900">Top Sectors</h3>
+                  <p className="text-sm text-indigo-700">Market Leaders</p>
                 </div>
               </div>
               
@@ -235,13 +236,13 @@ const MarketWatch = memo(() => {
                       key={index} 
                       className={`flex items-center justify-between p-4 rounded-lg cursor-pointer transition-all duration-200 shadow-md hover:shadow-lg border ${
                         selectedSector === sector.name
-                          ? 'bg-blue-100/80 border-blue-300/60 shadow-lg'
-                          : 'bg-indigo-50/70 hover:bg-indigo-100/80 border-indigo-200/50'
+                          ? 'bg-blue-50 border-blue-300 shadow-lg'
+                          : 'bg-white hover:bg-gray-50 border-gray-100'
                       }`}
                       onClick={() => setSelectedSector(sector.name)}
                     >
                       <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-md bg-white shadow-sm border border-gray-100">
+                        <div className="p-2 rounded-md bg-gray-50 shadow-sm border border-gray-100">
                           <IconComponent className="w-4 h-4 text-gray-600" />
                         </div>
                         <span className="font-medium text-gray-900 text-sm">{sector.name}</span>
@@ -263,21 +264,21 @@ const MarketWatch = memo(() => {
           </Card>
 
           {/* Trending Stocks */}
-          <Card className="bg-white/70 backdrop-blur-sm border border-gray-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
+          <Card className="bg-gradient-to-br from-emerald-100 to-emerald-200/80 backdrop-blur-sm border border-emerald-300/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-emerald-100 rounded-lg">
-                  <Star className="w-5 h-5 text-emerald-600" />
+                <div className="p-2 bg-emerald-200 rounded-lg">
+                  <Star className="w-5 h-5 text-emerald-700" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Trending Stocks</h3>
-                  <p className="text-sm text-gray-500">{selectedSector} Sector</p>
+                  <h3 className="text-lg font-semibold text-emerald-900">Trending Stocks</h3>
+                  <p className="text-sm text-emerald-700">{selectedSector} Sector</p>
                 </div>
               </div>
               
               <div className="space-y-3">
                 {sectorStocks[selectedSector]?.map((stock, index) => (
-                  <div key={index} className="flex items-center justify-between p-4 rounded-lg bg-emerald-50/70 hover:bg-emerald-100/80 transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg border border-emerald-200/50">
+                  <div key={index} className="flex items-center justify-between p-4 rounded-lg bg-white hover:bg-gray-50 transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg border border-gray-100">
                     <div className="flex items-center gap-3">
                       <div className={`w-10 h-10 rounded-lg font-semibold flex items-center justify-center text-sm text-white shadow-sm ${
                         stock.trend === 'up' ? 'bg-emerald-500' : 'bg-red-500'
@@ -306,24 +307,24 @@ const MarketWatch = memo(() => {
         </div>
 
         {/* Market News */}
-        <Card className="bg-white/70 backdrop-blur-sm border border-gray-200/50 shadow-xl">
+        <Card className="bg-gradient-to-br from-orange-100 to-orange-200/80 backdrop-blur-sm border border-orange-300/50 shadow-xl">
           <div className="p-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-orange-100 rounded-lg">
-                <Activity className="w-5 h-5 text-orange-600" />
+              <div className="p-2 bg-orange-200 rounded-lg">
+                <Activity className="w-5 h-5 text-orange-700" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">Market News</h3>
-                <p className="text-sm text-gray-500">Latest Updates</p>
+                <h3 className="text-lg font-semibold text-orange-900">Market News</h3>
+                <p className="text-sm text-orange-700">Latest Updates</p>
               </div>
             </div>
             
             {/* Moving News Carousel */}
-            <div className="relative overflow-hidden rounded-lg bg-orange-50/60 p-4 shadow-inner border border-orange-100/50">
+            <div className="relative overflow-hidden rounded-lg bg-orange-50/60 p-4 shadow-inner border border-orange-200/50">
               <div className="flex animate-scroll-fast gap-6">
                 {/* First set */}
                 {marketNews.map((news, index) => (
-                  <div key={`first-${index}`} className="flex-shrink-0 w-72 group p-4 bg-orange-100/60 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-orange-200/50">
+                  <div key={`first-${index}`} className="flex-shrink-0 w-72 group p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-gray-100">
                     <div className="flex items-start justify-between mb-3 gap-2">
                       <Badge 
                         className={`text-xs font-medium px-2 py-1 ${
@@ -350,7 +351,7 @@ const MarketWatch = memo(() => {
                 
                 {/* Second set for seamless loop */}
                 {marketNews.map((news, index) => (
-                  <div key={`second-${index}`} className="flex-shrink-0 w-72 group p-4 bg-orange-100/60 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-orange-200/50">
+                  <div key={`second-${index}`} className="flex-shrink-0 w-72 group p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border border-gray-100">
                     <div className="flex items-start justify-between mb-3 gap-2">
                       <Badge 
                         className={`text-xs font-medium px-2 py-1 ${
