@@ -1,3 +1,4 @@
+
 import { memo } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -49,7 +50,7 @@ const FeaturedNews = memo(() => {
   const sideStories = featuredStories.filter(story => !story.isMain);
 
   return (
-    <section className="py-16 lg:py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
+    <section id="featured-news" className="py-12 lg:py-16 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100">
       <div className="container mx-auto px-4 lg:px-6">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
