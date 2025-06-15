@@ -1,20 +1,19 @@
-
 import { memo, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Scale, ArrowRight, Clock, TrendingUp, BookOpen, Users, Globe } from "lucide-react";
-
 const HeroSection = memo(() => {
   const handleExploreNews = useCallback(() => {
-    document.getElementById('featured-news')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('featured-news')?.scrollIntoView({
+      behavior: 'smooth'
+    });
   }, []);
-
   const handleMarketAnalysis = useCallback(() => {
-    document.getElementById('market-watch')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('market-watch')?.scrollIntoView({
+      behavior: 'smooth'
+    });
   }, []);
-
-  return (
-    <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white overflow-hidden min-h-screen flex items-center">
+  return <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white overflow-hidden min-h-screen flex items-center">
       {/* Corporate Law Background */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f')] bg-cover bg-center opacity-10"></div>
       <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-blue-900/90 to-slate-800/95"></div>
@@ -36,10 +35,10 @@ const HeroSection = memo(() => {
             
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight">
-                <span className="block bg-gradient-to-r from-white via-blue-100 to-slate-200 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-white via-blue-100 to-slate-200 bg-clip-text text-transparent text-6xl">
                   Corporate Law
                 </span>
-                <span className="block bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">
+                <span className="block bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent text-5xl">
                   News Hub
                 </span>
               </h1>
@@ -71,20 +70,11 @@ const HeroSection = memo(() => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-semibold px-8 py-4 text-lg border-0 group"
-                onClick={handleExploreNews}
-              >
+              <Button size="lg" className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-semibold px-8 py-4 text-lg border-0 group" onClick={handleExploreNews}>
                 Read Latest News
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="border-2 border-slate-300 bg-white/10 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm font-semibold px-8 py-4 text-lg group"
-                onClick={handleMarketAnalysis}
-              >
+              <Button variant="outline" size="lg" className="border-2 border-slate-300 bg-white/10 text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm font-semibold px-8 py-4 text-lg group" onClick={handleMarketAnalysis}>
                 <Globe className="w-5 h-5 mr-2" />
                 Market Watch
               </Button>
@@ -179,10 +169,7 @@ const HeroSection = memo(() => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 });
-
 HeroSection.displayName = "HeroSection";
-
 export default HeroSection;
