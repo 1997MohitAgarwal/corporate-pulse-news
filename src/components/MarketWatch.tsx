@@ -1,3 +1,4 @@
+
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -152,43 +153,43 @@ const MarketWatch = memo(() => {
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Live Market Indices */}
           <Card className="overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-indigo-100 hover:border-indigo-400 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30 backdrop-blur-sm animate-scale-in">
-            <div className="p-4">
-              <div className="flex items-center gap-3 mb-4">
+            <div className="p-5">
+              <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 rounded-xl shadow-lg">
                   <BarChart3 className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">Live Market Indices</h3>
               </div>
               
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-3">
                 {marketData.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
-                    <div key={index} className={`group p-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
+                    <div key={index} className={`group p-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
                       item.trend === 'up' 
                         ? 'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 border-emerald-200 hover:border-emerald-400' 
                         : 'bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 border-red-200 hover:border-red-400'
                     }`}>
                       <div className="relative z-10">
-                        <div className="flex items-center gap-1 mb-1">
-                          <div className={`p-1 rounded-lg ${
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className={`p-1.5 rounded-lg ${
                             item.trend === 'up' 
                               ? 'bg-emerald-100 text-emerald-600' 
                               : 'bg-red-100 text-red-600'
                           }`}>
-                            <IconComponent className="w-3 h-3" />
+                            <IconComponent className="w-3.5 h-3.5" />
                           </div>
-                          <span className="font-bold text-slate-900 text-xs">{item.symbol}</span>
+                          <span className="font-bold text-slate-900 text-sm">{item.symbol}</span>
                         </div>
                         
-                        <div className="text-sm font-bold text-slate-900 mb-1">{item.value}</div>
+                        <div className="text-base font-bold text-slate-900 mb-2">{item.value}</div>
                         
-                        <div className={`flex items-center gap-1 px-1 py-0.5 rounded-full text-xs font-bold ${
+                        <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${
                           item.trend === 'up' 
                             ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white' 
                             : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
                         }`}>
-                          {item.trend === 'up' ? <TrendingUp className="w-2.5 h-2.5" /> : <TrendingDown className="w-2.5 h-2.5" />}
+                          {item.trend === 'up' ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
                           <span>{item.change}</span>
                         </div>
                       </div>
