@@ -1,3 +1,4 @@
+
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -189,14 +190,14 @@ const MarketWatch = memo(() => {
                 {marketData.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
-                    <div key={index} className="flex items-center justify-between p-4 rounded-lg bg-white hover:bg-gray-50 transition-all duration-200 shadow-md hover:shadow-lg border border-gray-100">
+                    <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-white hover:bg-gray-50 transition-all duration-200 shadow-md hover:shadow-lg border border-gray-100 h-[70px]">
                       <div className="flex items-center gap-3">
                         <div className="p-2 rounded-md bg-gray-50 shadow-sm border border-gray-100">
                           <IconComponent className="w-4 h-4 text-gray-600" />
                         </div>
                         <div>
                           <span className="font-medium text-gray-900 text-sm">{item.symbol}</span>
-                          <div className="text-base font-semibold text-gray-900">{item.value}</div>
+                          <div className="text-sm font-semibold text-gray-900">{item.value}</div>
                         </div>
                       </div>
                       
@@ -234,7 +235,7 @@ const MarketWatch = memo(() => {
                   return (
                     <div 
                       key={index} 
-                      className={`flex items-center justify-between p-4 rounded-lg cursor-pointer transition-all duration-200 shadow-md hover:shadow-lg border ${
+                      className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all duration-200 shadow-md hover:shadow-lg border h-[70px] ${
                         selectedSector === sector.name
                           ? 'bg-blue-50 border-blue-300 shadow-lg'
                           : 'bg-white hover:bg-gray-50 border-gray-100'
@@ -278,9 +279,9 @@ const MarketWatch = memo(() => {
               
               <div className="space-y-3 flex-1">
                 {sectorStocks[selectedSector]?.map((stock, index) => (
-                  <div key={index} className="flex items-center justify-between p-4 rounded-lg bg-white hover:bg-gray-50 transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg border border-gray-100">
+                  <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-white hover:bg-gray-50 transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg border border-gray-100 h-[70px]">
                     <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-lg font-semibold flex items-center justify-center text-sm text-white shadow-sm ${
+                      <div className={`w-8 h-8 rounded-lg font-semibold flex items-center justify-center text-sm text-white shadow-sm ${
                         stock.trend === 'up' ? 'bg-emerald-500' : 'bg-red-500'
                       }`}>
                         {stock.name.charAt(0)}
