@@ -92,7 +92,7 @@ const HeroSection = memo(() => {
           </div>
 
           {/* News Preview Card */}
-          <div className="relative">
+          <div className="relative px-6 sm:px-0">
             <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-amber-500/10 rounded-3xl"></div>
               
