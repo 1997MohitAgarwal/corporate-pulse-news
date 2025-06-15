@@ -125,11 +125,11 @@ const MarketWatch = memo(() => {
                 <h3 className="text-lg sm:text-2xl font-bold text-slate-900">Live Market Indices</h3>
               </div>
               
-              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4 flex-1">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 flex-1">
                 {marketData.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
-                    <div key={index} className={`group p-3 sm:p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
+                    <div key={index} className={`group p-2 sm:p-3 lg:p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-2 backdrop-blur-sm relative overflow-hidden ${
                       item.trend === 'up' 
                         ? 'bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 border-emerald-200 hover:border-emerald-400' 
                         : 'bg-gradient-to-br from-red-50 via-pink-50 to-rose-50 border-red-200 hover:border-red-400'
@@ -142,33 +142,33 @@ const MarketWatch = memo(() => {
                       }`}></div>
                       
                       <div className="relative z-10">
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-1.5">
-                            <div className={`p-1 rounded-lg ${
+                        <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+                          <div className="flex items-center gap-1">
+                            <div className={`p-0.5 sm:p-1 rounded-lg ${
                               item.trend === 'up' 
                                 ? 'bg-emerald-100 text-emerald-600' 
                                 : 'bg-red-100 text-red-600'
                             }`}>
                               <IconComponent className="w-3 h-3 sm:w-4 sm:h-4" />
                             </div>
-                            <span className="font-bold text-slate-900 text-xs sm:text-sm tracking-wide">{item.symbol}</span>
+                            <span className="font-bold text-slate-900 text-xs sm:text-sm lg:text-base tracking-wide">{item.symbol}</span>
                           </div>
                         </div>
                         
-                        <div className="text-lg sm:text-xl font-bold text-slate-900 mb-2">{item.value}</div>
+                        <div className="text-sm sm:text-lg lg:text-xl font-bold text-slate-900 mb-1.5 sm:mb-2">{item.value}</div>
                         
                         <div className="flex items-center justify-between">
-                          <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold shadow-md transition-all duration-300 ${
+                          <div className={`flex items-center gap-1 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full text-xs font-bold shadow-md transition-all duration-300 ${
                             item.trend === 'up' 
                               ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-600 hover:to-teal-600' 
                               : 'bg-gradient-to-r from-red-500 to-pink-500 text-white hover:from-red-600 hover:to-pink-600'
                           }`}>
-                            {item.trend === 'up' ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
-                            <span>{item.change}</span>
+                            {item.trend === 'up' ? <TrendingUp className="w-2.5 h-2.5 sm:w-3 sm:h-3" /> : <TrendingDown className="w-2.5 h-2.5 sm:w-3 sm:h-3" />}
+                            <span className="text-xs">{item.change}</span>
                           </div>
                           
                           {/* Progress bar indicator */}
-                          <div className="w-6 sm:w-8 bg-gray-200 rounded-full h-1 overflow-hidden">
+                          <div className="w-4 sm:w-6 lg:w-8 bg-gray-200 rounded-full h-1 overflow-hidden">
                             <div className={`h-full rounded-full transition-all duration-700 ${
                               item.trend === 'up' 
                                 ? 'bg-gradient-to-r from-emerald-400 to-teal-400 w-4/5' 
