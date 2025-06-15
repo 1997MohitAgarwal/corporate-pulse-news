@@ -155,11 +155,6 @@ const MarketWatch = memo(() => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-full mb-6 shadow-lg">
-            <Activity className="w-5 h-5" />
-            <span className="font-semibold">Live Market Data</span>
-          </div>
-          
           <h2 className="text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent">
             Market Watch
           </h2>
@@ -172,11 +167,11 @@ const MarketWatch = memo(() => {
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {/* Market Indices */}
-          <Card className="bg-gradient-to-br from-blue-600 to-blue-700 backdrop-blur-sm border border-blue-300/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
+          <Card className="bg-gradient-to-br from-blue-50 to-blue-100/80 backdrop-blur-sm border border-blue-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-blue-200 rounded-lg">
-                  <BarChart3 className="w-5 h-5 text-blue-700" />
+                <div className="p-2 bg-blue-500 rounded-lg">
+                  <BarChart3 className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-blue-900">Market Indices</h3>
@@ -215,11 +210,11 @@ const MarketWatch = memo(() => {
           </Card>
 
           {/* Top Sectors */}
-          <Card className="bg-gradient-to-br from-indigo-600 to-indigo-700 backdrop-blur-sm border border-indigo-300/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
+          <Card className="bg-gradient-to-br from-indigo-50 to-indigo-100/80 backdrop-blur-sm border border-indigo-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-indigo-200 rounded-lg">
-                  <Zap className="w-5 h-5 text-indigo-700" />
+                <div className="p-2 bg-indigo-500 rounded-lg">
+                  <Zap className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-indigo-900">Top Sectors</h3>
@@ -263,11 +258,11 @@ const MarketWatch = memo(() => {
           </Card>
 
           {/* Trending Stocks */}
-          <Card className="bg-gradient-to-br from-emerald-600 to-emerald-700 backdrop-blur-sm border border-emerald-300/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
+          <Card className="bg-gradient-to-br from-emerald-50 to-emerald-100/80 backdrop-blur-sm border border-emerald-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-fit">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-emerald-200 rounded-lg">
-                  <Star className="w-5 h-5 text-emerald-700" />
+                <div className="p-2 bg-emerald-500 rounded-lg">
+                  <Star className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-emerald-900">Trending Stocks</h3>
@@ -306,20 +301,20 @@ const MarketWatch = memo(() => {
         </div>
 
         {/* Market News */}
-        <Card className="bg-gradient-to-br from-slate-600 to-slate-700 backdrop-blur-sm border border-slate-300/50 shadow-xl">
+        <Card className="bg-gradient-to-br from-slate-50 to-slate-100/80 backdrop-blur-sm border border-slate-200/50 shadow-xl">
           <div className="p-6">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-slate-200 rounded-lg">
-                <Activity className="w-5 h-5 text-slate-700" />
+              <div className="p-2 bg-slate-500 rounded-lg">
+                <Activity className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-slate-100">Market News</h3>
-                <p className="text-sm text-slate-300">Latest Updates</p>
+                <h3 className="text-lg font-semibold text-slate-900">Market News</h3>
+                <p className="text-sm text-slate-700">Latest Updates</p>
               </div>
             </div>
             
             {/* Moving News Carousel */}
-            <div className="relative overflow-hidden rounded-lg bg-slate-500/30 p-4 shadow-inner border border-slate-400/30">
+            <div className="relative overflow-hidden rounded-lg bg-white/60 p-4 shadow-inner border border-slate-200/50">
               <div className="flex animate-scroll-fast gap-6">
                 {/* First set */}
                 {marketNews.map((news, index) => (
