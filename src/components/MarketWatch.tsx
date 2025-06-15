@@ -236,37 +236,34 @@ const MarketWatch = memo(() => {
                       key={index} 
                       className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg border h-[70px] relative overflow-hidden ${
                         selectedSector === sector.name
-                          ? 'bg-gradient-to-r from-blue-600 to-indigo-600 border-blue-500 shadow-xl transform scale-[1.02] text-white'
+                          ? 'bg-gradient-to-r from-blue-100 to-indigo-100 border-blue-300 shadow-xl transform scale-[1.02] ring-2 ring-blue-200'
                           : 'bg-white hover:bg-gray-50 border-gray-100 hover:border-blue-200'
                       }`}
                       onClick={() => setSelectedSector(sector.name)}
                     >
-                      {/* Selected sector glow effect */}
+                      {/* Selected sector subtle glow effect */}
                       {selectedSector === sector.name && (
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 animate-pulse"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-indigo-50/50 animate-pulse"></div>
                       )}
                       
                       <div className="flex items-center gap-3 relative z-10">
                         <div className={`p-2 rounded-md shadow-sm border transition-all duration-200 ${
                           selectedSector === sector.name
-                            ? 'bg-white/20 border-white/30 backdrop-blur-sm'
+                            ? 'bg-blue-200/50 border-blue-300/50 backdrop-blur-sm'
                             : 'bg-gray-50 border-gray-100'
                         }`}>
                           <IconComponent className={`w-4 h-4 ${
-                            selectedSector === sector.name ? 'text-white' : 'text-gray-600'
+                            selectedSector === sector.name ? 'text-blue-700' : 'text-gray-600'
                           }`} />
                         </div>
                         <div className="flex items-center gap-2">
                           <span className={`font-medium text-sm ${
-                            selectedSector === sector.name ? 'text-white' : 'text-gray-900'
+                            selectedSector === sector.name ? 'text-blue-900' : 'text-gray-900'
                           }`}>
                             {sector.name}
                           </span>
                           {selectedSector === sector.name && (
-                            <div className="flex items-center text-yellow-300">
-                              <span className="text-xs font-medium">ACTIVE</span>
-                              <div className="w-2 h-2 bg-yellow-300 rounded-full ml-2 animate-pulse"></div>
-                            </div>
+                            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
                           )}
                         </div>
                       </div>
@@ -274,8 +271,8 @@ const MarketWatch = memo(() => {
                       <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-sm font-medium relative z-10 ${
                         selectedSector === sector.name
                           ? sector.trend === 'up'
-                            ? 'bg-green-400/20 text-green-100 border border-green-300/30'
-                            : 'bg-red-400/20 text-red-100 border border-red-300/30'
+                            ? 'bg-green-200/70 text-green-800 border border-green-300/50'
+                            : 'bg-red-200/70 text-red-800 border border-red-300/50'
                           : sector.trend === 'up'
                             ? 'bg-emerald-100 text-emerald-700'
                             : 'bg-red-100 text-red-700'
@@ -287,7 +284,7 @@ const MarketWatch = memo(() => {
                       {/* Click indicator arrow */}
                       {selectedSector === sector.name && (
                         <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
-                          <div className="w-0 h-0 border-l-[6px] border-l-white border-t-[4px] border-b-[4px] border-t-transparent border-b-transparent"></div>
+                          <div className="w-0 h-0 border-l-[6px] border-l-blue-600 border-t-[4px] border-b-[4px] border-t-transparent border-b-transparent"></div>
                         </div>
                       )}
                     </div>
