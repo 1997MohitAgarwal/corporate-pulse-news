@@ -1,4 +1,3 @@
-
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -235,28 +234,62 @@ const MarketWatch = memo(() => {
                   return (
                     <div 
                       key={index} 
-                      className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all duration-200 shadow-md hover:shadow-lg border h-[70px] ${
+                      className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg border h-[70px] relative overflow-hidden ${
                         selectedSector === sector.name
-                          ? 'bg-blue-50 border-blue-300 shadow-lg'
-                          : 'bg-white hover:bg-gray-50 border-gray-100'
+                          ? 'bg-gradient-to-r from-blue-600 to-indigo-600 border-blue-500 shadow-xl transform scale-[1.02] text-white'
+                          : 'bg-white hover:bg-gray-50 border-gray-100 hover:border-blue-200'
                       }`}
                       onClick={() => setSelectedSector(sector.name)}
                     >
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-md bg-gray-50 shadow-sm border border-gray-100">
-                          <IconComponent className="w-4 h-4 text-gray-600" />
+                      {/* Selected sector glow effect */}
+                      {selectedSector === sector.name && (
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 animate-pulse"></div>
+                      )}
+                      
+                      <div className="flex items-center gap-3 relative z-10">
+                        <div className={`p-2 rounded-md shadow-sm border transition-all duration-200 ${
+                          selectedSector === sector.name
+                            ? 'bg-white/20 border-white/30 backdrop-blur-sm'
+                            : 'bg-gray-50 border-gray-100'
+                        }`}>
+                          <IconComponent className={`w-4 h-4 ${
+                            selectedSector === sector.name ? 'text-white' : 'text-gray-600'
+                          }`} />
                         </div>
-                        <span className="font-medium text-gray-900 text-sm">{sector.name}</span>
+                        <div className="flex items-center gap-2">
+                          <span className={`font-medium text-sm ${
+                            selectedSector === sector.name ? 'text-white' : 'text-gray-900'
+                          }`}>
+                            {sector.name}
+                          </span>
+                          {selectedSector === sector.name && (
+                            <div className="flex items-center text-yellow-300">
+                              <span className="text-xs font-medium">ACTIVE</span>
+                              <div className="w-2 h-2 bg-yellow-300 rounded-full ml-2 animate-pulse"></div>
+                            </div>
+                          )}
+                        </div>
                       </div>
                       
-                      <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-sm font-medium ${
-                        sector.trend === 'up'
-                          ? 'bg-emerald-100 text-emerald-700'
-                          : 'bg-red-100 text-red-700'
+                      <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-sm font-medium relative z-10 ${
+                        selectedSector === sector.name
+                          ? sector.trend === 'up'
+                            ? 'bg-green-400/20 text-green-100 border border-green-300/30'
+                            : 'bg-red-400/20 text-red-100 border border-red-300/30'
+                          : sector.trend === 'up'
+                            ? 'bg-emerald-100 text-emerald-700'
+                            : 'bg-red-100 text-red-700'
                       }`}>
                         {sector.trend === 'up' ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
                         <span>{sector.change}</span>
                       </div>
+
+                      {/* Click indicator arrow */}
+                      {selectedSector === sector.name && (
+                        <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                          <div className="w-0 h-0 border-l-[6px] border-l-white border-t-[4px] border-b-[4px] border-t-transparent border-b-transparent"></div>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
