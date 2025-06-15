@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ChevronRight } from "lucide-react";
@@ -11,7 +12,7 @@ const JoinUs = () => {
   ];
 
   return (
-    <section className="py-8 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-4 md:py-6 lg:py-8 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">

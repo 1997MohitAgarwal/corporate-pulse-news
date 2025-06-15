@@ -49,7 +49,7 @@ const LegalInsights = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-4 md:py-6 lg:py-8 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <Badge className="mb-4 bg-blue-500 text-white">

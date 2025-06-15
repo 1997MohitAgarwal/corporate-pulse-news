@@ -1,3 +1,4 @@
+
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -151,7 +152,7 @@ const MarketWatch = memo(() => {
   ], []);
 
   return (
-    <section id="market-watch" className="py-20 bg-white">
+    <section id="market-watch" className="py-4 md:py-6 lg:py-8 bg-white">
       <div className="container mx-auto px-6">
         {/* Header - exactly matching Legal Intelligence Hub style */}
         <div className="text-center mb-16">

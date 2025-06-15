@@ -13,7 +13,7 @@ const NewsletterCTA = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+    <section className="py-4 md:py-6 lg:py-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71')] bg-cover bg-center opacity-5"></div>
       
       <div className="container mx-auto px-6 relative">
