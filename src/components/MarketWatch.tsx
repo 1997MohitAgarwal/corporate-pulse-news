@@ -1,4 +1,3 @@
-
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -67,42 +66,48 @@ const MarketWatch = memo(() => {
       { name: "Infosys", price: "₹1,567", change: "+3.1%", trend: "up" },
       { name: "Wipro", price: "₹456", change: "+1.9%", trend: "up" },
       { name: "HCL Tech", price: "₹1,234", change: "+2.5%", trend: "up" },
-      { name: "Tech Mahindra", price: "₹1,089", change: "+2.1%", trend: "up" }
+      { name: "Tech Mahindra", price: "₹1,089", change: "+2.1%", trend: "up" },
+      { name: "LTI Mindtree", price: "₹5,432", change: "+1.7%", trend: "up" }
     ],
     "Banking": [
       { name: "HDFC Bank", price: "₹1,678", change: "+1.8%", trend: "up" },
       { name: "ICICI Bank", price: "₹987", change: "+2.2%", trend: "up" },
       { name: "SBI", price: "₹612", change: "+1.5%", trend: "up" },
       { name: "Axis Bank", price: "₹1,123", change: "+1.9%", trend: "up" },
-      { name: "Kotak Bank", price: "₹1,845", change: "+2.3%", trend: "up" }
+      { name: "Kotak Bank", price: "₹1,845", change: "+2.3%", trend: "up" },
+      { name: "IDFC First", price: "₹89", change: "+1.1%", trend: "up" }
     ],
     "Pharma": [
       { name: "Sun Pharma", price: "₹1,245", change: "+2.1%", trend: "up" },
       { name: "Dr. Reddy's", price: "₹4,567", change: "+1.7%", trend: "up" },
       { name: "Cipla", price: "₹1,089", change: "+2.3%", trend: "up" },
       { name: "Aurobindo", price: "₹765", change: "+1.4%", trend: "up" },
-      { name: "Lupin", price: "₹891", change: "+1.9%", trend: "up" }
+      { name: "Lupin", price: "₹891", change: "+1.9%", trend: "up" },
+      { name: "Biocon", price: "₹234", change: "+1.3%", trend: "up" }
     ],
     "Auto": [
       { name: "Maruti", price: "₹10,234", change: "+1.2%", trend: "up" },
       { name: "Tata Motors", price: "₹567", change: "+2.1%", trend: "up" },
       { name: "Bajaj Auto", price: "₹4,567", change: "+0.8%", trend: "up" },
       { name: "Hero Moto", price: "₹2,890", change: "+1.6%", trend: "up" },
-      { name: "M&M", price: "₹1,456", change: "+1.3%", trend: "up" }
+      { name: "M&M", price: "₹1,456", change: "+1.3%", trend: "up" },
+      { name: "Eicher Motors", price: "₹3,567", change: "+0.9%", trend: "up" }
     ],
     "FMCG": [
       { name: "HUL", price: "₹2,456", change: "-0.3%", trend: "down" },
       { name: "ITC", price: "₹456", change: "-0.7%", trend: "down" },
       { name: "Nestle", price: "₹22,345", change: "-0.2%", trend: "down" },
       { name: "Britannia", price: "₹4,789", change: "-0.5%", trend: "down" },
-      { name: "Dabur", price: "₹567", change: "-0.4%", trend: "down" }
+      { name: "Dabur", price: "₹567", change: "-0.4%", trend: "down" },
+      { name: "Godrej Cons", price: "₹1,234", change: "-0.6%", trend: "down" }
     ],
     "Metal": [
       { name: "Tata Steel", price: "₹123", change: "-1.8%", trend: "down" },
       { name: "JSW Steel", price: "₹789", change: "-2.1%", trend: "down" },
       { name: "Hindalco", price: "₹456", change: "-0.9%", trend: "down" },
       { name: "SAIL", price: "₹98", change: "-1.5%", trend: "down" },
-      { name: "Vedanta", price: "₹234", change: "-1.2%", trend: "down" }
+      { name: "Vedanta", price: "₹234", change: "-1.2%", trend: "down" },
+      { name: "NMDC", price: "₹167", change: "-1.0%", trend: "down" }
     ]
   }), []);
 
@@ -165,10 +170,10 @@ const MarketWatch = memo(() => {
           </p>
         </div>
 
-        {/* Main Content Grid - Equal Height Cards */}
+        {/* Main Content Grid - Fixed Height Cards */}
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {/* Market Indices */}
-          <Card className="bg-gradient-to-br from-blue-50 to-blue-100/80 backdrop-blur-sm border border-blue-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+          <Card className="bg-gradient-to-br from-blue-50 to-blue-100/80 backdrop-blur-sm border border-blue-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-[600px] flex flex-col">
             <div className="p-6 flex-1 flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-blue-500 rounded-lg">
@@ -211,7 +216,7 @@ const MarketWatch = memo(() => {
           </Card>
 
           {/* Top Sectors */}
-          <Card className="bg-gradient-to-br from-indigo-50 to-indigo-100/80 backdrop-blur-sm border border-indigo-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+          <Card className="bg-gradient-to-br from-indigo-50 to-indigo-100/80 backdrop-blur-sm border border-indigo-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-[600px] flex flex-col">
             <div className="p-6 flex-1 flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-indigo-500 rounded-lg">
@@ -259,7 +264,7 @@ const MarketWatch = memo(() => {
           </Card>
 
           {/* Trending Stocks */}
-          <Card className="bg-gradient-to-br from-emerald-50 to-emerald-100/80 backdrop-blur-sm border border-emerald-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+          <Card className="bg-gradient-to-br from-emerald-50 to-emerald-100/80 backdrop-blur-sm border border-emerald-200/50 shadow-xl hover:shadow-2xl transition-all duration-300 h-[600px] flex flex-col">
             <div className="p-6 flex-1 flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-emerald-500 rounded-lg">
