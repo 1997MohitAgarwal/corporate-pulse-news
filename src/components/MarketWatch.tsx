@@ -2,7 +2,7 @@
 import { memo, useMemo, useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, TrendingDown, Activity, BarChart3, Zap, Star, Eye, Landmark, Cpu, Pill, Car, ShoppingCart, Factory, BookOpen, Sparkles } from "lucide-react";
+import { TrendingUp, TrendingDown, Activity, BarChart3, Zap, Star, Clock, ArrowRight, Landmark, Cpu, Pill, Car, ShoppingCart, Factory, BookOpen, Sparkles } from "lucide-react";
 
 const MarketWatch = memo(() => {
   const [selectedSector, setSelectedSector] = useState("Technology");
@@ -369,78 +369,122 @@ const MarketWatch = memo(() => {
         </div>
 
         {/* Market News */}
-        <Card className="bg-gradient-to-br from-slate-50 to-slate-100/80 backdrop-blur-sm border border-slate-200/50 shadow-xl">
-          <div className="p-6">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-slate-500 rounded-lg">
-                <Activity className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900">Market News</h3>
-                <p className="text-sm text-slate-700">Latest Updates</p>
+       <Card className="bg-gradient-to-br from-slate-50 to-slate-100/80 backdrop-blur-sm border border-slate-200/50 shadow-xl">
+  <div className="p-6">
+    <div className="flex items-center gap-3 mb-6">
+      <div className="p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg">
+        <Activity className="w-5 h-5 text-white" />
+      </div>
+      <div>
+        <h3 className="text-lg font-semibold text-slate-900">Market News</h3>
+        <p className="text-sm text-slate-700">Latest Updates</p>
+      </div>
+    </div>
+    
+    {/* Enhanced Moving News Carousel */}
+    <div className="relative overflow-hidden rounded-xl bg-white/60 p-4 shadow-inner border border-slate-200/50">
+      <div className="flex animate-scroll-fast gap-6">
+        {/* First set */}
+        {marketNews.map((news, index) => (
+          <div 
+            key={`first-${index}`} 
+            className="flex-shrink-0 w-72 group p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-blue-200"
+          >
+            <div className="flex items-start justify-between mb-3 gap-2">
+              <Badge 
+                className={`text-xs font-medium px-2 py-1 ${
+                  news.impact === 'High' 
+                    ? 'bg-red-100 text-red-700 hover:bg-red-100' 
+                    : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-100'
+                }`}
+              >
+                {news.impact === 'High' ? (
+                  <span className="flex items-center gap-1">
+                    <svg className="w-2 h-2 fill-red-600" viewBox="0 0 6 6">
+                      <circle cx="3" cy="3" r="3" />
+                    </svg>
+                    {news.impact}
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-1">
+                    <svg className="w-2 h-2 fill-yellow-600" viewBox="0 0 6 6">
+                      <circle cx="3" cy="3" r="3" />
+                    </svg>
+                    {news.impact}
+                  </span>
+                )}
+              </Badge>
+              <div className="flex items-center gap-1 text-gray-400 text-xs">
+                <Clock className="w-3 h-3" />
+                <span>{news.time}</span>
               </div>
             </div>
-            
-            {/* Moving News Carousel */}
-            <div className="relative overflow-hidden rounded-lg bg-white/60 p-4 shadow-inner border border-slate-200/50">
-              <div className="flex animate-scroll-fast gap-6">
-                {/* First set */}
-                {marketNews.map((news, index) => (
-                  <div key={`first-${index}`} className="flex-shrink-0 w-72 group p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100">
-                    <div className="flex items-start justify-between mb-3 gap-2">
-                      <Badge 
-                        className={`text-xs font-medium px-2 py-1 ${
-                          news.impact === 'High' 
-                            ? 'bg-red-100 text-red-700 hover:bg-red-100' 
-                            : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-100'
-                        }`}
-                      >
-                        {news.impact}
-                      </Badge>
-                      <div className="flex items-center gap-1 text-gray-400 text-xs">
-                        <Eye className="w-3 h-3" />
-                        <span>{news.time}</span>
-                      </div>
-                    </div>
-                    <h4 className="font-medium text-gray-900 text-sm leading-relaxed group-hover:text-blue-600 transition-colors line-clamp-3 mb-2">
-                      {news.title}
-                    </h4>
-                    <Badge className="text-xs bg-blue-100 text-blue-700 hover:bg-blue-100">
-                      {news.category}
-                    </Badge>
-                  </div>
-                ))}
-                
-                {/* Second set for seamless loop */}
-                {marketNews.map((news, index) => (
-                  <div key={`second-${index}`} className="flex-shrink-0 w-72 group p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100">
-                    <div className="flex items-start justify-between mb-3 gap-2">
-                      <Badge 
-                        className={`text-xs font-medium px-2 py-1 ${
-                          news.impact === 'High' 
-                            ? 'bg-red-100 text-red-700 hover:bg-red-100' 
-                            : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-100'
-                        }`}
-                      >
-                        {news.impact}
-                      </Badge>
-                      <div className="flex items-center gap-1 text-gray-400 text-xs">
-                        <Eye className="w-3 h-3" />
-                        <span>{news.time}</span>
-                      </div>
-                    </div>
-                    <h4 className="font-medium text-gray-900 text-sm leading-relaxed group-hover:text-blue-600 transition-colors line-clamp-3 mb-2">
-                      {news.title}
-                    </h4>
-                    <Badge className="text-xs bg-blue-100 text-blue-700 hover:bg-blue-100">
-                      {news.category}
-                    </Badge>
-                  </div>
-                ))}
-              </div>
+            <h4 className="font-medium text-gray-900 text-sm leading-relaxed group-hover:text-blue-600 transition-colors line-clamp-3 mb-3">
+              {news.title}
+            </h4>
+            <div className="flex justify-between items-center">
+              <Badge className="text-xs bg-blue-100 text-blue-700 hover:bg-blue-100">
+                {news.category}
+              </Badge>
+              <button className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1">
+                Read more <ArrowRight className="w-3 h-3" />
+              </button>
             </div>
           </div>
-        </Card>
+        ))}
+        
+        {/* Second set for seamless loop */}
+        {marketNews.map((news, index) => (
+          <div 
+            key={`second-${index}`} 
+            className="flex-shrink-0 w-72 group p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-blue-200"
+          >
+            <div className="flex items-start justify-between mb-3 gap-2">
+              <Badge 
+                className={`text-xs font-medium px-2 py-1 ${
+                  news.impact === 'High' 
+                    ? 'bg-red-100 text-red-700 hover:bg-red-100' 
+                    : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-100'
+                }`}
+              >
+                {news.impact === 'High' ? (
+                  <span className="flex items-center gap-1">
+                    <svg className="w-2 h-2 fill-red-600" viewBox="0 0 6 6">
+                      <circle cx="3" cy="3" r="3" />
+                    </svg>
+                    {news.impact}
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-1">
+                    <svg className="w-2 h-2 fill-yellow-600" viewBox="0 0 6 6">
+                      <circle cx="3" cy="3" r="3" />
+                    </svg>
+                    {news.impact}
+                  </span>
+                )}
+              </Badge>
+              <div className="flex items-center gap-1 text-gray-400 text-xs">
+                <Clock className="w-3 h-3" />
+                <span>{news.time}</span>
+              </div>
+            </div>
+            <h4 className="font-medium text-gray-900 text-sm leading-relaxed group-hover:text-blue-600 transition-colors line-clamp-3 mb-3">
+              {news.title}
+            </h4>
+            <div className="flex justify-between items-center">
+              <Badge className="text-xs bg-blue-100 text-blue-700 hover:bg-blue-100">
+                {news.category}
+              </Badge>
+              <button className="text-xs text-blue-600 hover:text-blue-800 flex items-center gap-1">
+                Read more <ArrowRight className="w-3 h-3" />
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Card>
       </div>
     </section>
   );
